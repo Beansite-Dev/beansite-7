@@ -30,15 +30,15 @@ export const Window=({
     let newWidth=mWidth.get()+info.delta.x;
     if(newWidth>150&&newWidth<2000)mWidth.set(mWidth.get()+info.delta.x);
   },[]);
-  const[ani,setAni]=useState(closed?{opacity:0,y:5}:{opacity:1,y:0});
+  const[ani,setAni]=useState(closed?{opacity:0,y:-5}:{opacity:1,y:0});
   return(<>
     <motion.div 
       drag
       dragConstraints={dragConstraint}
       dragListener={!(isDraggingX||isDraggingY)&&draggable}
       dragMomentum={false}
-      transition={{duration:.35,delay:.5}}
-      initial={{opacity:0,y:5}}
+      transition={{duration:.35}}
+      initial={{opacity:0,y:-5}}
       animate={ani}
       className="window" 
       id={id} 

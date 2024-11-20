@@ -1,0 +1,47 @@
+#DevPreviewContainer {
+    background: transparent;
+    width: 250px;
+    height: 300px;
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    background: #353535a0;
+    backdrop-filter: blur(1.5px);
+    border-radius: 5px;
+    border: 1px #505050 solid;
+    box-shadow: 0 0 30px #50505090;
+    padding: 10px 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }      
+    h1 {
+        color: #fff;
+        margin: 0;
+        font-size: 2rem;
+        padding-bottom: 4px;
+        border-bottom: 1px #505050 solid;
+        margin-bottom: 4px;
+    }
+    p {
+        color: #e0e0e0;
+        margin: 0;
+        width: 100%;
+        margin-bottom: 4px;
+    }
+}
+body {
+    background-size: 1rem 1rem;
+    background-color: #202020;
+    background-image:
+        linear-gradient(to right, #50505090 1px, transparent 1px),
+        linear-gradient(to bottom, #50505090 1px, transparent 1px);
+}

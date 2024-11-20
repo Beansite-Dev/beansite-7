@@ -11,10 +11,3 @@ html {
     transform: translate(-50%,-50%);
     overflow: hidden;
 }
-body {
-    background-size: 1rem 1rem;
-    background-color: #202020;
-    background-image:
-        linear-gradient(to right, #505050 1px, transparent 1px),
-        linear-gradient(to bottom, #505050 1px, transparent 1px);
-}

@@ -7,7 +7,8 @@ export const AppWrapper=({children})=>{
   const windowWrapperRef=useRef(null);
   const renderChildren=()=>{
     return Children.map(children,(child)=>{
-      return cloneElement(child,{dragConstraint:windowWrapperRef});
+      if(["div"].includes(child.type))return child;
+      else return cloneElement(child,{dragConstraint:windowWrapperRef});
     });
   };
 
