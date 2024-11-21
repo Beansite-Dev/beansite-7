@@ -21,7 +21,7 @@
 }
 .window {
     position: relative;
-    backdrop-filter: blur(1.5px);
+    backdrop-filter: blur(3px);
     border-radius: 6px;
     border: 1px solid rgba(134,199,255,.85);
     box-shadow: 
@@ -34,6 +34,14 @@
             rgba(185, 222, 255, 0.5) 0%,
             rgba(141, 196, 245, 0.65) 46%,
             rgba(108, 167, 230, 0.75) 100%);
+    &.maximized {
+        height: calc(100dvh - 48px) !important;
+        width: 100dvw !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        border-radius: 0 !important;
+    }
     .tb {
         height: 28px;
         width: 100%;
@@ -76,7 +84,7 @@
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
             overflow: hidden;
-            border: 1px #404040 solid;
+            border: 1px #40404080 solid;
             border-top: none;
             max-width: 10rem;
             &:last-child {
@@ -92,15 +100,7 @@
                 flex-shrink: 1;
                 flex-grow: 1;
                 cursor: pointer;
-                font-weight: 700;
-                font-size: 1rem;
                 border-right: 1px #40404090 solid;
-                color: #f0f0f0;
-                // -webkit-text-stroke: 1px #404040;
-                text-shadow: 
-                    0 0 5px #050505,
-                    0 0 1px #050505,
-                    1px 1px 2px #101010;
                 background: linear-gradient(180deg, 
                     var(--win-tb-clr1) 0%,
                     var(--win-tb-clr2) 50%,
@@ -112,6 +112,22 @@
                     --win-tb-clr2 .15s,
                     --win-tb-clr3 .25s,
                     --win-tb-clr4 .15s;
+                span {
+                    font-weight: 700;
+                    height: fit-content;
+                    width: fit-content;
+                    position: absolute !important;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-60%);
+                    font-size: 15px;
+                    color: #f0f0f0;
+                    // -webkit-text-stroke: 1px #404040;
+                    text-shadow: 
+                        0 0 5px #050505,
+                        0 0 1px #050505,
+                        1px 1px 2px #101010;
+                }
                 &:hover {
                     /* --win-tb-clr1: rgb(238, 249, 255);
                     --win-tb-clr2: rgb(208, 233, 242);
@@ -155,6 +171,7 @@
         transform: translateX(-50%);
         background: #f9f9f9;
         border: outset 1px #f0f0f0;
+        overflow: auto;
     }
     .resizeY {
         width: 100%;

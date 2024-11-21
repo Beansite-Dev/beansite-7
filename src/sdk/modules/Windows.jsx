@@ -7,6 +7,8 @@ export const Window=({
   children,
   closed=false,
   draggable=true,
+  maximized=false,
+  className,
   data:{
     title,
     icon,
@@ -30,7 +32,8 @@ export const Window=({
     let newWidth=mWidth.get()+info.delta.x;
     if(newWidth>150&&newWidth<2000)mWidth.set(mWidth.get()+info.delta.x);
   },[]);
-  const[ani,setAni]=useState(closed?{opacity:0,y:-5}:{opacity:1,y:0});
+  const[ani,setAni]=useState(closed?{opacity:0}:{opacity:1});
+  const[_maximized,setMaximized]=useState(maximized);
   return(<>
     <motion.div 
       drag
@@ -40,7 +43,7 @@ export const Window=({
       transition={{duration:.35}}
       initial={{opacity:0,y:-5}}
       animate={ani}
-      className="window" 
+      className={`window ${_maximized?"maximized":""} ${className}`} 
       id={id} 
       style={{height:mHeight,width:mWidth,top:y,left:x}}>
         <div className="tb" id={`${id}_tb`}>
@@ -59,12 +62,22 @@ export const Window=({
                   className="close"
                   onClick={(e)=>{
                     e.preventDefault();
-                    setAni({opacity:0,y:5});
+                    setAni({opacity:0});
                     setTimeout(
                       ()=>{document.getElementById(`${id}_tb`).style.display="none"},
                       1000);
-                  }}>x</button>
+                  }}><span>{"🗙︎"}</span></button>
                 :null}
+              {data=="max"?
+                <button 
+                  key={`${generateId(10)}_${btoa(index)}`} 
+                  onPointerDownCapture={e=>e.stopPropagation()}
+                  className="max"
+                  onClick={(e)=>{
+                    e.preventDefault();
+                    setMaximized(!_maximized);
+                  }}><span>{_maximized?"🗗︎":"🗖︎"}</span></button>
+                :null}{/* 🗕︎ */}
             </>)}
           </div>
         </div>
