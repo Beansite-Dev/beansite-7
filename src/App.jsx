@@ -17,10 +17,12 @@ const App=({})=>{
     e.preventDefault();
     setDebugMenuVisibility(!debugMenuVisibility);
   });
+  const[theme,setTheme]=useState("default");
   return(<>
     <Helmet>
       <title>Beansite 7</title>
       <link rel="icon" type="image/svg+xml" href="" />
+      <link rel="stylesheet" href="/themes/default.scss" />
     </Helmet>
     <AppWrapper>
       <motion.div 
@@ -55,14 +57,7 @@ const App=({})=>{
           id:generateId(10),
           includeTitlebarButtons:["close","min","max"],
         }}>
-          <h1>Hello, World!</h1>
-          <h1>Hello, World! 2</h1>
-          <h1>Hello, World! 3</h1>
-          <h1>Hello, World! 4</h1>
-          <h1>Hello, World! 5</h1>
-          <h1>Hello, World! 6</h1>
-          <h1>Hello, World! 7</h1>
-          <h1>Hello, World! 8</h1>
+          <h1>Welcome To Beansite 7!</h1>
       </Window>
     </AppWrapper>
   </>);

@@ -1,5 +1,5 @@
 import "../style/Window.scss";
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, Fragment } from "react";
 import { motion, useDragControls, useMotionValue } from "motion/react";
 import { generateId } from "./Lib";
 export const Window=({
@@ -54,31 +54,30 @@ export const Window=({
             }}></div>
           <h1>{title}</h1>
           <div className="bw" id={`${id}_bw`}>
-            {includeTitlebarButtons.map((data,index)=><>
-              {data=="close"?
-                <button 
-                  key={`${generateId(10)}_${btoa(index)}`} 
-                  onPointerDownCapture={e=>e.stopPropagation()}
-                  className="close"
-                  onClick={(e)=>{
-                    e.preventDefault();
-                    setAni({opacity:0});
-                    setTimeout(
-                      ()=>{document.getElementById(`${id}_tb`).style.display="none"},
-                      1000);
-                  }}><span>{"🗙︎"}</span></button>
-                :null}
-              {data=="max"?
-                <button 
-                  key={`${generateId(10)}_${btoa(index)}`} 
-                  onPointerDownCapture={e=>e.stopPropagation()}
-                  className="max"
-                  onClick={(e)=>{
-                    e.preventDefault();
-                    setMaximized(!_maximized);
-                  }}><span>{_maximized?"🗗︎":"🗖︎"}</span></button>
-                :null}{/* 🗕︎ */}
-            </>)}
+            {includeTitlebarButtons.map((data,index)=>
+              <Fragment key={`${generateId(10)}_${btoa(index)}`} >
+                {data=="close"?
+                  <button 
+                    onPointerDownCapture={e=>e.stopPropagation()}
+                    className="close"
+                    onClick={(e)=>{
+                      e.preventDefault();
+                      setAni({opacity:0});
+                      setTimeout(
+                        ()=>{document.getElementById(`${id}_tb`).style.display="none"},
+                        1000);
+                    }}>{"🗙︎"}</button>
+                  :null}
+                {data=="max"?
+                  <button 
+                    onPointerDownCapture={e=>e.stopPropagation()}
+                    className="max"
+                    onClick={(e)=>{
+                      e.preventDefault();
+                      setMaximized(!_maximized);
+                    }}>{_maximized?"🗗︎":"🗖︎"}</button>
+                  :null}{/* 🗕︎ */}
+            </Fragment>)}
           </div>
         </div>
         <div 
