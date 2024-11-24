@@ -17,7 +17,9 @@ const App=({})=>{
     e.preventDefault();
     setDebugMenuVisibility(!debugMenuVisibility);
   });
-  const[theme,setTheme]=useState("default");
+  useEffect(()=>{
+    document.body.className="default";
+  },[]);
   return(<>
     <Helmet>
       <title>Beansite 7</title>

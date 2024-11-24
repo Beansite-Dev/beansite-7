@@ -7,11 +7,11 @@ import './style/index.scss';
 import App from './App.jsx';
 const AppRouter=({})=>{
   return(<StrictMode>
-    {/* <Provider store={store}> */}
+    <Provider store={store}>
       <HelmetProvider>
         <App />
       </HelmetProvider>
-    {/* </Provider> */}
+    </Provider>
   </StrictMode>);
 }
 createRoot(document.getElementById('root'))

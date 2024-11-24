@@ -1,7 +1,9 @@
 import "../style/Window.scss";
 import { useState, useCallback, useEffect, Fragment } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { motion, useDragControls, useMotionValue } from "motion/react";
 import { generateId } from "./Lib";
+import { createWindow } from "../store/slices/winSlice";
 export const Window=({
   dragConstraint,
   children,
@@ -21,6 +23,7 @@ export const Window=({
   }
 })=>{
   const[isDraggingY,setIsDraggingY]=useState(false);
+  const dispatch=useDispatch();
   const mHeight=useMotionValue(height);
   const handleDragY=useCallback((e,info)=>{
     let newHeight=mHeight.get()+info.delta.y;
@@ -32,8 +35,16 @@ export const Window=({
     let newWidth=mWidth.get()+info.delta.x;
     if(newWidth>150&&newWidth<2000)mWidth.set(mWidth.get()+info.delta.x);
   },[]);
+  const[_closed,setClosed]=useState(closed);
   const[ani,setAni]=useState(closed?{opacity:0}:{opacity:1});
   const[_maximized,setMaximized]=useState(maximized);
+  useEffect(()=>{
+    dispatch(createWindow({
+      title,icon,id,
+      maximized:_maximized,
+      closed:_closed
+    }));
+  })
   return(<>
     <motion.div 
       drag
@@ -63,6 +74,7 @@ export const Window=({
                     onClick={(e)=>{
                       e.preventDefault();
                       setAni({opacity:0});
+                      setClosed(true);
                       setTimeout(
                         ()=>{document.getElementById(`${id}_tb`).style.display="none"},
                         1000);
