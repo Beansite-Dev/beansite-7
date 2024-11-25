@@ -14,9 +14,20 @@ export const Taskbar=({})=>{
             initial={{y:5,opacity:0}} 
             transition={{duration:.35,}}
             animate={{y:0,opacity:1,}}>
-                <motion.button className="item" id="startButton"></motion.button>
-                {Window.map((data,index)=>
-                    <motion.button key={`${data?data.id:generateId(10)}_${btoa("tbi")}`}>{data?data.title:null}</motion.button>)}
+                <motion.div id="tb_itemWrapper">
+                    <motion.button className="item" id="startButton"></motion.button>
+                    {Window.map((data,index)=>
+                        <motion.button 
+                            style={{
+                                backgroundImage:`url("${data?data.icon:'/icons/15.ico'}")`,
+                            }}
+                            className="item open"
+                            key={`${data?data.id:generateId(10)}_${btoa("tbi")}`}>
+                                <motion.div className="tooltip">
+                                    {data?data.title:""}
+                                </motion.div>
+                            </motion.button>)}
+                </motion.div>
         </motion.div>
     </>);
 }

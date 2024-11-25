@@ -4,25 +4,51 @@
     width: 100dvw;
     bottom: 0;
     left: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 2px;
-    .item {
+    #tb_itemWrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 2px;
         height: 100%;
-        aspect-ratio: 1 / 1;
-        background-color: transparent;
-        border: none;
-        appearance: none;
-        cursor: pointer;
-        transition: .35s;
-        background-position: center;
-        background-size: contain;
-        object-fit: contain;
-        background-repeat: no-repeat;
-        &:hover {
-            filter: brightness(125%);
+        filter: 
+            drop-shadow(0 0 2px rgba(#000,.5)) 
+            drop-shadow(2px 02px 2px rgba(#000,.35));
+        .item {
+            width: fit-content;
+            height: 100%;
+            aspect-ratio: 1 / 1;
+            background-color: transparent;
+            border: none;
+            appearance: none;
+            cursor: pointer;
+            transition: .35s;
+            background-position: center;
+            background-size: contain;
+            object-fit: contain;
+            background-repeat: no-repeat;
+            background-size: 75%;
+            &.open {
+                height: calc(100% - 4px);
+            }
+            .tooltip {
+                position: absolute;
+                bottom: calc(100% + 4px);
+                left: 50%;
+                transform: translate(-50%);
+                padding: 4px 10px;
+                transition: .35s;
+                opacity: 0;
+                visibility: hidden;
+            }
+            &:hover > .tooltip {
+                bottom: calc(100% + 8px);
+                opacity: 1;
+                visibility: visible;
+            }
+            &:hover {
+                filter: brightness(125%);
+            }
         }
     }
 }
