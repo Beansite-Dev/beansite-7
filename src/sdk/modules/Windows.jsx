@@ -3,7 +3,7 @@ import { useState, useCallback, useEffect, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { motion, useDragControls, useMotionValue } from "motion/react";
 import { generateId } from "./Lib";
-import { createWindow } from "../store/slices/winSlice";
+import { createWindow, removeWindow } from "../store/slices/winSlice";
 export const Window=({
   dragConstraint,
   children,
@@ -44,7 +44,7 @@ export const Window=({
       maximized:_maximized,
       closed:_closed
     }));
-  })
+  },[]);
   return(<>
     <motion.div 
       drag
@@ -75,6 +75,7 @@ export const Window=({
                       e.preventDefault();
                       setAni({opacity:0});
                       setClosed(true);
+                      dispatch(removeWindow(id));
                       setTimeout(
                         ()=>{document.getElementById(`${id}_tb`).style.display="none"},
                         1000);

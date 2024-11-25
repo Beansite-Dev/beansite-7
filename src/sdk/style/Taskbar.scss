@@ -32,23 +32,37 @@
                 height: calc(100% - 4px);
             }
             .tooltip {
-                position: absolute;
-                bottom: calc(100% + 4px);
-                left: 50%;
-                transform: translate(-50%);
-                padding: 4px 10px;
-                transition: .35s;
-                opacity: 0;
-                visibility: hidden;
+                position: absolute !important;
+                bottom: calc(100% + 4px) !important;
+                left: 50% !important;
+                transform: translate(-50%) !important;
+                padding: 4px 10px !important;
+                transition: .25s !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
             }
             &:hover > .tooltip {
-                bottom: calc(100% + 8px);
-                opacity: 1;
-                visibility: visible;
+                bottom: calc(100% + 8px) !important;
+                opacity: 1 !important;
+                visibility: visible !important;
             }
             &:hover {
                 filter: brightness(125%);
             }
         }
+    }
+}
+#StartMenu {
+    height: 450px;
+    width: 400px;
+    position: fixed !important;
+    bottom: 48px;
+    left: 0;
+    #sm_shortcutWrapper {
+        position: absolute !important;
+        top: 5px;
+        left: 5px;
+        height: calc(100% - 10px);
+        width: calc(100% - 10px - 8rem);
     }
 }
