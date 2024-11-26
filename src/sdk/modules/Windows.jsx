@@ -3,13 +3,14 @@ import { useState, useCallback, useEffect, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { motion, useDragControls, useMotionValue } from "motion/react";
 import { generateId } from "./Lib";
-import { createWindow, removeWindow } from "../store/slices/winSlice";
+import { createWindow, removeWindow, modifyWindow } from "../store/slices/winSlice";
 export const Window=({
   dragConstraint,
   children,
   closed=false,
   draggable=true,
   maximized=false,
+  minimized=false,
   className,
   data:{
     title,
@@ -38,11 +39,28 @@ export const Window=({
   const[_closed,setClosed]=useState(closed);
   const[ani,setAni]=useState(closed?{opacity:0}:{opacity:1});
   const[_maximized,setMaximized]=useState(maximized);
+  const[_minimized,setMinimized]=useState(minimized);
+  const Window=useSelector(state=>state.win);
+  useEffect(()=>{
+    if(Window&&Window.length>0)console.table(Window);
+    setMinimized(Window[Window.findIndex(win=>win.id==id)]?Window[Window.findIndex(win=>win.id==id)].minimized:false);
+    setAni(_minimized?{opacity:0}:{opacity:1});
+    document.getElementById(`${id}_tb`).style.display=_minimized?"none":"block";
+  },[Window]);
+  useEffect(()=>{
+    dispatch(modifyWindow({
+      id,
+      newVal:{
+        minimized:_minimized,
+      },
+    }));
+  },[_minimized]);
   useEffect(()=>{
     dispatch(createWindow({
       title,icon,id,
       maximized:_maximized,
-      closed:_closed
+      closed:_closed,
+      minimized:_minimized,
     }));
   },[]);
   return(<>
@@ -78,7 +96,7 @@ export const Window=({
                       dispatch(removeWindow(id));
                       setTimeout(
                         ()=>{document.getElementById(`${id}_tb`).style.display="none"},
-                        1000);
+                        500);
                     }}>{"🗙︎"}</button>
                   :null}
                 {data=="max"?
@@ -90,6 +108,19 @@ export const Window=({
                       setMaximized(!_maximized);
                     }}>{_maximized?"🗗︎":"🗖︎"}</button>
                   :null}{/* 🗕︎ */}
+                {data=="min"?
+                  <button 
+                    onPointerDownCapture={e=>e.stopPropagation()}
+                    className="min"
+                    onClick={(e)=>{
+                      e.preventDefault();
+                      setAni({opacity:0});
+                      setMinimized(true);
+                      setTimeout(
+                        ()=>{document.getElementById(`${id}_tb`).style.display="none"},
+                        500);
+                    }}>{"🗕"}</button>
+                  :null}
             </Fragment>)}
           </div>
         </div>

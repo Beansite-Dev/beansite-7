@@ -1,19 +1,22 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import  "../style/Taskbar.scss";
+import { modifyWindow } from "../store/slices/winSlice";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { generateId } from "./Lib";
+import { easeInOut } from "motion";
 export const Taskbar=({})=>{
   const Window=useSelector(state=>state.win);
-  useEffect(()=>{
-    if(Window&&Window.length>0)console.table(Window);
-  },[Window]);
-  const[startMenuOpen,setStartMenuOpen]=useState(true);
-  useEffect(()=>console.log(startMenuOpen),[startMenuOpen]);
+  const dispatch=useDispatch();
+  const[startMenuOpen,setStartMenuOpen]=useState(false);
   return(<>
     <motion.div 
       id="StartMenu"
-      transition={{duration:.35,}}
+      transition={{
+        type: 'tween',
+        duration: .35,
+        ease: [.65, .35, .35, .65],
+      }}
       initial={{
         x:"calc(-100%)",
         opacity:0,}}
@@ -47,6 +50,12 @@ export const Taskbar=({})=>{
                   backgroundImage:`url("${data?data.icon:'/icons/15.ico'}")`,
                 }}
                 className="item open"
+                onClick={(e)=>{
+                  if(data)dispatch(modifyWindow({
+                    id:data.id,
+                    newVal:{minimized:!data.minimized,}
+                  }))
+                }}
                 key={`${data?data.id:generateId(10)}_${btoa("tbi")}`}>
                   <motion.div className="tooltip" >
                     {data?data.title:""}

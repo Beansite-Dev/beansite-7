@@ -25,7 +25,23 @@ export const winSlice=createSlice({
           return state;
       }
     },
+    modifyWindow:(state,action)=>{
+      switch(state.some(m=>m.id==action.payload.id)){
+        case true:
+          return[
+            ...state.filter(win=>win.id!==action.payload.id),
+            {
+              ...state[state.findIndex(win=>win.id==action.payload.id)],
+              ...action.payload.newVal,
+            },
+          ];
+        break;
+        default:
+          console.error(`could not find window with id ${action.payload}`);
+          return state;
+      }
+    },
   },
 });
-export const { createWindow,removeWindow }=winSlice.actions;
+export const { createWindow,removeWindow,modifyWindow }=winSlice.actions;
 export default winSlice.reducer;
