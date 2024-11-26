@@ -63,18 +63,6 @@ const App=({})=>{
         }}>
           <h1>Welcome To Beansite 7!</h1>
       </Window>
-      <Window
-        className="welcome 2"
-        data={{
-          title:"Welcome! 2?",
-          icon:"/icons/15.ico",
-          id:generateId(10),
-          x:330,
-          y:15,
-          includeTitlebarButtons:["close","min","max"],
-        }}>
-          <h1>Welcome To Beansite 7!</h1>
-      </Window>
     </AppWrapper>
   </>);
 }

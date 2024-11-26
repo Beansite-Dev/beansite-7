@@ -45,7 +45,7 @@ export const Window=({
     if(Window&&Window.length>0)console.table(Window);
     setMinimized(Window[Window.findIndex(win=>win.id==id)]?Window[Window.findIndex(win=>win.id==id)].minimized:false);
     setAni(_minimized?{opacity:0}:{opacity:1});
-    document.getElementById(`${id}_tb`).style.display=_minimized?"none":"block";
+    document.getElementById(`${id}_tb`).style.pointerEvents=_minimized?"none":"auto";
   },[Window]);
   useEffect(()=>{
     dispatch(modifyWindow({
@@ -95,7 +95,7 @@ export const Window=({
                       setClosed(true);
                       dispatch(removeWindow(id));
                       setTimeout(
-                        ()=>{document.getElementById(`${id}_tb`).style.display="none"},
+                        ()=>{document.getElementById(`${id}_tb`).style.pointerEvents="none"},
                         500);
                     }}>{"🗙︎"}</button>
                   :null}
@@ -117,7 +117,7 @@ export const Window=({
                       setAni({opacity:0});
                       setMinimized(true);
                       setTimeout(
-                        ()=>{document.getElementById(`${id}_tb`).style.display="none"},
+                        ()=>{document.getElementById(`${id}_tb`).style.pointerEvents="none !important"},
                         500);
                     }}>{"🗕"}</button>
                   :null}
