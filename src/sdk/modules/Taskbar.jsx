@@ -1,13 +1,10 @@
-import { useSelector, useDispatch } from "react-redux";
 import  "../style/Taskbar.scss";
-import { modifyWindow } from "../store/slices/winSlice";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { generateId } from "./Lib";
 import { easeInOut } from "motion";
 export const Taskbar=({})=>{
-  const Window=useSelector(state=>state.win);
-  const dispatch=useDispatch();
+  const Window=[]; //replace
   const[startMenuOpen,setStartMenuOpen]=useState(false);
   return(<>
     <motion.div 
@@ -51,10 +48,7 @@ export const Taskbar=({})=>{
                 }}
                 className="item open"
                 onClick={(e)=>{
-                  if(data)dispatch(modifyWindow({
-                    id:data.id,
-                    newVal:{minimized:!data.minimized,}
-                  }))
+
                 }}
                 key={`${data?data.id:generateId(10)}_${btoa("tbi")}`}>
                   <motion.div className="tooltip" >

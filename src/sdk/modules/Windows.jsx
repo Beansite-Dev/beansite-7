@@ -1,9 +1,11 @@
 import "../style/Window.scss";
 import { useState, useCallback, useEffect, Fragment } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { motion, useDragControls, useMotionValue } from "motion/react";
 import { generateId } from "./Lib";
-import { createWindow, removeWindow, modifyWindow } from "../store/slices/winSlice";
+import { winStore } from "../store/Windows";
+import {
+  useRecoilState,
+} from 'recoil';
 export const Window=({
   dragConstraint,
   children,
@@ -24,45 +26,41 @@ export const Window=({
   }
 })=>{
   const[isDraggingY,setIsDraggingY]=useState(false);
-  const dispatch=useDispatch();
   const mHeight=useMotionValue(height);
   const handleDragY=useCallback((e,info)=>{
     let newHeight=mHeight.get()+info.delta.y;
     if(newHeight>150&&newHeight<2000)mHeight.set(mHeight.get()+info.delta.y);
   },[]);
+
   const[isDraggingX,setIsDraggingX]=useState(false);
   const mWidth=useMotionValue(width);
   const handleDragX=useCallback((e,info)=>{
     let newWidth=mWidth.get()+info.delta.x;
     if(newWidth>150&&newWidth<2000)mWidth.set(mWidth.get()+info.delta.x);
   },[]);
+
   const[_closed,setClosed]=useState(closed);
   const[ani,setAni]=useState(closed?{opacity:0}:{opacity:1});
   const[_maximized,setMaximized]=useState(maximized);
   const[_minimized,setMinimized]=useState(minimized);
-  const Window=useSelector(state=>state.win);
+  
+  const[Windows,setWindows]=useRecoilState(winStore);
+
   useEffect(()=>{
-    if(Window&&Window.length>0)console.table(Window);
-    setMinimized(Window[Window.findIndex(win=>win.id==id)]?Window[Window.findIndex(win=>win.id==id)].minimized:false);
-    setAni(_minimized?{opacity:0}:{opacity:1});
-    document.getElementById(`${id}_tb`).style.pointerEvents=_minimized?"none":"auto";
-  },[Window]);
-  useEffect(()=>{
-    dispatch(modifyWindow({
-      id,
-      newVal:{
-        minimized:_minimized,
-      },
-    }));
-  },[_minimized]);
-  useEffect(()=>{
-    dispatch(createWindow({
-      title,icon,id,
-      maximized:_maximized,
-      closed:_closed,
-      minimized:_minimized,
-    }));
+    setWindows([
+      ...Windows,
+      {
+        title,icon,id,
+        closed:_closed,
+        max:_maximized,
+        min:_minimized,
+      }
+    ]);
   },[]);
+  useEffect(()=>{
+    console.table(Windows);
+  },[Windows]);
+
   return(<>
     <motion.div 
       drag
@@ -93,7 +91,6 @@ export const Window=({
                       e.preventDefault();
                       setAni({opacity:0});
                       setClosed(true);
-                      dispatch(removeWindow(id));
                       setTimeout(
                         ()=>{document.getElementById(`${id}_tb`).style.pointerEvents="none"},
                         500);

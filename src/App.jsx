@@ -59,11 +59,11 @@ const App=({})=>{
           id:generateId(10),
           x:15,
           y:15,
-          includeTitlebarButtons:["close","min","max"],
+          includeTitlebarButtons:["close","max","min"],
         }}>
           <h1>Welcome To Beansite 7!</h1>
       </Window>
     </AppWrapper>
   </>);
-}
+};
 export default App;
