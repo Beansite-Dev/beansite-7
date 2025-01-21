@@ -47,20 +47,19 @@ export const Window=({
   const[Windows,setWindows]=useRecoilState(winStore);
 
   useEffect(()=>{
-    setWindows([
+    if(!Windows.filter(win=>win.id==id))setWindows([
       ...Windows,
       {
         title,icon,id,
         closed:_closed,
         max:_maximized,
         min:_minimized,
-      }
+      },
     ]);
   },[]);
   useEffect(()=>{
     console.table(Windows);
   },[Windows]);
-
   return(<>
     <motion.div 
       drag
@@ -73,7 +72,17 @@ export const Window=({
       className={`window ${_maximized?"maximized":""} ${className}`} 
       id={id} 
       style={{height:mHeight,width:mWidth,top:y,left:x}}>
-        <div className="tb" id={`${id}_tb`}>
+        <div 
+          className="tb" 
+          id={`${id}_tb`}
+          onMouseDown={(e)=>{
+            //!fix this
+            /* if(e.clientY<=20){
+              includeTitlebarButtons.includes("max")
+                ?document.getElementById(`${id}_max`).click()
+                :null;
+            } */
+          }}>
           <div 
             className="ico" id={`${id}_ico`}
             style={{
@@ -82,7 +91,7 @@ export const Window=({
           <h1>{title}</h1>
           <div className="bw" id={`${id}_bw`}>
             {includeTitlebarButtons.map((data,index)=>
-              <Fragment key={`${generateId(10)}_${btoa(index)}`} >
+              <Fragment key={`${generateId(10)}_${btoa(index)}`}>
                 {data=="close"?
                   <button 
                     onPointerDownCapture={e=>e.stopPropagation()}
@@ -100,6 +109,7 @@ export const Window=({
                   <button 
                     onPointerDownCapture={e=>e.stopPropagation()}
                     className="max"
+                    id={`${id}_max`}
                     onClick={(e)=>{
                       e.preventDefault();
                       setMaximized(!_maximized);

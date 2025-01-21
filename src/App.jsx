@@ -7,7 +7,7 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import { motion } from 'motion/react';
 const App=({})=>{
   const[debugMenuVisibility,setDebugMenuVisibility]=useState(true);
-  useEffect(()=>{
+  /* useEffect(()=>{
     if(!debugMenuVisibility)setTimeout(()=>{
       document.getElementById("DevPreviewContainer").style.display="none";
     },350);
@@ -16,7 +16,7 @@ const App=({})=>{
   useHotkeys('ctrl+`',(e)=>{
     e.preventDefault();
     setDebugMenuVisibility(!debugMenuVisibility);
-  });
+  }); */
   useEffect(()=>{
     document.body.className="default";
   },[]);
