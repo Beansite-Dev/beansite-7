@@ -3,9 +3,7 @@ import { useState, useCallback, useEffect, Fragment } from "react";
 import { motion, useDragControls, useMotionValue } from "motion/react";
 import { generateId } from "./Lib";
 import { winStore } from "../store/Windows";
-import {
-  useRecoilState,
-} from 'recoil';
+import { useRecoilState } from 'recoil';
 export const Window=({
   dragConstraint,
   children,
@@ -47,18 +45,28 @@ export const Window=({
   const[Windows,setWindows]=useRecoilState(winStore);
 
   useEffect(()=>{
-    if(!Windows.filter(win=>win.id==id))setWindows([
-      ...Windows,
-      {
-        title,icon,id,
-        closed:_closed,
-        max:_maximized,
-        min:_minimized,
-      },
+    if(!Windows.find(win=>win.id===id))
+      setWindows([
+        ...Windows,{
+          title,icon,id,
+          closed:_closed,
+          max:_maximized,
+          min:_minimized,
+        }
     ]);
-  },[]);
+  });
+  useEffect(()=>{
+    if(_closed===true)setWindows([...Windows.filter(win=>win.id!==id)]);
+    setAni(_closed||_minimized?{opacity:0}:{opacity:1});
+    setTimeout(()=>{
+      document.getElementById(`${id}_tb`).style.pointerEvents=
+      _closed||_minimized?"none":"auto"},500);
+  },[_closed,_maximized,_minimized]);
   useEffect(()=>{
     console.table(Windows);
+    if(Windows.filter(win=>win.id==id)[0]
+    &&Windows.filter(win=>win.id==id).length==1)
+      setMinimized(Windows.filter(win=>win.id==id)[0].min);
   },[Windows]);
   return(<>
     <motion.div 
@@ -75,13 +83,18 @@ export const Window=({
         <div 
           className="tb" 
           id={`${id}_tb`}
-          onMouseDown={(e)=>{
+          onMouseUp={(e)=>{
             //!fix this
-            /* if(e.clientY<=20){
+            if(e.clientY<=20){
               includeTitlebarButtons.includes("max")
-                ?document.getElementById(`${id}_max`).click()
+                ?setMaximized(true)
                 :null;
-            } */
+            }
+          }}
+          onMouseDown={(e)=>{
+            _maximized?includeTitlebarButtons.includes("max")
+              ?setMaximized(false)
+              :null:null;
           }}>
           <div 
             className="ico" id={`${id}_ico`}
@@ -98,11 +111,7 @@ export const Window=({
                     className="close"
                     onClick={(e)=>{
                       e.preventDefault();
-                      setAni({opacity:0});
                       setClosed(true);
-                      setTimeout(
-                        ()=>{document.getElementById(`${id}_tb`).style.pointerEvents="none"},
-                        500);
                     }}>{"🗙︎"}</button>
                   :null}
                 {data=="max"?
@@ -121,11 +130,7 @@ export const Window=({
                     className="min"
                     onClick={(e)=>{
                       e.preventDefault();
-                      setAni({opacity:0});
                       setMinimized(true);
-                      setTimeout(
-                        ()=>{document.getElementById(`${id}_tb`).style.pointerEvents="none !important"},
-                        500);
                     }}>{"🗕"}</button>
                   :null}
             </Fragment>)}

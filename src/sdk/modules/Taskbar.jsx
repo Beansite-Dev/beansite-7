@@ -2,10 +2,22 @@ import  "../style/Taskbar.scss";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { generateId } from "./Lib";
-import { easeInOut } from "motion";
+// import { easeInOut } from "motion";
+import { winStore } from "../store/Windows";
+import { useRecoilState } from 'recoil';
+import domtoimage from 'dom-to-image';
 export const Taskbar=({})=>{
-  const Window=[]; //replace
+  const[Windows,setWindows]=useRecoilState(winStore);
   const[startMenuOpen,setStartMenuOpen]=useState(false);
+  const handleOnHover=(elmid,resid)=>{
+    //!html2canvas version (works but poorly)
+    /* html2canvas(document.getElementById(elmid)).then(canvas=>{
+      document.getElementById(resid).style.backgroundImage=`url(${canvas.toDataURL('image/png')})`;
+    }); */
+    domtoimage.toPng(document.getElementById(elmid))
+      .then((dataUrl)=>{document.getElementById(resid).style.backgroundImage=`url(${dataUrl})`;})
+      .catch((error)=>{console.error('App preview failed!', error);});
+  };
   return(<>
     <motion.div 
       id="StartMenu"
@@ -31,28 +43,36 @@ export const Taskbar=({})=>{
     animate={{y:0,opacity:1,}}>
       <motion.div id="tb_itemWrapper">
         <AnimatePresence 
-          mode="popLayout"
-          transition={{ duration:.35 }}
-          initial={{ opacity:0,y:-48 }}
-          animate={{ opacity:1,y:0 }}
-          exit={{ opacity:0,y:-48 }}>
+          mode="popLayout">
             <motion.button 
               onClick={()=>{
                 setStartMenuOpen(!startMenuOpen);
               }}
               className="item" id="startButton"></motion.button>
-            {Window.map((data,index)=>
+            {Windows.map((data,index)=>
               <motion.button 
                 style={{
                   backgroundImage:`url("${data?data.icon:'/icons/15.ico'}")`,
                 }}
+                transition={{duration:.25}}
+                initial={{opacity:0,y:48}}
+                animate={{opacity:1,y:0}}
+                exit={{opacity:0,y:48}}
                 className="item open"
                 onClick={(e)=>{
-
+                  setWindows([
+                    ...Windows.filter(win=>win.id!=data.id&&win.index<index),
+                    {...data,min:!data.min},
+                    ...Windows.filter(win=>win.id!=data.id&&win.index>index),
+                  ]);
+                }}
+                onMouseEnter={(e)=>{
+                  handleOnHover(data.id,`${data.id}_apvres`);
                 }}
                 key={`${data?data.id:generateId(10)}_${btoa("tbi")}`}>
-                  <motion.div className="tooltip" >
+                  <motion.div className="tooltip">
                     {data?data.title:""}
+                    <div className="appPreview" id={`${data.id}_apvres`}></div>
                   </motion.div>
                 </motion.button>)}
         </AnimatePresence>

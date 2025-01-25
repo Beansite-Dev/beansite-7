@@ -6,6 +6,16 @@ import { generateId } from "./sdk/modules/Lib";
 import { useHotkeys } from 'react-hotkeys-hook';
 import { motion } from 'motion/react';
 const App=({})=>{
+  const _CHANGELOG={
+    "v":"v0.5",
+    "cm":"Fixed states? thank you recoil 🙏",
+    "c":[
+      "Added recoil successfully",
+      "Fixed taskbar script",
+      "Added drag to maximize",
+      "Temporarily removed settings menu to patch a bug"
+    ]
+  };
   const[debugMenuVisibility,setDebugMenuVisibility]=useState(true);
   /* useEffect(()=>{
     if(!debugMenuVisibility)setTimeout(()=>{
@@ -62,6 +72,22 @@ const App=({})=>{
           includeTitlebarButtons:["close","max","min"],
         }}>
           <h1>Welcome To Beansite 7!</h1>
+      </Window>
+      <Window
+        className="changelog"
+        data={{
+          title:"Changelog",
+          icon:"/icons/68.ico",
+          id:generateId(10),
+          x:330,
+          y:15,
+          includeTitlebarButtons:["close","max","min"],
+        }}>
+          <h1>Changelog - {_CHANGELOG.v}</h1>
+          <p>{_CHANGELOG.cm}</p>
+          <ul>
+            {_CHANGELOG.c.map((d,i)=><li key={i}>{d}</li>)}
+          </ul>
       </Window>
     </AppWrapper>
   </>);

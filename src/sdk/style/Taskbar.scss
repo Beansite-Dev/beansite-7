@@ -32,6 +32,8 @@
                 height: calc(100% - 4px);
             }
             .tooltip {
+                height: 96px;
+                aspect-ratio: 4 / 3;
                 position: absolute !important;
                 bottom: calc(100% + 4px) !important;
                 left: 50% !important;
@@ -40,6 +42,20 @@
                 transition: .25s !important;
                 opacity: 0 !important;
                 visibility: hidden !important;
+                display: flex;
+                justify-items: flex-start;
+                align-items: center;
+                flex-direction: column;
+                .appPreview {
+                    flex-grow: 1;
+                    width: 100%;
+                    height: 100%;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    object-fit: contain;
+                    background-position: center;
+                    object-position: center;
+                }
             }
             &:hover > .tooltip {
                 bottom: calc(100% + 8px) !important;
