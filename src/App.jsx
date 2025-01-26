@@ -5,15 +5,17 @@ import { AppWrapper, Window } from './sdk/sdk';
 import { generateId } from "./sdk/modules/Lib";
 import { useHotkeys } from 'react-hotkeys-hook';
 import { motion } from 'motion/react';
+import { Icons } from './sdk/modules/Enum';
 const App=({})=>{
   const _CHANGELOG={
-    "v":"v0.5",
-    "cm":"Fixed states? thank you recoil 🙏",
+    "v":"v0.6.2",
+    "cm":"Working on stuff",
     "c":[
-      "Added recoil successfully",
-      "Fixed taskbar script",
-      "Added drag to maximize",
-      "Temporarily removed settings menu to patch a bug"
+      "Added Desktop Icons",
+      "Working on Enum for Icons",
+      "Improved certain window related scripts",
+      "United stylesheet path",
+      "Removed unnecessary files"
     ]
   };
   const[debugMenuVisibility,setDebugMenuVisibility]=useState(true);
@@ -50,7 +52,7 @@ const App=({})=>{
             features and any feature that is implemented probably will be modified or 
             removed
           </p>
-          <p>Pro tip: Hide this menu using "ctrl+`"</p><br/>
+          {/* <p>Pro tip: Hide this menu using "ctrl+`"</p><br/> */}
           <p>
             Currently planned features:<br/>
             - Themes
@@ -65,7 +67,7 @@ const App=({})=>{
         className="welcome"
         data={{
           title:"Welcome!",
-          icon:"/icons/15.ico",
+          icon:Icons.application,
           id:generateId(10),
           x:15,
           y:15,

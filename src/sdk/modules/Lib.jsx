@@ -23,3 +23,15 @@ export function getQueryParams(qs) {
     return params;
 }
 export const queryParams=getQueryParams(window.location.search);
+// const outsideClickListener=event=>{
+//   const deltaX=event.offsetX-lastMouseDownX;
+//   const deltaY=event.offsetY-lastMouseDownY;
+//   const distSq=(deltaX*deltaX)+(deltaY*deltaY);
+//   const isDrag=distSq>3;
+//   const isDragException=isDrag&&!lastMouseDownWasOutside;
+//   if(!element.contains(event.target)&&isVisible(element)&&!isDragException){
+//     element.style.display='none';
+//     removeClickListener();
+//     document.removeEventListener('mousedown', mouseDownListener);
+//   }
+// }

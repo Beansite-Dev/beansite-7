@@ -1,4 +1,4 @@
-import "../stylesheets/ErrorBoundary.scss";
+import "../../style/ErrorBoundary.scss";
 import { Component, Fragment } from "react";
 export class ErrorBoundary extends Component {
   constructor(props){

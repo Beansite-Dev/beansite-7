@@ -1,8 +1,9 @@
 import "../style/Window.scss";
-import { useState, useCallback, useEffect, Fragment } from "react";
+import { useState, useCallback, useEffect, Fragment, useRef } from "react";
 import { motion, useDragControls, useMotionValue } from "motion/react";
 import { generateId } from "./Lib";
 import { winStore } from "../store/Windows";
+import { winLookupStore } from "../store/WinLookup";
 import { useRecoilState } from 'recoil';
 export const Window=({
   dragConstraint,
@@ -23,6 +24,7 @@ export const Window=({
     width=300,
   }
 })=>{
+  const winParent=useRef(null);
   const[isDraggingY,setIsDraggingY]=useState(false);
   const mHeight=useMotionValue(height);
   const handleDragY=useCallback((e,info)=>{
@@ -43,12 +45,25 @@ export const Window=({
   const[_minimized,setMinimized]=useState(minimized);
   
   const[Windows,setWindows]=useRecoilState(winStore);
+  const[WindowLookup,setWindowLookup]=useRecoilState(winLookupStore);
 
+  useEffect(()=>{
+    setWindowLookup([
+      ...WindowLookup,{
+        title,icon,id,
+        className,
+        closed:_closed,
+        max:_maximized,
+        min:_minimized,
+      }
+  ]);
+  },[]);
   useEffect(()=>{
     if(!Windows.find(win=>win.id===id))
       setWindows([
         ...Windows,{
           title,icon,id,
+          className,
           closed:_closed,
           max:_maximized,
           min:_minimized,
@@ -56,7 +71,16 @@ export const Window=({
     ]);
   });
   useEffect(()=>{
-    if(_closed===true)setWindows([...Windows.filter(win=>win.id!==id)]);
+    if(_closed===true){
+      setWindows([...Windows.filter(win=>win.id!==id)]);
+      setWindowLookup([
+        ...WindowLookup.filter(win=>win.id!==id),
+        {
+          ...WindowLookup.filter(win=>win.id===id),
+          closed:_closed,
+        },
+      ]);
+    }
     setAni(_closed||_minimized?{opacity:0}:{opacity:1});
     setTimeout(()=>{
       document.getElementById(`${id}_tb`).style.pointerEvents=
@@ -64,10 +88,15 @@ export const Window=({
   },[_closed,_maximized,_minimized]);
   useEffect(()=>{
     console.table(Windows);
+    // detect minimize change from windows
     if(Windows.filter(win=>win.id==id)[0]
     &&Windows.filter(win=>win.id==id).length==1)
       setMinimized(Windows.filter(win=>win.id==id)[0].min);
-  },[Windows]);
+    // detect closure status change from winlookup
+    if(WindowLookup.filter(win=>win.id==id)[0]
+    &&WindowLookup.filter(win=>win.id==id).length==1)
+      setClosed(WindowLookup.filter(win=>win.id==id)[0].closed);
+  },[Windows,WindowLookup]);
   return(<>
     <motion.div 
       drag
@@ -77,8 +106,16 @@ export const Window=({
       transition={{duration:.35}}
       initial={{opacity:0,y:-5}}
       animate={ani}
+      ref={winParent}
       className={`window ${_maximized?"maximized":""} ${className}`} 
       id={id} 
+      onMouseDown={(e)=>{
+        var wl=document.getElementsByClassName('window');
+        for (var i=0;i<wl.length;i++) {
+          wl[i].style.zIndex="auto";
+        }
+        winParent.current.style.zIndex=90;
+      }}
       style={{height:mHeight,width:mWidth,top:y,left:x}}>
         <div 
           className="tb" 
