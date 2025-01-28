@@ -8,16 +8,25 @@ import { motion } from 'motion/react';
 import { Icons } from './sdk/modules/Enum';
 const App=({})=>{
   const _CHANGELOG={
-    "v":"v0.6.2",
-    "cm":"Working on stuff",
+    "v":"v0.7",
+    "cm":"Fixed a lot of weird bugs",
     "c":[
-      "Added Desktop Icons",
-      "Working on Enum for Icons",
-      "Improved certain window related scripts",
-      "United stylesheet path",
-      "Removed unnecessary files"
+      "Fixed window close/open scripts",
+      "Added Enum (for ease of use)",
+      "Fixed Desktop Icons",
+      "Fixed Weird State Bugs (winlookup was NOT a good solution)",
+      "Tweaked taskbar",
+      "Updated Styling"
     ]
   };
+  const desktopShortcutsList=[
+    {
+      title: "Welcome!",
+      icon: Icons.application,
+      target: "welcome",
+      pos: [0,0]
+    }
+  ];
   const[debugMenuVisibility,setDebugMenuVisibility]=useState(true);
   /* useEffect(()=>{
     if(!debugMenuVisibility)setTimeout(()=>{
@@ -38,7 +47,7 @@ const App=({})=>{
       <link rel="icon" type="image/svg+xml" href="" />
       <link rel="stylesheet" href="/themes/default.scss" />
     </Helmet>
-    <AppWrapper>
+    <AppWrapper desktopShortcutsList={desktopShortcutsList}>
       <motion.div 
         transition={{duration:.25}}
         initial={{x:20,opacity:0}}

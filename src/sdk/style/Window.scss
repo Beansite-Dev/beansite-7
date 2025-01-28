@@ -1,6 +1,7 @@
 
 .window {
     position: fixed !important;
+    &,*{pointer-events: all;}
     &.maximized {
         transition: .5s;
         height: calc(100dvh - 48px) !important;
@@ -9,6 +10,12 @@
         left: 0 !important;
         transform: none !important;
         border-radius: 0 !important;
+    }
+    &.noInteract {
+        &,*{
+            user-select: none !important;
+            pointer-events: none !important;
+        }
     }
     .tb {
         height: 28px;

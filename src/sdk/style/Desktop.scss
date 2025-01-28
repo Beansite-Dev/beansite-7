@@ -18,6 +18,9 @@
     flex-direction: column;
     padding: 1px;
     box-sizing: content-box;
+    filter: 
+      drop-shadow(0 0 2px black)
+      drop-shadow(0 2px 5px black);
     &:hover {
       background: rgba(255,255,255,.25);
     }
@@ -44,6 +47,7 @@
       font-size: 11px;
       margin: 0;
       word-wrap: break-word;
+      color: #f0f0f0;
     }
   }
 }

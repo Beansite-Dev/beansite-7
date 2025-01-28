@@ -2,50 +2,53 @@ import { motion } from "motion/react";
 import { useRecoilState } from "recoil";
 import "../style/Desktop.scss";
 import { winStore } from "../store/Windows";
-import { winLookupStore } from "../store/WinLookup";
 import { useRef, useState } from "react";
-export const Desktop=({})=>{
+import { generateId } from "./Lib";
+export const Desktop=({appsList=[]})=>{
   const desktopWrapper=useRef(null);
   const[Windows,setWindows]=useRecoilState(winStore);
-  const[WindowLookup,setWindowLookup]=useRecoilState(winLookupStore);
   const DesktopIcon=({
     title,
     icon,
     target,
     pos
   })=>{
+    // use to open apps. replace target with className
     const OpenApp=()=>{
-      if(WindowLookup.find(win=>win.className===target))
-        setWindowLookup([
-          ...WindowLookup.filter(win=>win.className!==target),
-          {
-            ...WindowLookup.filter(win=>win.className===target),
-            closed:false,
-          },
+      setWindows([
+        ...Windows.filter(win=>win.className!==target),
+        {...Windows.filter(win=>win.className===target)[0],
+          closed:false,min:false,max:false}
       ]);
     }
+    const[curPos,setCurPos]=useState({
+      left:`${((75+5)*pos[1])+10}px`,
+      top:`${((50+5)*pos[0])+10}px`,
+    });
     const di=useRef(null);
     return(<>
       <motion.div
         id={`${target}_desktopIcon`}
         ref={di}
-        /* drag
+        drag
         dragConstraints={desktopWrapper}
-        dragMomentum={false} */
+        dragMomentum={false}
         transition={{duration:.05}}
+        //!old snapping script (very buggyyy)
         /* onDragEnd={(e)=>{
           if(di.current){
             let rect=di.current.getBoundingClientRect();
-            let x=Math.floor(rect.left/75);
-            let y=Math.floor(rect.top/50);
-            di.current.style.left=`${x>=0?((75+5)*x)+10:10}px`;
-            di.current.style.top=`${y>=0?((50+5)*y)+10:10}px`;
+            let x=Math.floor((e.clientX+10)/75);
+            let y=Math.floor((e.clientY+10)/50);
+            console.log(x,y);
+            let left=`${x>=0?((75+5)*x)+10:10}px`;
+            let top=`${y>=0?((50+5)*y)+10:10}px`;
+            setCurPos({left,top});
+            console.log(curPos);
           }
         }} */
-        style={{
-          left:`${((75+5)*pos[1])+10}px`,
-          top:`${((50+5)*pos[0])+10}px`,
-        }}
+        onDoubleClick={(e)=>OpenApp()}
+        initial={curPos}
         className="desktopIcon">
           <div 
             style={{backgroundImage:`url(${icon})`,}}
@@ -61,11 +64,9 @@ export const Desktop=({})=>{
       transition={{delay:.15,duration:.15}}
       ref={desktopWrapper}
       id="desktopWrapper">
-        <DesktopIcon
-          title="Welcome!"
-          icon="/icons/15.ico"
-          target="welcome"
-          pos={[4,2]}/>
+        {appsList.map(data=><DesktopIcon
+          {...data}
+          key={`${generateId(10)}_${btoa(data.target)}`}/>)}
     </motion.div>
   </>);
 }

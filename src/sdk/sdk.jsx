@@ -18,7 +18,7 @@ import { ErrorBoundary } from './modules/core/ErrorBoundary';
 // styling
 import "./style/Index.scss";
 
-export const AppWrapper=({children})=>{
+export const AppWrapper=({children,desktopShortcutsList=[]})=>{
   const AppWrapperContents=({})=>{
     const windowWrapperRef=useRef(null);
     const renderChildren=()=>{
@@ -51,7 +51,7 @@ export const AppWrapper=({children})=>{
                   includeTitlebarButtons:["close","max","min"],
                 }}><SettingsMenu/></Window> */}
           </motion.div>
-          <Desktop/>
+          <Desktop appsList={desktopShortcutsList}/>
           <Taskbar/>
         </motion.div>
       </RecoilRoot>
