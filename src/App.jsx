@@ -8,15 +8,10 @@ import { motion } from 'motion/react';
 import { Icons } from './sdk/modules/Enum';
 const App=({})=>{
   const _CHANGELOG={
-    "v":"v0.7",
-    "cm":"Fixed a lot of weird bugs",
+    "v":"v0.8",
+    "cm":"FUCK YOU META. I SWITCH TO JOTAI CUZ YALL JUST HAD TO FIRE EVERYONE WORKING ON RECOIL?",
     "c":[
-      "Fixed window close/open scripts",
-      "Added Enum (for ease of use)",
-      "Fixed Desktop Icons",
-      "Fixed Weird State Bugs (winlookup was NOT a good solution)",
-      "Tweaked taskbar",
-      "Updated Styling"
+      "Replaced Recoil with Jotai",
     ]
   };
   const desktopShortcutsList=[

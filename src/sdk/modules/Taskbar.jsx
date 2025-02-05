@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 import { generateId } from "./Lib";
 // import { easeInOut } from "motion";
 import { winStore } from "../store/Windows";
-import { useRecoilState } from 'recoil';
+// import { useRecoilState } from 'recoil';
 import domtoimage from 'dom-to-image';
+import { useAtom } from "jotai";
 export const Taskbar=({})=>{
-  const[Windows,setWindows]=useRecoilState(winStore);
+  const[Windows,setWindows]=useAtom(winStore);
   const[startMenuOpen,setStartMenuOpen]=useState(false);
   const TaskbarIcon=({data,index})=>{
     const handleOnHover=(elmid,resid)=>{
@@ -59,10 +60,10 @@ export const Taskbar=({})=>{
         opacity:0,}}
       animate={{
         x:startMenuOpen?0:"calc(-100%)",
-        opacity:startMenuOpen?1:0}} >
-    <motion.div id="sm_shortcutWrapper">
+        opacity:startMenuOpen?1:0}}>
+      <motion.div id="sm_shortcutWrapper">
         
-    </motion.div>
+      </motion.div>
     </motion.div>
     <motion.div 
       id="Taskbar" 
@@ -78,10 +79,10 @@ export const Taskbar=({})=>{
                 }}
                 className="item" id="startButton"></motion.button>
               {Windows.map((data,index)=>
-              <TaskbarIcon 
-                data={data} 
-                index={index}
-                key={`${data?data.id:generateId(10)}_${btoa("tbi")}`}/>)}
+                <TaskbarIcon 
+                  data={data} 
+                  index={index}
+                  key={`${data?data.id:generateId(10)}_${btoa("tbi")}`}/>)}
           {/* </AnimatePresence> */}
         </motion.div>
     </motion.div>

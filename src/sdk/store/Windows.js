@@ -1,14 +1,12 @@
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from 'recoil';
-export const winStore=atom({
-  key: 'Windows',
-  default:[],
-});
+// import {
+//   RecoilRoot,
+//   atom,
+//   selector,
+//   useRecoilState,
+//   useRecoilValue,
+// } from 'recoil';
+import { atom } from 'jotai';
+export const winStore=atom([]);
 
 //!deprecated zustand implementation of window state
 // import { create } from 'zustand';

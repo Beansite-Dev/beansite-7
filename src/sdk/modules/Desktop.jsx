@@ -1,12 +1,13 @@
 import { motion } from "motion/react";
-import { useRecoilState } from "recoil";
+// import { useRecoilState } from "recoil";
+import { useAtom } from "jotai";
 import "../style/Desktop.scss";
 import { winStore } from "../store/Windows";
 import { useRef, useState } from "react";
 import { generateId } from "./Lib";
 export const Desktop=({appsList=[]})=>{
   const desktopWrapper=useRef(null);
-  const[Windows,setWindows]=useRecoilState(winStore);
+  const[Windows,setWindows]=useAtom(winStore);
   const DesktopIcon=({
     title,
     icon,

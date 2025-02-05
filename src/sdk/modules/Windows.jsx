@@ -3,7 +3,8 @@ import { useState, useCallback, useEffect, Fragment, useRef } from "react";
 import { motion, useDragControls, useMotionValue } from "motion/react";
 import { generateId } from "./Lib";
 import { winStore } from "../store/Windows";
-import { useRecoilState } from 'recoil';
+// import { useRecoilState } from 'recoil';
+import { useAtom } from "jotai";
 export const Window=({
   dragConstraint,
   children,
@@ -43,7 +44,7 @@ export const Window=({
   const[_maximized,setMaximized]=useState(maximized);
   const[_minimized,setMinimized]=useState(minimized);
   
-  const[Windows,setWindows]=useRecoilState(winStore);
+  const[Windows,setWindows]=useAtom(winStore);
 
   useEffect(()=>{
     if(!Windows.find(win=>win.id===id))
@@ -102,7 +103,7 @@ export const Window=({
           className="tb" 
           id={`${id}_tb`}
           onMouseUp={(e)=>{
-            //!fix this
+            console.log(e.clientY);
             if(e.clientY<=20){
               includeTitlebarButtons.includes("max")
                 ?setMaximized(true)
