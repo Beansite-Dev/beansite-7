@@ -19,6 +19,16 @@
         inherits: false;
         initial-value: rgba(172,228,249,1);
     }
+    .safeGraphics {
+        backdrop-filter: none !important;
+        border: 1px solid rgb(134,199,255) !important;
+        &,*{filter: none !important;box-shadow: none !important;}
+        background: 
+            linear-gradient(123deg,
+                rgb(185, 222, 255) 0%,
+                rgb(141, 196, 245) 46%,
+                rgb(108, 167, 230) 100%) !important;
+    }
     .window {
         backdrop-filter: blur(3px);
         border-radius: 6px;

@@ -1,13 +1,6 @@
 // external modules
 import { useRef, createContext, Children, cloneElement } from 'react';
 import { motion } from 'motion/react';
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from 'recoil';
 // internal components
 export { Window } from './modules/Windows';
 import { Taskbar } from './modules/Taskbar';
@@ -28,33 +21,31 @@ export const AppWrapper=({children,desktopShortcutsList=[]})=>{
       });
     };
     return(<>
-      <RecoilRoot>
-        <motion.div id="App">
-          <motion.div 
-            id="windowWrapper" 
-            ref={windowWrapperRef}
-            /* onClick={(e)=>{
-              if(e.target.id==="windowWrapper")e.stopPropagation();
-            }} */>
-              {/* {children} */}
-              {renderChildren()}
-              {/*//! Illegal Constructor Error */}
-              {/* <Window
-                dragConstraint={windowWrapperRef}
-                className="settings"
-                data={{
-                  title:"Settings",
-                  icon:"/icons/15.ico",
-                  id:generateId(10),
-                  x:15 + 315,
-                  y:15,
-                  includeTitlebarButtons:["close","max","min"],
-                }}><SettingsMenu/></Window> */}
-          </motion.div>
-          <Desktop appsList={desktopShortcutsList}/>
-          <Taskbar/>
+      <motion.div id="App">
+        <motion.div 
+          id="windowWrapper" 
+          ref={windowWrapperRef}
+          /* onClick={(e)=>{
+            if(e.target.id==="windowWrapper")e.stopPropagation();
+          }} */>
+            {/* {children} */}
+            {renderChildren()}
+            {/*//! Illegal Constructor Error */}
+            {/* <Window
+              dragConstraint={windowWrapperRef}
+              className="settings"
+              data={{
+                title:"Settings",
+                icon:"/icons/15.ico",
+                id:generateId(10),
+                x:15 + 315,
+                y:15,
+                includeTitlebarButtons:["close","max","min"],
+              }}><SettingsMenu/></Window> */}
         </motion.div>
-      </RecoilRoot>
+        <Desktop appsList={desktopShortcutsList}/>
+        <Taskbar/>
+      </motion.div>
     </>);
   }
   return(<>

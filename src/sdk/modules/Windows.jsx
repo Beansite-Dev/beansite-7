@@ -22,7 +22,14 @@ export const Window=({
     y=15,
     height=225,
     width=300,
-  }
+  },
+  //callbacks
+  beforeClose=()=>{},
+  afterClose=()=>{},
+  beforeMinimize=()=>{},
+  afterMinimize=()=>{},
+  beforeMaximize=()=>{},
+  afterMaximize=()=>{},
 })=>{
   const winParent=useRef(null);
   const[isDraggingY,setIsDraggingY]=useState(false);

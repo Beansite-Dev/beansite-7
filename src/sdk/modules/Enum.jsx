@@ -2,6 +2,9 @@ export const defaultIconPath="/icons/";
 export const CreateIcon=(standardName)=>{
   return `${defaultIconPath}${standardName}.ico`; 
 }
+export const CreateIconPNG=(standardName)=>{
+  return `${defaultIconPath}${standardName}.png`; 
+}
 export const Icons={
   file:CreateIcon("2"),
   application:CreateIcon("15"),
@@ -12,6 +15,7 @@ export const Icons={
   music:CreateIcon("22"),
   camcorder:CreateIcon("46"),
   phoneDeviceOld:CreateIcon("48"),
+  commandPrompt:CreateIconPNG("d1f5fcw-533b556a-a161-4cc6-b9d7-67037b797373"),
   video:CreateIcon("23"),
   internet:CreateIcon("25"),
   printer:CreateIcon("51"),

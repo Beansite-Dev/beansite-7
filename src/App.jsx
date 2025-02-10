@@ -6,12 +6,14 @@ import { generateId } from "./sdk/modules/Lib";
 import { useHotkeys } from 'react-hotkeys-hook';
 import { motion } from 'motion/react';
 import { Icons } from './sdk/modules/Enum';
+import { Beanshell } from './sdk/windows/Beanshell';
 const App=({})=>{
   const _CHANGELOG={
-    "v":"v0.8",
-    "cm":"FUCK YOU META. I SWITCH TO JOTAI CUZ YALL JUST HAD TO FIRE EVERYONE WORKING ON RECOIL?",
+    "v":"v0.9",
+    "cm":"Big feature drop?",
     "c":[
-      "Replaced Recoil with Jotai",
+      "Added Beanshell",
+      "Fixed State Reload issue in Taskbar",
     ]
   };
   const desktopShortcutsList=[
@@ -94,6 +96,18 @@ const App=({})=>{
           <ul>
             {_CHANGELOG.c.map((d,i)=><li key={i}>{d}</li>)}
           </ul>
+      </Window>
+      <Window
+        className="beanshell"
+        data={{
+          title:"BeanShell",
+          icon: Icons.commandPrompt,
+          id:generateId(10),
+          x:30,
+          y:30,
+          includeTitlebarButtons:["close","max","min"],
+        }}>
+          <Beanshell />
       </Window>
     </AppWrapper>
   </>);

@@ -5,20 +5,62 @@ import { generateId } from "./Lib";
 // import { easeInOut } from "motion";
 import { winStore } from "../store/Windows";
 // import { useRecoilState } from 'recoil';
-import domtoimage from 'dom-to-image';
-import { useAtom } from "jotai";
+// import domtoimage from 'dom-to-image';
+import html2canvas from "html2canvas";
+import { atom, useAtom, useSetAtom, useAtomValue } from "jotai";
+const startMenuAtom=atom(false);
+const StartMenu=()=>{
+  const [startMenuOpen,setStartMenuOpen]=useAtom(startMenuAtom);
+  return(<motion.div 
+    id="StartMenu"
+    transition={{
+      type: 'tween',
+      duration: .35,
+      ease: [.65, .35, .35, .65],
+    }}
+    initial={{
+      x:"calc(-100%)",
+      opacity:0,}}
+    animate={{
+      x:startMenuOpen?0:"calc(-100%)",
+      opacity:startMenuOpen?1:0}}>
+    <motion.div id="sm_shortcutWrapper">
+      
+    </motion.div>
+  </motion.div>);
+}
+const StartMenuButton=()=>{
+  const [startMenuOpen,setStartMenuOpen]=useAtom(startMenuAtom);
+  return(<motion.button 
+    onClick={()=>{
+      setStartMenuOpen(!startMenuOpen);
+    }}
+    className="item" id="startButton"></motion.button>)
+}
 export const Taskbar=({})=>{
   const[Windows,setWindows]=useAtom(winStore);
-  const[startMenuOpen,setStartMenuOpen]=useState(false);
+  // const[startMenuOpen,setStartMenuOpen]=useState(false);
   const TaskbarIcon=({data,index})=>{
     const handleOnHover=(elmid,resid)=>{
       //!html2canvas version (works but poorly)
-      /* html2canvas(document.getElementById(elmid)).then(canvas=>{
-        document.getElementById(resid).style.backgroundImage=`url(${canvas.toDataURL('image/png')})`;
-      }); */
-      domtoimage.toPng(document.getElementById(elmid))
+      html2canvas(document.getElementById(elmid),{
+        ignoreElements:(e)=>{
+          if(e.classList.contains("window")){
+            // e.classList.add("safeGraphics");
+            return e.cloneNode().classList.add("safeGraphics");
+          };
+          if(e.classList.contains("ico"))return(true);
+        }
+      })
+        .then(canvas=>{
+          document.getElementById(resid).style.backgroundImage=`url(${canvas.toDataURL('image/png')})`;
+          // document.getElementById(elmid).classList.remove("safeGraphics");
+        });
+        // .catch((error)=>{console.error('App preview failed!', error);});
+      //!domtoimage version (also barely functional)
+      /* domtoimage.toPng(document.getElementById(elmid))
         .then((dataUrl)=>{document.getElementById(resid).style.backgroundImage=`url(${dataUrl})`;})
-        .catch((error)=>{console.error('App preview failed!', error);});
+        .catch((error)=>{console.error('App preview failed!', error);}); */
     };
     return(<>
       <motion.button 
@@ -48,23 +90,7 @@ export const Taskbar=({})=>{
     </>);
   }
   return(<>
-    <motion.div 
-      id="StartMenu"
-      transition={{
-        type: 'tween',
-        duration: .35,
-        ease: [.65, .35, .35, .65],
-      }}
-      initial={{
-        x:"calc(-100%)",
-        opacity:0,}}
-      animate={{
-        x:startMenuOpen?0:"calc(-100%)",
-        opacity:startMenuOpen?1:0}}>
-      <motion.div id="sm_shortcutWrapper">
-        
-      </motion.div>
-    </motion.div>
+    <StartMenu/>
     <motion.div 
       id="Taskbar" 
       initial={{y:5,opacity:0}} 
@@ -73,11 +99,7 @@ export const Taskbar=({})=>{
         <motion.div id="tb_itemWrapper">
           {/* <AnimatePresence 
             mode="popLayout"> */}
-              <motion.button 
-                onClick={()=>{
-                  setStartMenuOpen(!startMenuOpen);
-                }}
-                className="item" id="startButton"></motion.button>
+            <StartMenuButton />
               {Windows.map((data,index)=>
                 <TaskbarIcon 
                   data={data} 
