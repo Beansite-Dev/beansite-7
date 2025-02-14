@@ -1,14 +1,6 @@
 @use "./themes/default";
 @import url('https://fonts.cdnfonts.com/css/segoe-pro');
-//!didn't work >:c
-// @font-face {
-//     font-family: "Segoe Pro Display ", sans-serif;
-//     src: url("/fonts/segoe-pro/SegoeProDisplay-Regular.ttf");
-// }
-@font-face {
-    font-family: "Lucida Console", sans-serif;
-    src: url("/fonts/lucida-console/lucon.ttf");
-}
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 //---------------
 html {&,*,& *{
     font-family: 'Segoe Pro', sans-serif;

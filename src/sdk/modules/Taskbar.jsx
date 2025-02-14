@@ -69,7 +69,10 @@ export const Taskbar=({})=>{
         }}
         transition={{duration:.25}}
         initial={{opacity:0,y:48}}
-        animate={data?!data.closed?{opacity:1,y:0}:{opacity:0,y:48}:{opacity:0,y:48}}
+        animate={data?!data.closed?
+          {opacity:1,y:0}:
+          {opacity:0,y:48,display:"none"}:
+          {opacity:0,y:48,display:"none"}}
         exit={{opacity:0,y:48}}
         className="item open"
         onClick={(e)=>{

@@ -9,11 +9,16 @@ import { Icons } from './sdk/modules/Enum';
 import { Beanshell } from './sdk/windows/Beanshell';
 const App=({})=>{
   const _CHANGELOG={
-    "v":"v0.9",
-    "cm":"Big feature drop?",
+    "v":"v0.9.4",
+    "cm":"Nobody's gonna get all the hidden jokes in BeanShell bc i dont think theyre even ever heard of Neofetch",
     "c":[
       "Added Beanshell",
+      "Added Beanshell Syntax Highlighting",
+      "Implemented OhMyBsh to Bsh",
+      "Implemented Neofetch to Bsh",
+      "Style Tweaks",
       "Fixed State Reload issue in Taskbar",
+      "Fixed taskbar rendering unloaded windows items",
     ]
   };
   const desktopShortcutsList=[
@@ -22,7 +27,13 @@ const App=({})=>{
       icon: Icons.application,
       target: "welcome",
       pos: [0,0]
-    }
+    },
+    {
+      title: "BeanShell",
+      icon: Icons.commandPrompt,
+      target: "beanshell",
+      pos: [0,1]
+    },
   ];
   const[debugMenuVisibility,setDebugMenuVisibility]=useState(true);
   /* useEffect(()=>{
@@ -99,10 +110,13 @@ const App=({})=>{
       </Window>
       <Window
         className="beanshell"
+        closed
         data={{
           title:"BeanShell",
           icon: Icons.commandPrompt,
           id:generateId(10),
+          height: 350,
+          width: 500,
           x:30,
           y:30,
           includeTitlebarButtons:["close","max","min"],

@@ -1,7 +1,5 @@
-@font-face {
-  font-family: "Lucida Console", sans-serif;
-  src: url("/fonts/lucida-console/lucon.ttf");
-}
+@use 'sass:list';
+@use 'sass:map';
 #BeanshellConsoleWrapper {
   position: absolute;
   top: 50%;
@@ -14,9 +12,23 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
   padding: 2px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  .nlhalf {
+    content: "";
+    height: .5rem;
+    font-size: .5rem;
+    min-height: .5rem;
+  }
   .bshl {
-    height: 1rem;
+    height: fit-content;
+    // min-height: 1.25rem;
     font-size: 1rem;
     width: 100%;
     line-height: 1rem;
@@ -25,13 +37,125 @@
     align-items: flex-start;
     flex-direction: row; */
     word-wrap: break-word;
+    flex-shrink: 0 !important;
+    flex-basis: 0;
     color: #dddddd;
+    $colors:(
+      "red":#ef5350,"pink":#f48fb1,
+      "purple":#7e57c2,"blue":#2196f3,
+      "cyan":#26c6da,"green":#43a047,
+      "yellow":#ffdc41,"orange":#f9a825,
+      "redorange":#ff5722,"white":#f0f0f0,
+      "gray":#7f7f7f,"lightgray":#bfbfbf,
+      "black":#151515);
+    $colorsList: 
+      map.get($colors, "red"),map.get($colors, "pink"),
+      map.get($colors, "purple"),map.get($colors, "blue"),
+      map.get($colors, "cyan"),map.get($colors, "green"),
+      map.get($colors, "yellow"),map.get($colors, "orange"),
+      map.get($colors, "redorange");
+    &.ohmybsh {
+      .startBlock {
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        margin-right: .25rem;
+        height: 1rem;
+        background: map.get($colors, "yellow") !important;
+        color: #151515b5 !important;
+        &::after {
+          content: " ";
+          width: .75rem;
+          height: 100%;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 99%;
+          background: map.get($colors, "yellow") !important;
+          clip-path: polygon(0% 0%, 20% 0, 100% 50%, 20% 100%, 0% 100%);
+        }
+      }
+      .midBlock {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        height: 1rem;
+        background: map.get($colors, "orange") !important;
+        &::before {
+          content: " ";
+          width: .75rem;
+          height: 100%;
+          position: absolute;
+          top: 0%;
+          right: 99%;
+          background: map.get($colors, "orange") !important;
+          clip-path: polygon(100% 0, 100% 100%, 0% 100%, 80% 50%, 0% 0%);
+        }
+        &::after {
+          content: " ";
+          width: .75rem;
+          height: 100%;
+          position: absolute;
+          top: 0%;
+          left: 98%;
+          background: map.get($colors, "orange") !important;
+          clip-path: polygon(0% 0%, 20% 0, 100% 50%, 20% 100%, 0% 100%);
+        }
+      }
+      .endBlock {
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        height: 1rem;
+        margin-left: .25rem;
+        background: map.get($colors, "blue");
+        &.error {
+          background: map.get($colors, "red") !important;
+          &::before {
+            background: map.get($colors, "red") !important;
+          }
+        }
+        &::before {
+          content: " ";
+          width: .75rem;
+          // height: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0%;
+          right: 99%;
+          background: map.get($colors, "blue");
+          clip-path: polygon(100% 0, 100% 100%, 0% 100%, 80% 50%, 0% 0%);
+        }
+      }
+      #commandInput {
+        width: 3rem;
+        outline: none;
+        background: none;
+        border: none;
+        appearance: none;
+        font-family: 'Source Code Pro' !important;
+        color: #e0e0e0;
+        font-size: 1rem;
+        padding: 0 1px;
+      }
+    }
     span {
-      font-family: "Lucida Console", sans-serif !important;
+      white-space: pre-wrap;
+      font-family: 'Source Code Pro' !important;
       &.rainbow {
-        background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722) !important;
+        background: linear-gradient(to right,#{$colorsList})!important;
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
+      }
+      @each $clr, $val in $colors {
+        &.text_#{$clr} {
+          color: $val !important;
+        }
+        &.hl_#{$clr} {
+          background: $val !important;
+          @if $clr=="yellow" or $clr=="white" {color: #151515b5 !important;}
+        }
+        // &.text_hl_#{$clr} {
+        //   color: $val !important;
+        //   background: $val !important;
+        // }
       }
     }
   }

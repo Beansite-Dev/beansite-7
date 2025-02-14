@@ -24,6 +24,10 @@
         top: 0%;
         left: 50%;
         transform: translateX(-50%);
+        cursor: grab;
+        &:active {
+            cursor: grabbing;
+        }
         h1 {
             font-size: 1rem;
             width: fit-content;

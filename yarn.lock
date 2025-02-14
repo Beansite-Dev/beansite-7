@@ -769,6 +769,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@swc-jotai/react-refresh@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@swc-jotai/react-refresh@npm:0.3.0"
+  checksum: 10c0/73983a118203ef31e9e5e644919d764a9cab9e805319692d872e0b6e883301aedf649c3de7e3d1ca5555503329bcec15d9048b614d33c32660cb3ec8b2eef793
+  languageName: node
+  linkType: hard
+
 "@swc/core-darwin-arm64@npm:1.9.2":
   version: 1.9.2
   resolution: "@swc/core-darwin-arm64@npm:1.9.2"
@@ -1570,6 +1577,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.13.0"
     "@reduxjs/toolkit": "npm:2.3.0"
+    "@swc-jotai/react-refresh": "npm:^0.3.0"
     "@types/react": "npm:^18.3.12"
     "@types/react-dom": "npm:^18.3.1"
     "@vitejs/plugin-react-swc": "npm:^3.5.0"
