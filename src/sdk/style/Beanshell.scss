@@ -141,7 +141,7 @@
       font-family: 'Source Code Pro' !important;
       &.rainbow {
         background: linear-gradient(to right,#{$colorsList})!important;
-        -webkit-background-clip: text !important;
+        background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
       }
       @each $clr, $val in $colors {

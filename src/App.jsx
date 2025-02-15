@@ -9,7 +9,7 @@ import { Icons } from './sdk/modules/Enum';
 import { Beanshell } from './sdk/windows/Beanshell';
 const App=({})=>{
   const _CHANGELOG={
-    "v":"v0.9.4",
+    "v":"v0.9.6",
     "cm":"Nobody's gonna get all the hidden jokes in BeanShell bc i dont think theyre even ever heard of Neofetch",
     "c":[
       "Added Beanshell",

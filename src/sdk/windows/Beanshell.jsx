@@ -317,7 +317,7 @@ export const Beanshell=()=>{
       <br className="nlhalf"/>
       <div className="bshl ohmybsh">
         <span className="startBlock">  Admin </span>
-        <span className="midBlock"> {OhMyBshDir} </span>
+        <span className="midBlock"> 🗀{OhMyBshDir} </span>
         <span className={`endBlock ${OhMyBshStatus?"":"error"}`}> {OhMyBshStatus?"✓":"✕"} </span>
         <span> <input
           type="text"
