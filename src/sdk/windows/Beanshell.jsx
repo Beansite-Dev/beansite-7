@@ -74,13 +74,29 @@ const beanshellLogAtom=atom([
       {content:"##",style:"text_white",decoration:"bui"},
     ]
   },
+  /* { //ohmybsh log test
+    type:"custom", // use components in log
+    id:generateId(10),
+    contents:<>
+      <br className="nlhalf"/>
+      <div className="bshl ohmybsh">
+        <span className="startBlock">  Admin </span>
+        <span className="midBlock"> 🗀~ </span>
+        <span className="endBlock"> ✓ </span>
+        <span> </span>
+      </div>
+    </>
+  }, */
   // {
   //   type:"newline-half",
   //   id:generateId(10),
   // },
 ]);
+const beanshellCommandHistoryAtom=atom([]);
 export const Beanshell=()=>{
   const[logs,setLogs]=useAtom(beanshellLogAtom);
+  const[commandHistory,setCommandHistory]=useAtom(beanshellCommandHistoryAtom);
+  const[currentPositionInCommandHistory,setCurrentPositionInCommandHistory]=useState(-1);
   const bsh={
     log:(content,style="",decoration="")=>{
       setLogs([
@@ -100,43 +116,79 @@ export const Beanshell=()=>{
       ]);
     }
   }
-  useEffect(()=>{
+  /* useEffect(()=>{
     console.table(logs);
-  },[logs]);
+  },[logs]); */
+  useEffect(()=>{console.table(commandHistory);},[commandHistory]);
+  useEffect(()=>{
+    console.log(currentPositionInCommandHistory,commandHistory[currentPositionInCommandHistory],commandHistory);
+  },[currentPositionInCommandHistory]);
   const[OhMyBshStatus,setOhMyBshStatus]=useState(true);
   const[OhMyBshDir,setOhMyBshDir]=useState("~");
   const Eval=(x)=>{
     if(!x){
+      setLogs([...logs,
+        {type:"newline-half",id:generateId(10),},{
+          type:"custom",
+          id:generateId(10),
+          contents:<>
+            <div className="bshl ohmybsh">
+              <span className="startBlock">  Admin </span>
+              <span className="midBlock"> 🗀{OhMyBshDir} </span>
+              <span className={`endBlock ${OhMyBshStatus?"":"error"}`}> {OhMyBshStatus?"✓":"✕"} </span>
+            </div>
+          </>
+        }]);
       setOhMyBshStatus(true);
       return;
     }
     const y=x.match(/(?:[^"\s]+|"(?:[^"]|\\")*")+/g);
     console.log(y);
     if(y){
+      setCommandHistory([x,...commandHistory]);
       const cmd=y[0];
       const props=y.shift();
+      const titleblock=[
+        {type:"newline-half",id:generateId(10),},{
+          type:"custom",
+          id:generateId(10),
+          contents:<>
+            <div className="bshl ohmybsh">
+              <span className="startBlock">  Admin </span>
+              <span className="midBlock"> 🗀{OhMyBshDir} </span>
+              <span className={`endBlock ${OhMyBshStatus?"":"error"}`}> {OhMyBshStatus?"✓":"✕"} </span>
+              <span> {cmd}</span>
+            </div>
+          </>
+        },{type:"newline-half",id:generateId(10),},
+      ];
       switch(cmd){
         case "clear":
         case "cls":
           setOhMyBshStatus(true);
           setLogs([]);
         break;
+        case "help":
+          setOhMyBshStatus(true);
+
+        break;
         case "neofetch":
           setOhMyBshStatus(true);
-          //mb7 neofetch art
-          //         %%%%%     
-          //        %%%%%%%    
-          //  %%%%%%%%%%%%%%   
-          // %%%%%%%%%%%%%%%%  
-          //%%%%%%%%  %%%%%%%  
-          //%%%%%%    %%%%%%   
-          //%%%%%% %%%%%%%     
-          //  %%% %   %%%%%%%  
-          //      %    %%    % 
-          //      %%%       %  
-          //        %%%%%%%%   
+          /*mb7 neofetch art
+                   %%%%%       
+                  %%%%%%%      
+            %%%%%%%%%%%%%%     
+           %%%%%%%%%%%%%%%%    
+          %%%%%%%%  %%%%%%%    
+          %%%%%%    %%%%%%     
+          %%%%%% %%%%%%%       
+            %%% %   %%%%%%%    
+                %    %%    %   
+                %%%       %    
+                  %%%%%%%%     */
           setLogs([
             ...logs,
+            ...titleblock,
             {type:"log",id:generateId(10),contents:[
               {content:`         %%%%%       `,id:generateId(10),style: "text_red",},
               {content:`Admin`,id:generateId(10),style:"text_blue"},
@@ -144,51 +196,51 @@ export const Beanshell=()=>{
               {content:`mb7`,id:generateId(10),style:"text_blue"},
             ],},
             {type:"log",id:generateId(10),contents:[
-              {content:`        %%%%%%%      `,id:generateId(10),style: "text_red",},
+              {content:`        % %%%%%      `,id:generateId(10),style: "text_red",},
               {content:`---------`,id:generateId(10),style:"text_gray"},
             ],},
             {type:"log",id:generateId(10),contents:[
-              {content:`  %%%%%%`,id:generateId(10),style: "text_blue",},{content:`%%%%%%%%     `,id:generateId(10),style: "text_red",},
+              {content:`  %%%%%%`,id:generateId(10),style: "text_blue",},{content:`%% %%%%%     `,id:generateId(10),style: "text_red",},
               {content:`OS: `,id:generateId(10),style:"text_blue"},
               {content:`Beansite 7 x86_64`,id:generateId(10),style:"text_lightgray"},
             ],},
             {type:"log",id:generateId(10),contents:[
-              {content:` %%%%%%%%`,id:generateId(10),style: "text_blue",},{content:`%%%%%%%%    `,id:generateId(10),style: "text_red",},
+              {content:` %%%%% %%`,id:generateId(10),style: "text_blue",},{content:`%%%%%%%%    `,id:generateId(10),style: "text_red",},
               {content:`Kernel: `,id:generateId(10),style:"text_blue"},
               {content:`4.23.3-mdnt-zen-1`,id:generateId(10),style:"text_lightgray"},
             ],},
             {type:"log",id:generateId(10),contents:[
-              {content:`%%%%%%%%  `,id:generateId(10),style: "text_blue",},{content:`%%%%%%%    `,id:generateId(10),style: "text_red",},
-              {content:`Packages: `,id:generateId(10),style:"text_blue"},
-              {content:`1172 (Beanman)`,id:generateId(10),style:"text_lightgray"},
+              {content:`%%%%% %%  `,style: "text_blue",},{content:`%%%%%%%    `,style: "text_red",},
+              {content:`Packages: `,style:"text_blue"},
+              {content:`1172 (Beanman)`,style:"text_lightgray"},
             ],},
             {type:"log",id:generateId(10),contents:[
-              {content:`%%%%%%    `,id:generateId(10),style: "text_blue",},{content:`%%%%%%     `,id:generateId(10),style: "text_red",},
-              {content:`Shell: `,id:generateId(10),style:"text_blue"},
-              {content:`bsh 5.2.37`,id:generateId(10),style:"text_lightgray"},
+              {content:`%%%%%%    `,style: "text_blue",},{content:`%%%%%%     `,style: "text_red",},
+              {content:`Shell: `,style:"text_blue"},
+              {content:`bsh 5.2.37`,style:"text_lightgray"},
             ],},
             {type:"log",id:generateId(10),contents:[
-              {content:`%%%%%% `,id:generateId(10),style: "text_blue",},{content:`%%%%%%%       `,id:generateId(10),style: "text_green",},
-              {content:`DE: `,id:generateId(10),style:"text_blue"},
-              {content:`GBEANE 4.2`,id:generateId(10),style:"text_lightgray"},
+              {content:`%%%%%% `,style: "text_blue",},{content:`%%%%`,style: "text_green",},{content:`%%%%      `,style:"text_red"},
+              {content:`DE: `,style:"text_blue"},
+              {content:`GBEANE 4.2`,style:"text_lightgray"},
             ],},
             {type:"log",id:generateId(10),contents:[
-              {content:`  %%% `,id:generateId(10),style: "text_blue",},{content:`%   %%%%%%%    `,id:generateId(10),style: "text_green",},
-              {content:`CPU: `,id:generateId(10),style:"text_blue"},
-              {content:`shItel Celeron N4120`,id:generateId(10),style:"text_lightgray"},
+              {content:`  %%% `,style: "text_blue",},{content:`%   %%%%%%%    `,style: "text_green",},
+              {content:`CPU: `,style:"text_blue"},
+              {content:`shItel Celeron N4120`,style:"text_lightgray"},
             ],},
             {type:"log",id:generateId(10),contents:[
-              {content:`      %    %%    %   `,id:generateId(10),style: "text_green",},
-              {content:`GPU: `,id:generateId(10),style:"text_blue"},
-              {content:`shItel UHD Graphics 600`,id:generateId(10),style:"text_lightgray"},
+              {content:`      %    %%    %   `,style: "text_green",},
+              {content:`GPU: `,style:"text_blue"},
+              {content:`shItel UHD Graphics 600`,style:"text_lightgray"},
             ],},
             {type:"log",id:generateId(10),contents:[
-              {content:`      %%%       %    `,id:generateId(10),style: "text_green",},
-              {content:`Memory: `,id:generateId(10),style:"text_blue"},
-              {content:`3578MiB / 2048Mib`,id:generateId(10),style:"text_lightgray"},
+              {content:`      %%%       %    `,style: "text_green",},
+              {content:`Memory: `,style:"text_blue"},
+              {content:`3578MiB / 2048Mib`,style:"text_lightgray"},
             ],},
             {type:"log",id:generateId(10),contents:[
-              {content:`        %%%%%%%%     `,id:generateId(10),style: "text_green",},
+              {content:`        %%%%%%%%     `,style: "text_green",},
             ],},
             {type:"log",id:generateId(10),contents:[
               `                     `,
@@ -214,50 +266,19 @@ export const Beanshell=()=>{
           setOhMyBshStatus(false);
           setLogs([
             ...logs,
-            {
-              type:"log",
-              id:generateId(10),
-              contents:[
-                {
-                  content:`${cmd} : The term '${cmd}' is not recognized. please check the spelling and try again.`,
-                  id:generateId(10),
-                  style: "text_red",
-                },
-              ],
-            },
-            {
-              type:"log",
-              id:generateId(10),
-              contents:[
-                {
-                  content:`At line:1 char:1`,
-                  id:generateId(10),
-                  style: "text_red",
-                },
-              ]
-            },
-            {
-              type:"log",
-              id:generateId(10),
-              contents:[
-                {
-                  content:`+ ${cmd}`,
-                  id:generateId(10),
-                  style: "text_red",
-                },
-              ]
-            },
-            {
-              type:"log",
-              id:generateId(10),
-              contents:[
-                {
-                  content:`+ ${("~").repeat(cmd.length)}`,
-                  id:generateId(10),
-                  style: "text_red",
-                },
-              ]
-            },
+            ...titleblock,
+            {type:"log",id:generateId(10),contents:[
+              {content:`${cmd} : The term '${cmd}' is not recognized. please check the spelling and try again.`,
+              style: "text_red",},],},
+            {type:"log",id:generateId(10),contents:[
+              {content:`At line:1 char:1`,
+              style: "text_red",},]},
+            {type:"log",id:generateId(10),contents:[
+              {content:`+ ${cmd}`,
+              style: "text_red",},]},
+            {type:"log",id:generateId(10),contents:[
+              {content:`+ ${("~").repeat(cmd.length)}`,
+              style: "text_red",},]},
           ]);
       }
     }else{
@@ -306,15 +327,18 @@ export const Beanshell=()=>{
             {data.content}</span>
         :<span key={index}>{data}</span>)}
       </div>
-      :type=="newline"?<br/>
-      :type=="newline-half"?<br className="nlhalf"/>:null}
+      :type=="newline"?<div className="nl"/>
+      :type=="newline-half"?<div className="nlhalf"/>
+      :type=="custom"?<>
+        {contents}
+      </>:null}
     </>);
   }
   return(<>
     <div id="BeanshellConsoleWrapper">
       {logs.map(data=>
         <Log data={data} key={data.id}/>)}
-      <br className="nlhalf"/>
+      <div className="nlhalf"/>
       <div className="bshl ohmybsh">
         <span className="startBlock">  Admin </span>
         <span className="midBlock"> 🗀{OhMyBshDir} </span>
@@ -327,9 +351,28 @@ export const Beanshell=()=>{
             if(e.key==="Enter"){
               Eval(e.target.value);
               e.target.value="";
-              document.getElementById("BeanshellConsoleWrapper").scrollTop=
-                document.getElementById("BeanshellConsoleWrapper").scrollHeight;
+              let bshwin=document.getElementById("BeanshellConsoleWrapper");
+              setTimeout(()=>bshwin.scrollTo({
+                top:bshwin.scrollHeight,
+                behavior:"smooth",
+              }),100);
+            }else if(e.key==="ArrowUp"){
+              e.preventDefault();
+              if(commandHistory[currentPositionInCommandHistory+1]){
+                e.target.value=commandHistory[currentPositionInCommandHistory+1]
+                setCurrentPositionInCommandHistory(currentPositionInCommandHistory+1);
+              }
+            }else if(e.key==="ArrowDown"){
+              e.preventDefault();
+              if(commandHistory[currentPositionInCommandHistory-1]){
+                e.target.value=commandHistory[currentPositionInCommandHistory-1]
+                setCurrentPositionInCommandHistory(currentPositionInCommandHistory-1);
+              }else{
+                setCurrentPositionInCommandHistory(-1);
+                e.target.value="";
+              }
             }
+            e.target.style.width=`${e.target.value.length + 1}ch`;
           }}
           id="commandInput"/></span>
       </div>

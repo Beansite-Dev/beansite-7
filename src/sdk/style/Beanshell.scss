@@ -20,11 +20,19 @@
   }
   -ms-overflow-style: none;
   scrollbar-width: none;
+  .nl {
+    clear: both;
+    height: 1rem !important;
+    width: 100% !important;
+    font-size: 1rem;
+    min-height: 1rem !important;
+  }
   .nlhalf {
-    content: "";
-    height: .5rem;
+    clear: both;
+    height: .5rem !important;
+    width: 100% !important;
     font-size: .5rem;
-    min-height: .5rem;
+    min-height: .5rem !important;
   }
   .bshl {
     height: fit-content;

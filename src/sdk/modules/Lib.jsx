@@ -35,3 +35,5 @@ export const queryParams=getQueryParams(window.location.search);
 //     document.removeEventListener('mousedown', mouseDownListener);
 //   }
 // }
+// export const waitForTrue=async(bool,checkInterval=100)=>{
+//   while(!bool){await new Promise((resolve)=>setTimeout(()=>resolve(),checkInterval));}}
