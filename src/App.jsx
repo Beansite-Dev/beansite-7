@@ -9,7 +9,7 @@ import { Icons } from './sdk/modules/Enum';
 import { Beanshell } from './sdk/windows/Beanshell';
 const App=({})=>{
   const _CHANGELOG={
-    "v":"v0.10.2",
+    "v":"v0.10.3",
     "cm":"Tweaks and shit liek that",
     "c":[
       "Added Beanshell",
@@ -111,7 +111,7 @@ const App=({})=>{
       </Window>
       <Window
         className="beanshell"
-        // closed
+        closed
         data={{
           title:"BeanShell",
           icon: Icons.commandPrompt,

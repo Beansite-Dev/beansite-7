@@ -64,13 +64,11 @@ export const Taskbar=({})=>{
     };
     return(<>
       <motion.button 
-        style={{
-          backgroundImage:`url("${data?data.icon:'/icons/15.ico'}")`,
-        }}
+        style={{backgroundImage:`url("${data?data.icon:'/icons/15.ico'}")`,}}
         transition={{duration:.25}}
         initial={{opacity:0,y:48}}
         animate={data?!data.closed?
-          {opacity:1,y:0}:
+          {opacity:1,y:0,display:"flex"}:
           {opacity:0,y:48,display:"none"}:
           {opacity:0,y:48,display:"none"}}
         exit={{opacity:0,y:48}}
