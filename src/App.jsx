@@ -7,7 +7,11 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import { motion } from 'motion/react';
 import { Icons } from './sdk/modules/Enum';
 import { Beanshell } from './sdk/windows/Beanshell';
+import { OpenSolaris, Solaris } from './components/solaris';
+import { useAtom } from 'jotai';
+export const _DEBUG=true;
 const App=({})=>{
+  const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const _CHANGELOG={
     "v":"v0.10.3",
     "cm":"Tweaks and shit liek that",
@@ -124,6 +128,29 @@ const App=({})=>{
         }}>
           <Beanshell />
       </Window>
+      {_DEBUG?
+        <Window
+          className="debug"
+          // closed
+          data={{
+            title:"Debug Menu",
+            icon: Icons.configApplication,
+            id:generateId(10),
+            // height: 350,
+            // width: 500,
+            x:15,
+            y:255,
+            includeTitlebarButtons:["close","max","min"],
+          }}>
+            <button 
+              onClick={(e)=>{
+                e.preventDefault();
+                setSolarisOpen(true);
+              }}
+              className='button1'>Run Solaris.exe</button>
+        </Window>
+      :null}
+      <Solaris/>
     </AppWrapper>
   </>);
 };

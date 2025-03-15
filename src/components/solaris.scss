@@ -1,0 +1,158 @@
+@font-face {
+    font-family: glitch1;
+    src: url("/fonts/glitch1.otf");
+}
+@font-face {
+    font-family: glitch2;
+    src: url("/fonts/glitch2.ttf");
+}
+@font-face {
+    font-family: glitch3;
+    src: url("/fonts/glitch3.ttf");
+}
+@font-face {
+    font-family: glitch4;
+    src: url("/fonts/glitch4.TTF");
+}
+@font-face {
+    font-family: glitch5;
+    src: url("/fonts/glitch5.ttf");
+}
+@font-face {
+    font-family: glitch6;
+    src: url("/fonts/glitch6.ttf");
+}
+@font-face {
+    font-family: glitch7;
+    src: url("/fonts/glitch7.TTF");
+}
+@font-face {
+    font-family: glitch8;
+    src: url("/fonts/glitch8.otf");
+}
+@font-face {
+    font-family: glitch9;
+    src: url("/fonts/glitch9.ttf");
+}
+
+.screen_filter {
+    height: 100dvh;
+    width: 100dvw;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    user-select: none;
+    background: transparent;
+    z-index: 9999;
+}
+// #root {
+//     --rand1: 0;
+//     --rand2: .25;
+//     --rand3: .5;
+//     --rand4: .35;
+// }
+.lsd-l {
+    animation: lsd_ani 2s linear infinite;
+}
+.lsd {
+    animation: lsd_ani_wb 5s linear infinite;
+}
+.lsd-s {
+    animation: lsd_ani 2s linear infinite;
+}
+@keyframes lsd_ani_wb {
+    0% {
+        backdrop-filter: 
+            blur(1px)
+            brightness(150%)
+            hue-rotate(125deg)
+            saturate(175%)
+            contrast(150%);
+    }
+    20% {
+        backdrop-filter: 
+            blur(0px)
+            brightness(167%)
+            hue-rotate(-75deg)
+            saturate(135%)
+            contrast(250%);
+    }
+    50% {
+        backdrop-filter: 
+            blur(2px)
+            brightness(59%)
+            hue-rotate(-180deg)
+            saturate(300%)
+            contrast(75%);
+    }
+    90% {
+        backdrop-filter: 
+            blur(0px)
+            brightness(250%)
+            hue-rotate(180deg)
+            saturate(400%)
+            contrast(400%);
+    }
+    95% {
+        backdrop-filter: 
+            blur(1px)
+            brightness(150%)
+            hue-rotate(20deg)
+            saturate(85%)
+            contrast(200%);
+    }
+    100% {
+        backdrop-filter: 
+            blur(1px)
+            brightness(150%)
+            hue-rotate(125deg)
+            saturate(175%)
+            contrast(150%);
+    }
+}
+@keyframes lsd_ani {
+    0% {
+        backdrop-filter: 
+            brightness(150%)
+            hue-rotate(125deg)
+            saturate(175%)
+            contrast(150%);
+    }
+    20% {
+        backdrop-filter: 
+            brightness(167%)
+            hue-rotate(-75deg)
+            saturate(135%)
+            contrast(250%);
+    }
+    50% {
+        backdrop-filter: 
+            brightness(59%)
+            hue-rotate(-180deg)
+            saturate(300%)
+            contrast(75%);
+    }
+    90% {
+        backdrop-filter: 
+            brightness(250%)
+            hue-rotate(180deg)
+            saturate(400%)
+            contrast(400%);
+    }
+    95% {
+        backdrop-filter: 
+            brightness(150%)
+            hue-rotate(20deg)
+            saturate(85%)
+            contrast(200%);
+    }
+    100% {
+        backdrop-filter: 
+            brightness(150%)
+            hue-rotate(125deg)
+            saturate(175%)
+            contrast(150%);
+    }
+}
