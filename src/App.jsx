@@ -61,6 +61,7 @@ const App=({})=>{
       <link rel="stylesheet" href="/themes/default.scss" />
     </Helmet>
     <AppWrapper desktopShortcutsList={desktopShortcutsList}>
+      {/* <div id="bloomfx"></div> */}
       <motion.div 
         transition={{duration:.25}}
         initial={{x:20,opacity:0}}

@@ -66,6 +66,39 @@ body {
         font-size: 13px;
     }
 }
+#bloomfx {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	height: 100dvh;
+	width: 100dvw;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 998;
+	background: transparent;
+	backdrop-filter: brightness(150%) contrast(2) blur(8px);
+	opacity: .25;
+	pointer-events: none;
+    &::after {
+        content: "";
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        height: 100dvh;
+        width: 100dvw;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 999;
+        background: transparent;
+        backdrop-filter: brightness(250%) contrast(2.5) blur(4px);
+        opacity: .25;
+        pointer-events: none;
+    }
+}
 .debug {
     .button1 {
         margin: 0;
