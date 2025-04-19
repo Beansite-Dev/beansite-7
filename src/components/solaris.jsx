@@ -34,7 +34,7 @@ export const Solaris=({})=>{
             }
         }
         useEffect(()=>{
-            setInterval(()=>{Payload1_Color();},20);
+            setInterval(()=>{Payload1_Color();},100);
         },[]);
         return(<> 
             {createPortal(<>

@@ -9,6 +9,7 @@ import { Icons } from './sdk/modules/Enum';
 import { Beanshell } from './sdk/windows/Beanshell';
 import { OpenSolaris, Solaris } from './components/solaris';
 import { useAtom } from 'jotai';
+import { Beanpowered, glData } from './sdk/windows/Beanpowered';
 export const _DEBUG=true;
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
@@ -54,6 +55,33 @@ const App=({})=>{
   useEffect(()=>{
     document.body.className="default";
   },[]);
+  const GameLoaderWindow=({dragConstraint})=>{
+    const[glt,sGlt]=useAtom(glData);
+    useEffect(()=>{
+      console.table(glt);
+    });
+    return(<>
+      <Window
+        className="gameloader"
+        // closed
+        dragConstraint={dragConstraint}
+        customWindowStyling={glt.closed
+          ?{}
+          :{}}
+        data={{
+          title:glt.title,
+          icon: glt.icon,
+          id:generateId(10),
+          // height: 350,
+          // width: 500,
+          x:(innerWidth-300)/2 /* 15 */,
+          y:(innerHeight-225)/2,
+          includeTitlebarButtons:["close","max","min"],
+        }}>
+            
+      </Window>
+    </>);
+  }
   return(<>
     <Helmet>
       <title>Beansite 7</title>
@@ -129,17 +157,40 @@ const App=({})=>{
         }}>
           <Beanshell />
       </Window>
+      <Window
+        className="beanpowered"
+        // closed
+        customContentBoxStyling={{
+          background: "#171d25 !important",
+          border: "none",
+          overflow: "hidden",
+        }}
+        data={{
+          title:"Beanpowered",
+          icon: Icons.beanpowered,
+          id:generateId(10),
+          // height: 350,
+          // width: 500,
+          x:15,
+          y:255,
+          height: 365,
+          width: 615,
+          includeTitlebarButtons:["close","max","min"],
+        }}>
+          <Beanpowered />
+      </Window>
+      <GameLoaderWindow/>
       {_DEBUG?
         <Window
           className="debug"
-          // closed
+          closed
           data={{
             title:"Debug Menu",
             icon: Icons.configApplication,
             id:generateId(10),
             // height: 350,
             // width: 500,
-            x:15,
+            x:330,
             y:255,
             includeTitlebarButtons:["close","max","min"],
           }}>

@@ -1,7 +1,7 @@
 import { atom, useAtom } from "jotai";
 import { motion } from "motion/react";
 import { generateId } from "../modules/Lib";
-import "../style/Beanshell.scss";
+import "../style/apps/Beanshell.scss";
 import { useEffect, useState } from "react";
 const beanshellLogAtom=atom([
   //test log anatomy

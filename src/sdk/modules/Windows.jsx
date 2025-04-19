@@ -23,6 +23,8 @@ export const Window=({
     height=225,
     width=300,
   },
+  customContentBoxStyling={},
+  customWindowStyling={},
   //callbacks
   beforeClose=()=>{},
   afterClose=()=>{},
@@ -96,7 +98,7 @@ export const Window=({
       initial={{opacity:0,y:-5}}
       animate={ani}
       ref={winParent}
-      style={{height:mHeight,width:mWidth,top:y,left:x}}
+      style={{height:mHeight,width:mWidth,top:y,left:x,...customWindowStyling}}
       className={`window ${_maximized?"maximized":""} ${className} ${_closed||_minimized?"noInteract":""}`} 
       id={id} 
       onMouseDown={(e)=>{
@@ -164,6 +166,7 @@ export const Window=({
         </div>
         <div 
           className="contents" 
+          style={customContentBoxStyling}
           onPointerDownCapture={e=>e.stopPropagation()}>
             {children}
         </div>
