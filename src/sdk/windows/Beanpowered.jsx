@@ -9,12 +9,12 @@ import { faArrowAltCircleLeft, faArrowLeft, faArrowRight, faDownload, faGear, fa
 import { Tabs } from '@base-ui-components/react/tabs';
 import games from "../store/games";
 import { useEffect, useRef, useState } from "react";
-export const glData=atom({
-  title:"Gameloader",
-  gameUrl:"",
-  icon:Icons.gamesDirectory,
-  closed:true,
-});
+// export const glData=atom({
+//   title:"Gameloader",
+//   gameUrl:"",
+//   icon:Icons.gamesDirectory,
+//   closed:true,
+// });
 export const Beanpowered=({})=>{
   const[Windows,setWindows]=useAtom(winStore);
   const GameUI=({gamedata,gamename})=>{
@@ -34,24 +34,37 @@ export const Beanpowered=({})=>{
       });
     },[]);
     const GUILaunchButton=({})=>{
-      const[glt,sGlt]=useAtom(glData);
+      // const[glt,sGlt]=useAtom(glData);
       return(<motion.button 
         id="GUI_launch"
         onClick={(e)=>{
           e.preventDefault();
-          sGlt({
+          var win=window.open("",gamename,"toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=640,height=360,top="+(screen.height-400)+",left="+(screen.width-840));
+          win.document.documentElement.innerHTML=`
+            <title>${gamename}</title>
+            <link rel="icon" type="image/x-icon" href="${`/apps/beanpowered/gicon/${gamedata.id}.png`}">
+            <iframe src="${gamedata.url}" 
+              style="
+                height:100dvh;
+                width:100dvw;
+                position:fixed;
+                top:50%;
+                left:50%;
+                translate:-50% -50%;" />
+          `;
+          /* sGlt({
             title:gamename,
             gameUrl:gamedata.url,
             icon:`/apps/beanpowered/gicon/${gamedata.id}.png`,
             closed:false,
-          });
-          setWindows([
+          }); */
+          /* setWindows([
             ...Windows.filter(win=>win.className!=="gameloader"),
             {...Windows.filter(win=>win.className==="gameloader")[0],
               closed:false,
               min:false,
               max:false}
-          ]);
+          ]); */
         }}>
         <FontAwesomeIcon icon={faPlay} /> Launch
       </motion.button>);

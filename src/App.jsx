@@ -9,14 +9,15 @@ import { Icons } from './sdk/modules/Enum';
 import { Beanshell } from './sdk/windows/Beanshell';
 import { OpenSolaris, Solaris } from './components/solaris';
 import { useAtom } from 'jotai';
-import { Beanpowered, glData } from './sdk/windows/Beanpowered';
+import { Beanpowered } from './sdk/windows/Beanpowered';
 export const _DEBUG=true;
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const _CHANGELOG={
-    "v":"v0.10.3",
-    "cm":"Tweaks and shit liek that",
+    "v":"v0.11.4",
+    "cm":"Finally functional lmao",
     "c":[
+      "Added Beanpowered",
       "Added Beanshell",
       "Added Beanshell Command History",
       "Added Beanshell Syntax Highlighting",
@@ -55,7 +56,7 @@ const App=({})=>{
   useEffect(()=>{
     document.body.className="default";
   },[]);
-  const GameLoaderWindow=({dragConstraint})=>{
+  /* const GameLoaderWindow=({dragConstraint})=>{
     const[glt,sGlt]=useAtom(glData);
     useEffect(()=>{
       console.table(glt);
@@ -66,22 +67,22 @@ const App=({})=>{
         // closed
         dragConstraint={dragConstraint}
         customWindowStyling={glt.closed
-          ?{}
-          :{}}
+          ?{display:"none",pointerEvents:"none"}
+          :{display:"auto",pointerEvents:"auto"}}
         data={{
           title:glt.title,
           icon: glt.icon,
           id:generateId(10),
           // height: 350,
           // width: 500,
-          x:(innerWidth-300)/2 /* 15 */,
+          x:(innerWidth-300)/2,
           y:(innerHeight-225)/2,
           includeTitlebarButtons:["close","max","min"],
         }}>
             
       </Window>
     </>);
-  }
+  } */
   return(<>
     <Helmet>
       <title>Beansite 7</title>
@@ -179,7 +180,7 @@ const App=({})=>{
         }}>
           <Beanpowered />
       </Window>
-      <GameLoaderWindow/>
+      {/* <GameLoaderWindow/> */}
       {_DEBUG?
         <Window
           className="debug"
