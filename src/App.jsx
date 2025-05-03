@@ -14,7 +14,7 @@ export const _DEBUG=true;
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const _CHANGELOG={
-    "v":"v0.11.4",
+    "v":"v0.12.2",
     "cm":"Finally functional lmao",
     "c":[
       "Added Beanpowered",

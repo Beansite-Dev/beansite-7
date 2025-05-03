@@ -5,6 +5,7 @@ import { generateId } from "./Lib";
 import { winStore } from "../store/Windows";
 // import { useRecoilState } from 'recoil';
 import { useAtom } from "jotai";
+import interact from "interactjs";
 export const Window=({
   dragConstraint,
   children,
@@ -34,26 +35,46 @@ export const Window=({
   afterMaximize=()=>{},
 })=>{
   const winParent=useRef(null);
-  const[isDraggingY,setIsDraggingY]=useState(false);
+  //! depricated resize scripts 
+  /* const[isDraggingY,setIsDraggingY]=useState(false);
   const mHeight=useMotionValue(height);
   const handleDragY=useCallback((e,info)=>{
     let newHeight=mHeight.get()+info.delta.y;
     if(newHeight>150&&newHeight<2000)mHeight.set(mHeight.get()+info.delta.y);
-  },[]);
-
-  const[isDraggingX,setIsDraggingX]=useState(false);
+  },[]); */
+  /* const[isDraggingX,setIsDraggingX]=useState(false);
   const mWidth=useMotionValue(width);
   const handleDragX=useCallback((e,info)=>{
     let newWidth=mWidth.get()+info.delta.x;
     if(newWidth>150&&newWidth<2000)mWidth.set(mWidth.get()+info.delta.x);
-  },[]);
+  },[]); */
 
   const[_closed,setClosed]=useState(closed);
   const[ani,setAni]=useState(closed?{opacity:0}:{opacity:1});
   const[_maximized,setMaximized]=useState(maximized);
   const[_minimized,setMinimized]=useState(minimized);
-  
+  const[position,setPosition]=useState({x,y});
+  // const[isResizing,setIsResizing]=useState(true);
+  const[size,setSize]=useState({width,height});
   const[Windows,setWindows]=useAtom(winStore);
+
+  useEffect(()=>{
+    let intractable=interact(`#${winParent.current.id}`);
+    intractable.resizable({
+      edges:{top:true,left:true,bottom:true,right:true},
+      inertia:true,
+      restrict:{
+        restriction:"parent",
+        endOnly:true,
+      },
+      onmove(event){
+        setSize((prevSize)=>({
+          width:prevSize.width+event.deltaRect.width,
+          height:prevSize.height+event.deltaRect.height,
+        }));
+      },
+    });
+  },[]);
 
   useEffect(()=>{
     if(!Windows.find(win=>win.id===id))
@@ -92,13 +113,25 @@ export const Window=({
     <motion.div 
       drag
       dragConstraints={dragConstraint}
-      dragListener={!(isDraggingX||isDraggingY)&&draggable}
+      dragListener={draggable}
+      onDrag={(e,info)=>{
+        setPosition({
+          x:info.point.x,
+          y:info.point.y,
+        });
+      }}
       dragMomentum={false}
       transition={{duration:.35}}
       initial={{opacity:0,y:-5}}
       animate={ani}
       ref={winParent}
-      style={{height:mHeight,width:mWidth,top:y,left:x,...customWindowStyling}}
+      style={{
+        height:size.width,
+        width:size.height,
+        top:position.y,
+        left:position.y,
+        ...customWindowStyling
+      }}
       className={`window ${_maximized?"maximized":""} ${className} ${_closed||_minimized?"noInteract":""}`} 
       id={id} 
       onMouseDown={(e)=>{
@@ -170,32 +203,35 @@ export const Window=({
           onPointerDownCapture={e=>e.stopPropagation()}>
             {children}
         </div>
+        {/*//! depricated old resize script */}
         <motion.div
-          drag="y"
+          // drag="y"
           className="resizeY"
-          dragConstraints={{top: 0,left:0,right:0,bottom:0}}
-          dragElastic={0}
-          dragMomentum={false}
-          onDrag={handleDragY}
-          onDragEnd={(e)=>{
+          id={`${id}_rsy`}
+          // dragConstraints={{top:0,left:0,right:0,bottom:0}}
+          // dragElastic={0}
+          // dragMomentum={false}
+          // onDrag={handleDragY}
+          /* onDragEnd={(e)=>{
             setIsDraggingY(false);
-          }}
-          onDragStart={(e)=>{
+          }} */
+          /* onDragStart={(e)=>{
             setIsDraggingY(true);
-          }}></motion.div>
+          }} */></motion.div>
         <motion.div
-          drag="x"
+          // drag="x"
           className="resizeX"
-          dragConstraints={{top: 0,left:0,right:0,bottom:0}}
-          dragElastic={0}
-          dragMomentum={false}
-          onDrag={handleDragX}
-          onDragEnd={(e)=>{
+          id={`${id}_rsx`}
+          // dragConstraints={{top:0,left:0,right:0,bottom:0}}
+          // dragElastic={0}
+          // dragMomentum={false}
+          // onDrag={handleDragX}
+          /* onDragEnd={(e)=>{
             setIsDraggingX(false);
-          }}
-          onDragStart={(e)=>{
+          }} */
+          /* onDragStart={(e)=>{
             setIsDraggingX(true);
-          }}></motion.div>
+          }} */></motion.div>
     </motion.div>
   </>);
 }

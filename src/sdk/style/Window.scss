@@ -102,7 +102,7 @@
         bottom: 0;
         background: transparent;
         transition: background .35s;
-        cursor: row-resize;
+        // cursor: row-resize;
         z-index: 20;
     }
     .resizeX {
@@ -113,7 +113,7 @@
         top: 0;
         background: transparent;
         transition: background .35s,;
-        cursor: col-resize;
+        // cursor: col-resize;
         z-index: 20;
     }
 }

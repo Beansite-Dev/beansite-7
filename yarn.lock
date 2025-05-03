@@ -522,6 +522,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@interactjs/types@npm:1.10.27":
+  version: 1.10.27
+  resolution: "@interactjs/types@npm:1.10.27"
+  checksum: 10c0/767afe37cd932ed248712dc0aa9c912b18af1104ec26829d655daaeef57d13c8e9e973c9f59e4be978d66fe7e86b77f58dec4688bb2e5d38b838d5a38cb27cf4
+  languageName: node
+  linkType: hard
+
 "@internationalized/date@npm:^3.8.0":
   version: 3.8.0
   resolution: "@internationalized/date@npm:3.8.0"
@@ -1967,6 +1974,7 @@ __metadata:
     framer-motion: "npm:^11.11.17"
     globals: "npm:^15.11.0"
     html2canvas: "npm:^1.4.1"
+    interactjs: "npm:^1.10.27"
     jotai: "npm:^2.11.3"
     jquery: "npm:^3.7.1"
     motion: "npm:^11.11.17"
@@ -3708,6 +3716,15 @@ __metadata:
   version: 2.0.1
   resolution: "inherits@npm:2.0.1"
   checksum: 10c0/bfc7b37c21a2cddb272adc65b053b1716612d408bb2c9a4e5c32679dc2b08032aadd67880c405be3dff060a62e45b353fc3d9fa79a3067ad7a3deb6a283cc5c6
+  languageName: node
+  linkType: hard
+
+"interactjs@npm:^1.10.27":
+  version: 1.10.27
+  resolution: "interactjs@npm:1.10.27"
+  dependencies:
+    "@interactjs/types": "npm:1.10.27"
+  checksum: 10c0/35532c636fc7cf8273999d314c9738994bfc4a1a384fd64658420055e93456aa6333a865e04b1765d39ee4e29f898854c3f3451a7a88a09141e32115cc6112e2
   languageName: node
   linkType: hard
 
