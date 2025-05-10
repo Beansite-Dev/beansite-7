@@ -20,7 +20,7 @@ export const Window=({
     includeTitlebarButtons=[],
     x=15,
     y=15,
-    height=225,
+    height=215,
     width=300,
   },
   customContentBoxStyling={},

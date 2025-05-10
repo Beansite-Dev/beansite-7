@@ -10,22 +10,19 @@ import { Beanshell } from './sdk/windows/Beanshell';
 import { OpenSolaris, Solaris } from './components/solaris';
 import { useAtom } from 'jotai';
 import { Beanpowered } from './sdk/windows/Beanpowered';
+import { winStore } from './sdk/store/Windows';
 export const _DEBUG=true;
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const _CHANGELOG={
-    "v":"v0.11.4",
+    "v":"v0.12.1",
+    "d":"5/10/2025",
     "cm":"Finally functional lmao",
     "c":[
-      "Added Beanpowered",
-      "Added Beanshell",
-      "Added Beanshell Command History",
-      "Added Beanshell Syntax Highlighting",
-      "Implemented OhMyBsh to Bsh",
-      "Implemented Neofetch to Bsh",
-      "Style Tweaks",
-      "Fixed State Reload issue in Taskbar",
-      "Fixed taskbar rendering unloaded windows items",
+      "Updated UI",
+      "Fixed various microbugs",
+      "Planned minecraft launcher readdition",
+      "Drafted resize script improvement"
     ]
   };
   const desktopShortcutsList=[
@@ -83,6 +80,27 @@ const App=({})=>{
       </Window>
     </>);
   } */
+ const QuickAccessShortcut=({
+  name,target,id,icon
+ })=>{
+  const[Windows,setWindows]=useAtom(winStore);
+  const OpenApp=()=>{
+    setWindows([
+      ...Windows.filter(win=>win.className!==target),
+      {...Windows.filter(win=>win.className===target)[0],
+        closed:false,min:false,max:false}
+    ]);
+  }
+  return(<>
+    <div onClick={(e)=>{
+      e.preventDefault();
+      OpenApp();
+    }} className='qcitem' id={id}>
+      <div className='icon' style={{backgroundImage:`url(${icon})`}}></div>
+      <span>{name}</span>
+    </div>
+  </>);
+ }
   return(<>
     <Helmet>
       <title>Beansite 7</title>
@@ -122,10 +140,18 @@ const App=({})=>{
           icon:Icons.application,
           id:generateId(10),
           x:15,
-          y:15,
+          y:15,  
           includeTitlebarButtons:["close","max","min"],
         }}>
-          <h1>Welcome To Beansite 7!</h1>
+          <h1>Welcome To Beansite 7!</h1><div id="logo"></div>
+          <p>Quick Access</p>
+          <div id="quickAccess">
+            <QuickAccessShortcut 
+              name="Beanshell"
+              target="beanshell"
+              icon={Icons.commandPrompt}
+              id={generateId(10)}/>
+          </div>
       </Window>
       <Window
         className="changelog"
@@ -133,11 +159,11 @@ const App=({})=>{
           title:"Changelog",
           icon:"/icons/68.ico",
           id:generateId(10),
-          x:330,
-          y:15,
+          x:15,
+          y:245,
           includeTitlebarButtons:["close","max","min"],
         }}>
-          <h1>Changelog - {_CHANGELOG.v}</h1>
+          <h1>Changelog - {_CHANGELOG.v}<br/><span>{_CHANGELOG.d}</span></h1>
           <p>{_CHANGELOG.cm}</p>
           <ul>
             {_CHANGELOG.c.map((d,i)=><li key={i}>{d}</li>)}
@@ -172,10 +198,10 @@ const App=({})=>{
           id:generateId(10),
           // height: 350,
           // width: 500,
-          x:15,
-          y:255,
-          height: 365,
-          width: 615,
+          x:330,
+          y:15,
+          height: 445,
+          width: 700,
           includeTitlebarButtons:["close","max","min"],
         }}>
           <Beanpowered />

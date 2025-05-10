@@ -46,14 +46,78 @@ body {
         linear-gradient(to bottom, #50505090 1px, transparent 1px);
 }
 .welcome {
+    .contents{
+        padding:.5rem !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: .5rem;
+    }
     h1 {
         margin: 0;
+        // position: absolute !important;
+        // top: .5rem;
+        font-size: 2rem;
+        line-height: 1.1;
+        // left: .5rem;
+    }
+    #logo {
+        height: 5rem;
+        aspect-ratio: 1 / 1;
+        position: absolute;
+        top: .5rem;
+        right: .5rem;
+        background-image: url("/assets/beansite7_favicon.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: drop-shadow(0 0 5px rgba(black,.8)) drop-shadow(0 5px 5px rgba(black,.5));
+    }
+    p {
+        margin: 0;
+    }
+    #quickAccess {
+        height: 4.675rem;
+        width: 100%;
+        // background: pink;
+        display: flex;
+        flex-direction: row;
+        gap: .5rem;
+        .qcitem {
+            height: 100%;
+            aspect-ratio: 4 / 5;
+            // background: pink;
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 0rem !important;
+            cursor: pointer;
+            .icon {
+                width: 80%;
+                aspect-ratio: 1 / 1;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            span {
+                font-size: .875rem;
+                color: #303030;
+            }
+        }
     }
 }
 .changelog {
     h1 {
         margin: 0;
-        font-size: 2rem;
+        font-size: 1.5rem;
+        line-height: 1;
+        span {
+            font-size: 1.25rem;
+            color: #303030;
+        }
+        margin-bottom: .5rem;
     }
     p {
         margin: 0;
