@@ -23,6 +23,10 @@ export function getQueryParams(qs) {
     return params;
 }
 export const queryParams=getQueryParams(window.location.search);
+Object.filter = (obj, predicate) => 
+  Object.keys(obj)
+    .filter( key => predicate(obj[key]) )
+    .reduce( (res, key) => (res[key] = obj[key], res), {} );
 // const outsideClickListener=event=>{
 //   const deltaX=event.offsetX-lastMouseDownX;
 //   const deltaY=event.offsetY-lastMouseDownY;

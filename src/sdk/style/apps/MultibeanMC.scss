@@ -1,0 +1,377 @@
+#mbmcwrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  height: 100%;
+  width: 100%;
+  nav {
+    height: 36px;
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    translate: -50% 0;
+    background: #f0f0f0;
+    border: 1px outset #fff;
+    padding: 0px 4px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    &::after {
+      content: "• • • • • •";
+      color: #b8b8b8;
+      font-size: .5rem;
+      position: absolute;
+      text-wrap: wrap;
+      width: 1px;
+      height: 36px;
+      left: 2px;
+      top: 50%;
+      translate: 0 -50%;
+      text-align: center !important;
+      vertical-align: middle !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // line-height: 5px;
+      line-height: calc(24px / 6);
+    }
+    .navitem {
+      border: none;
+      padding: 8px;
+      height: calc(100% - 2px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      gap: 4px;
+      font-size: .85rem;
+      cursor: pointer;
+      &:hover {
+        background: #e5f3ff;
+        outline: 1px solid #cce8ff;
+      }
+      .icon {
+        height: .85rem;
+        aspect-ratio: 1.75 / 1;
+        background: #fbfbfb;
+        border-radius: 2px;
+        font-size: .675rem;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        vertical-align: middle;
+        box-shadow: 
+          0 0 1px rgba(black,.25),
+          0 2px 2px rgba(black,.25);
+      }
+    }
+    hr {
+      height: calc(100% - 8px);
+      width: 1px;
+      max-width: 1px;
+      border: none;
+      margin: 4px !important;
+      padding: 0 !important;
+      border-left: 1px solid #d3d3d3;
+      flex: 0 !important;
+    }
+    #userBox {
+      // flex-grow: 1;
+      text-align: right;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      flex-direction: row;
+      padding: 2px;
+      gap: 6px;
+      cursor: pointer;
+      position: absolute;
+      right: 4px;
+      top: 50%;
+      translate: 0 -50%;
+      &:hover {
+        background: #e5f3ff;
+        outline: 1px solid #cce8ff;
+      }
+      #userIcon {
+        height: 28px;
+        aspect-ratio: 1 / 1;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+  }
+  #itemDisplay {
+    height: calc(100% - 36px - 36px);
+    width: 150px;
+    position: absolute;
+    top: 36px;
+    right: 0;
+    background: #f0f0f0;
+    border: 1px outset #fff;
+    padding: 12px 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
+    &::after {
+      content: "• • • • • • • • • • • • • • • • • • • • • • • • • • •";
+      color: #b8b8b8;
+      font-size: .5rem;
+      position: absolute;
+      text-wrap: wrap;
+      width: 150px;
+      height: 1px;
+      left: 50%;
+      top: 2px;
+      translate: -50% 0;
+      text-align: center !important;
+      vertical-align: middle !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // line-height: 5px;
+      line-height: calc(150px / 6);
+    }
+    #idicon {
+      width: 5rem;
+      aspect-ratio: 1 / 1;
+      // background-image: url("/apps/mbmc/vi/eag.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    h1 {
+      font-size: .85rem;
+      margin: 0 !important;
+      text-wrap: wrap;
+      line-height: 1;
+    }
+    hr {
+      width: 100%;
+      height: 1px;
+      margin: 0 !important;
+      padding: 0 !important;
+      border: none;
+      border-top: 1px solid #d3d3d3;
+    }
+    .iditem {
+      border: none;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+      gap: 4px;
+      font-size: .85rem;
+      width: 100%;
+      cursor: pointer;
+      &:hover {
+        background: #e5f3ff;
+        outline: 1px solid #cce8ff;
+      }
+      .icon {
+        height: .85rem;
+        aspect-ratio: 1.75 / 1;
+        background: #fbfbfb;
+        border-radius: 2px;
+        font-size: .675rem;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-position: center;
+        vertical-align: middle;
+        box-shadow: 
+          0 0 1px rgba(black,.25),
+          0 2px 2px rgba(black,.25);
+      }
+    }
+  }
+  #statusBar {
+    height: 36px;
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    translate: -50% 0;
+    background: #f0f0f0;
+    border: 1px outset #fff;
+    // padding: 0px 4px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    #topBar {
+      width: 100%;
+      height: 20px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+      font-size: .85rem;
+      padding: 0 8px;
+      gap: 4px;
+      span {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+        gap: 4px;
+        height: calc(100% - 2px);
+        &:hover {
+          background: #e5f3ff;
+          outline: 1px solid #cce8ff;
+        }
+        &.ord1 {
+          flex-grow: 1;
+        }
+      }
+      &::after {
+        content: "• • • • •";
+        color: #b8b8b8;
+        font-size: .5rem;
+        position: absolute;
+        text-wrap: wrap;
+        width: 1px;
+        height: 36px;
+        left: 2px;
+        top: 50%;
+        translate: 0 -50%;
+        text-align: center !important;
+        vertical-align: middle !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // line-height: 5px;
+        line-height: calc(24px / 6);
+      }
+    }
+    #bottomBar {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+      font-size: .75rem;
+      padding: 0 2px;
+      gap: 4px;
+      hr {
+        height: calc(100% - 2px);
+        width: 1px;
+        max-width: 1px;
+        border: none;
+        margin: 4px !important;
+        padding: 0 !important;
+        border-left: 1px solid #d3d3d3;
+        flex: 0 !important;
+      }
+      span {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+        text-overflow: ellipsis !important;
+        overflow: hidden;
+        white-space: nowrap;
+        gap: 4px;
+        &.ord1 {
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+  #mainInstanceWrapper {
+    height: calc(100% - 36px - 36px);
+    width: calc(100% - 150px);
+    position: absolute;
+    top: 36px;
+    left: 0;
+    background: #fff;
+    // background: #f0f0f0;
+    // border: 1px outset #fff;
+    padding: 2px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+    .mbmcCollapsible {
+      display: flex;
+      width: 100%;
+      min-height: 9rem;
+      flex-direction: column;
+      justify-content: flex-start;
+      color: var(--color-gray-900);
+      .mbmcCollapsibleIcon {
+        width:.75rem;
+        height:.75rem;
+      }
+      .mbmcCollapsibleTrigger {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0;
+        border: 0;
+        outline: 0;
+        padding: .25rem .5rem;
+        background: transparent;
+        color: black;
+        font-family: inherit;
+        font-size: .875rem;
+        line-height: 1.25rem;
+        font-weight: 500;
+        &[data-panel-open] .mbmcCollapsibleIcon {
+          transform: rotate(90deg);
+        }
+      }
+      .mbmcCollapsiblePanel {
+        height: var(--collapsible-panel-height);
+        overflow: hidden;
+        font-size: .875rem;
+        line-height: 1.25rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 8px;
+        .Release {
+          height: 6rem;
+          aspect-ratio: 1 / 1;
+          display: flex;
+          flex-direction: column;
+          gap: .5rem;
+          cursor: pointer;
+          .icon {
+            height: 2rem;
+            aspect-ratio: 1 / 1;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: block;
+            flex-grow: 1;
+          }
+          .rname {
+            height: 2rem;
+            width: 100%;
+            background: #f6f6f6;
+            font-size: .75rem;
+            line-height: .75rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
+}

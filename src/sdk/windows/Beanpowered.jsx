@@ -17,6 +17,7 @@ import { useEffect, useRef, useState } from "react";
 // });
 export const Beanpowered=({})=>{
   const[Windows,setWindows]=useAtom(winStore);
+  const[searchRes,setSearchRes]=useState(games);
   const GameUI=({gamedata,gamename})=>{
     const s=useRef(null);
     // const[offScreen,setOffScreen]=useState(false);
@@ -39,7 +40,7 @@ export const Beanpowered=({})=>{
         id="GUI_launch"
         onClick={(e)=>{
           e.preventDefault();
-          var win=window.open("",gamename,"toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=640,height=360,top="+(screen.height-400)+",left="+(screen.width-840));
+          var win=window.open("",gamename,"toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=640,height=360,top=100,left=100");
           win.document.documentElement.innerHTML=`
             <title>${gamename}</title>
             <link rel="icon" type="image/x-icon" href="${`/apps/beanpowered/gicon/${gamedata.id}.png`}">
@@ -167,13 +168,23 @@ export const Beanpowered=({})=>{
     <motion.div
       id="bpsb_searchbar">
         <motion.input
+          onChange={(e)=>{
+            /* setSearchRes(Object.filter(games,item=>
+              games.find(item))); */
+            setSearchRes(e.target.value?
+              Object.keys(games)
+              .filter(key=>key.toLowerCase().includes(e.target.value.toLowerCase()))
+              .reduce((obj,key) => {
+                obj[key]=games[key];
+                return obj;
+              },{}):games)
+          }}
           id="bp_SearchBar">
-
         </motion.input>
     </motion.div>
     <Tabs.Root className="bp_tabs" defaultValue="slope">
       <Tabs.List className="bp_sidebar">
-        {Object.keys(games).map(name=>
+        {Object.keys(searchRes).map(name=>
           <Tabs.Tab key={games[name].id} className="bpsb_item" value={games[name].id}>
             <motion.div 
               className="bpsbi_icon"

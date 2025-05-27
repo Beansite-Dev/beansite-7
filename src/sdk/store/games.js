@@ -10,6 +10,11 @@ const games={
       "id": "slope2",
       "type": "OpenInGL"
     }, 
+    "CrazyCattle3D": {
+      "url": "https://crazy-cattle3d.org/game/crazycattle3d/v11/",
+      "id": "cc3d",
+      "type": "OpenInGL"
+    }, 
     "1v1.lol": {
       "url": "https://1v1.lol",
       "id": "1v1lol",

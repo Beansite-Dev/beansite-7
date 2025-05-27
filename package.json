@@ -17,6 +17,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@reduxjs/toolkit": "2.3.0",
     "@swc-jotai/react-refresh": "^0.3.0",
+    "crypto-js": "^4.2.0",
     "dom-to-image": "^2.6.0",
     "framer-motion": "^11.11.17",
     "html2canvas": "^1.4.1",

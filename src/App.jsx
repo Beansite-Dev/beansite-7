@@ -11,18 +11,23 @@ import { OpenSolaris, Solaris } from './components/solaris';
 import { useAtom } from 'jotai';
 import { Beanpowered } from './sdk/windows/Beanpowered';
 import { winStore } from './sdk/store/Windows';
+import { MultibeanMC } from './sdk/windows/MultibeanMC';
 export const _DEBUG=true;
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const _CHANGELOG={
-    "v":"v0.12.1",
-    "d":"5/10/2025",
-    "cm":"Finally functional lmao",
+    "v":"v0.14.3",
+    "d":"5/26/2025",
+    "cm":"Various Additions",
     "c":[
-      "Updated UI",
-      "Fixed various microbugs",
-      "Planned minecraft launcher readdition",
-      "Drafted resize script improvement"
+      "Added CrazyCattle3D",
+      "Added MultibeanMC",
+      "Fixed sizing bugs on specific windows",
+      "Changed window layout",
+      "Updated Desktop",
+      "Added search functionality to Beanpowered",
+      "Drafted resize script improvement",
+      "Drafted Firebean (with tabs btw)"
     ]
   };
   const desktopShortcutsList=[
@@ -37,6 +42,18 @@ const App=({})=>{
       icon: Icons.commandPrompt,
       target: "beanshell",
       pos: [0,1]
+    },
+    {
+      title: "Beanpowered",
+      icon: Icons.beanpowered,
+      target: "beanpowered",
+      pos: [0,2]
+    },
+    {
+      title: "MultibeanMC",
+      icon: Icons.multibeanmc,
+      target: "multibeanmc",
+      pos: [0,3]
     },
   ];
   const[debugMenuVisibility,setDebugMenuVisibility]=useState(true);
@@ -151,6 +168,11 @@ const App=({})=>{
               target="beanshell"
               icon={Icons.commandPrompt}
               id={generateId(10)}/>
+            <QuickAccessShortcut 
+              name="MultibeanMC"
+              target="multibeanmc"
+              icon={Icons.multibeanmc}
+              id={generateId(10)}/>
           </div>
       </Window>
       <Window
@@ -205,6 +227,24 @@ const App=({})=>{
           includeTitlebarButtons:["close","max","min"],
         }}>
           <Beanpowered />
+      </Window>
+      <Window
+        className="multibeanmc"
+        closed
+        data={{
+          title:"MultibeanMC",
+          icon: Icons.multibeanmc,
+          id:generateId(10),
+          // height: 350,
+          // width: 500,
+          // x:330+15,
+          x:15+15,
+          y:15+15,
+          height: 445,
+          width: 700,
+          includeTitlebarButtons:["close","max","min"],
+        }}>
+          <MultibeanMC/>
       </Window>
       {/* <GameLoaderWindow/> */}
       {_DEBUG?
