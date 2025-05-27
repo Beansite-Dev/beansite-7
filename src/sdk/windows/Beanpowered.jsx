@@ -53,19 +53,6 @@ export const Beanpowered=({})=>{
                 left:50%;
                 translate:-50% -50%;" />
           `;
-          /* sGlt({
-            title:gamename,
-            gameUrl:gamedata.url,
-            icon:`/apps/beanpowered/gicon/${gamedata.id}.png`,
-            closed:false,
-          }); */
-          /* setWindows([
-            ...Windows.filter(win=>win.className!=="gameloader"),
-            {...Windows.filter(win=>win.className==="gameloader")[0],
-              closed:false,
-              min:false,
-              max:false}
-          ]); */
         }}>
         <FontAwesomeIcon icon={faPlay} /> Launch
       </motion.button>);
