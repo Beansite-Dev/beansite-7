@@ -9,7 +9,12 @@ const games={
       "url": "https://lnahtml.github.io/a6/slope-2/",
       "id": "slope2",
       "type": "OpenInGL"
-    }, 
+    },
+    /* "Geforce Now":{
+      "url": "https://definitelyscience.com/uv/service/hvtrs8%2F-wuw%2Cntific.aoo%2Fgn%2Fuq%2Feedopcg-lou%2F",
+      "id": "geforcenow",
+      "type": "OpenInGL"
+    }, */
     "CrazyCattle3D": {
       "url": "https://crazy-cattle3d.org/game/crazycattle3d/v11/",
       "id": "cc3d",

@@ -45,14 +45,14 @@ export const Beanpowered=({})=>{
             <title>${gamename}</title>
             <link rel="icon" type="image/x-icon" href="${`/apps/beanpowered/gicon/${gamedata.id}.png`}">
             <iframe src="${gamedata.url}" 
+              allowfullscreen
               style="
                 height:100dvh;
                 width:100dvw;
                 position:fixed;
                 top:50%;
                 left:50%;
-                translate:-50% -50%;" />
-          `;
+                translate:-50% -50%;"/>`;
         }}>
         <FontAwesomeIcon icon={faPlay} /> Launch
       </motion.button>);
