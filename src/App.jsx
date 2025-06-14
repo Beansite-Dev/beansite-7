@@ -12,14 +12,21 @@ import { useAtom } from 'jotai';
 import { Beanpowered } from './sdk/windows/Beanpowered';
 import { winStore } from './sdk/store/Windows';
 import { MultibeanMC } from './sdk/windows/MultibeanMC';
+import { SettingsMenu } from './sdk/windows/Settings';
 export const _DEBUG=true;
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const _CHANGELOG={
-    "v":"v0.14.3",
-    "d":"5/26/2025",
+    "v":"v0.15.6",
+    "d":"6/14/2025",
     "cm":"Various Additions",
     "c":[
+      "Added settings Menu",
+      "Implemented local storage for settings",
+      "Added wallpaper system",
+      "Optimized scripts",
+      "Added icons",
+      "working on Firebean Proxy",
       "Added CrazyCattle3D",
       "Added MultibeanMC",
       "Fixed sizing bugs on specific windows",
@@ -36,27 +43,29 @@ const App=({})=>{
       icon: Icons.application,
       target: "welcome",
       pos: [0,0]
-    },
-    {
+    },{
       title: "BeanShell",
       icon: Icons.commandPrompt,
       target: "beanshell",
       pos: [0,1]
-    },
-    {
+    },{
       title: "Beanpowered",
       icon: Icons.beanpowered,
       target: "beanpowered",
       pos: [0,2]
-    },
-    {
+    },{
       title: "MultibeanMC",
       icon: Icons.multibeanmc,
       target: "multibeanmc",
       pos: [0,3]
+    },{
+      title: "Settings",
+      icon: Icons.configApplication,
+      target: "settings",
+      pos: [0,4]
     },
   ];
-  const[debugMenuVisibility,setDebugMenuVisibility]=useState(true);
+  const[debugMenuVisibility,setDebugMenuVisibility]=useState(false);
   /* useEffect(()=>{
     if(!debugMenuVisibility)setTimeout(()=>{
       document.getElementById("DevPreviewContainer").style.display="none";
@@ -173,6 +182,11 @@ const App=({})=>{
               target="multibeanmc"
               icon={Icons.multibeanmc}
               id={generateId(10)}/>
+            <QuickAccessShortcut 
+              name="Settings"
+              target="settings"
+              icon={Icons.configApplication}
+              id={generateId(10)}/>
           </div>
       </Window>
       <Window
@@ -227,6 +241,21 @@ const App=({})=>{
           includeTitlebarButtons:["close","max","min"],
         }}>
           <Beanpowered />
+      </Window>
+      <Window
+        className="settings"
+        closed
+        data={{
+          title:"Settings",
+          icon: Icons.configApplication,
+          id:generateId(10),
+          x:15+15,
+          y:15+15,
+          height: 350,
+          width: 500,
+          includeTitlebarButtons:["close","max","min"],
+        }}>
+          <SettingsMenu/>
       </Window>
       <Window
         className="multibeanmc"
