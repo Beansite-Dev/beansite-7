@@ -9,24 +9,40 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 // import { DndContext } from "@dnd-kit/core";
 // import { SortableContext } from '@dnd-kit/sortable';
 // import { ReactSortable } from "react-sortablejs";
-export const SettingsAtom=atom(localStorage.getItem("mb7-settings")?
-    JSON.parse(localStorage.getItem("mb7-settings")):{
+export const SettingsAtom=atom(
+    localStorage.getItem("mb7-settings")&&(()=>{
+        const requiredKeys=[
+            "backgroundImage",
+            "backgroundSize",
+            "backgroundRepeat",
+            "savedWallpapers",
+            "theme",
+        ];
+        const settings=JSON.parse(localStorage.getItem("mb7-settings"));
+        return settings&&
+            Array.isArray(Object.keys(settings)) &&
+            requiredKeys.every(key => Object.keys(settings).includes(key));
+    })()?JSON.parse(localStorage.getItem("mb7-settings")):{
         backgroundImage:"/wallpapers/default.png",
         backgroundSize:"cover",
         backgroundRepeat:"no-repeat",
         savedWallpapers:[],
+        theme:"default",
 });
 export const SettingsMenu=({})=>{
     // localStorage.removeItem('mb7-settings'); //!reset
     const[settings,setSettings]=useAtom(SettingsAtom);
+    document.body.className=settings.theme;
     useEffect(()=>{
         localStorage.setItem('mb7-settings',JSON.stringify(settings));
         console.log(localStorage.getItem("mb7-settings"));
+        document.body.className=settings.theme;
     },[settings]);
     const BackgroundSelector=({})=>{
         const[bgl,sbgl]=useState([
             {id:1,name:"Default",srctype:"url",src:"/wallpapers/default.png"},
             {id:2,name:"Aurora",srctype:"url",src:"/wallpapers/aurora.png"},
+            {id:3,name:"Grid",srctype:"url",src:"/wallpapers/grid.png"},
             ...settings.savedWallpapers
         ]);
         return(<>
@@ -94,6 +110,24 @@ export const SettingsMenu=({})=>{
                             }}>
                                 <option value="repeat">Repeat</option>
                                 <option value="no-repeat">No Repeat</option>
+                        </select>
+                    </div>
+                </motion.div>
+            </motion.div>
+            <motion.div className="backgroundSettings">
+                <motion.div className="item">
+                    <label>Theme</label>
+                    <div className="customSelect">
+                        <select 
+                            defaultValue={settings.theme}
+                            onChange={(e)=>{
+                                setSettings({
+                                    ...settings,
+                                    theme:e.target.value,
+                                });
+                            }}>
+                                <option value="default">Default</option>
+                                <option value="dark">Dark</option>
                         </select>
                     </div>
                 </motion.div>

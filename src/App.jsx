@@ -17,10 +17,13 @@ export const _DEBUG=true;
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const _CHANGELOG={
-    "v":"v0.15.6",
-    "d":"6/14/2025",
+    "v":"v0.16.1",
+    "d":"6/16/2025",
     "cm":"Various Additions",
     "c":[
+      "Added Dark Theme",
+      "Added Wallpapers",
+      "Fixed State Issues",
       "Added settings Menu",
       "Implemented local storage for settings",
       "Added wallpaper system",
