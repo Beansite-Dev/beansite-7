@@ -17,6 +17,7 @@ export const SettingsAtom=atom(
             "backgroundRepeat",
             "savedWallpapers",
             "theme",
+            "font",
         ];
         const settings=JSON.parse(localStorage.getItem("mb7-settings"));
         return settings&&
@@ -32,11 +33,11 @@ export const SettingsAtom=atom(
 export const SettingsMenu=({})=>{
     // localStorage.removeItem('mb7-settings'); //!reset
     const[settings,setSettings]=useAtom(SettingsAtom);
-    document.body.className=settings.theme;
+    document.body.className=`${settings.theme} font-${settings.font}`;
     useEffect(()=>{
         localStorage.setItem('mb7-settings',JSON.stringify(settings));
         console.log(localStorage.getItem("mb7-settings"));
-        document.body.className=settings.theme;
+        document.body.className=`${settings.theme} font-${settings.font}`;
     },[settings]);
     const BackgroundSelector=({})=>{
         const[bgl,sbgl]=useState([
@@ -128,6 +129,24 @@ export const SettingsMenu=({})=>{
                             }}>
                                 <option value="default">Default</option>
                                 <option value="dark">Dark</option>
+                        </select>
+                    </div>
+                </motion.div>
+                <motion.div className="item">
+                    <label>Font</label>
+                    <div className="customSelect">
+                        <select 
+                            defaultValue={settings.font}
+                            onChange={(e)=>{
+                                setSettings({
+                                    ...settings,
+                                    font:e.target.value,
+                                });
+                            }}>
+                                <option value="segoe">Segoe</option>
+                                <option value="tahoma">Tahoma</option>
+                                <option value="comic">Comic Sans</option>
+                                <option value="times">Times New Roman</option>
                         </select>
                     </div>
                 </motion.div>

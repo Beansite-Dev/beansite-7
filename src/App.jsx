@@ -17,10 +17,12 @@ export const _DEBUG=true;
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const _CHANGELOG={
-    "v":"v0.16.1",
-    "d":"6/16/2025",
+    "v":"v0.17.1",
+    "d":"7/8/2025",
     "cm":"Various Additions",
     "c":[
+      "Added Fonts: Comic Sans, Times New Roman, Tahoma",
+      "Added more commands to Beanshell",
       "Added Dark Theme",
       "Added Wallpapers",
       "Fixed State Issues",

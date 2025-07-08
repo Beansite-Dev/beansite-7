@@ -147,7 +147,7 @@ export const Beanshell=()=>{
     if(y){
       setCommandHistory([x,...commandHistory]);
       const cmd=y[0];
-      const props=y.shift();
+      const props=y.slice(1);
       const titleblock=[
         {type:"newline-half",id:generateId(10),},{
           type:"custom",
@@ -170,7 +170,78 @@ export const Beanshell=()=>{
         break;
         case "help":
           setOhMyBshStatus(true);
-
+          setLogs([
+            ...logs,
+            ...titleblock,
+            {type:"log",id:generateId(10),contents:[
+              {content:`Available commands:`,id:generateId(10),style:"text_blue"},]},
+            {type:"log",id:generateId(10),contents:[
+              {content:`clear/cls`,id:generateId(10),style:"text_lightgray"},]},
+            {type:"log",id:generateId(10),contents:[
+              {content:`help`,id:generateId(10),style:"text_lightgray"},]},
+            {type:"log",id:generateId(10),contents:[
+              {content:`bpkg`,id:generateId(10),style:"text_lightgray"},]},
+          ]);
+        break;
+        case "beanman":
+        case "pkg":
+        case "bpkg":
+          switch(props[0]){
+            case "freeze":
+              setLogs([
+                ...logs,
+                ...titleblock,
+                {type:"log",id:generateId(10),contents:[
+                  {content:`neofetch`,id:generateId(10),style:"text_lightgray"},]},
+              ]);
+            break;
+            case "i":
+            case "install":
+              setLogs([
+                ...logs,
+                ...titleblock,
+                {type:"log",id:generateId(10),contents:[
+                  {content:`failed to connect to network. Check if iwd is enabled`,id:generateId(10),style:"text_red"},]},
+              ]);
+            break;
+            case "help":
+            default:
+              console.log(props);
+              setLogs([
+                ...logs,
+                ...titleblock,
+                ...(props[0]!="help"&&props.length!=0?[
+                  {type:"log",id:generateId(10),contents:[
+                    {content:`Error:`,id:generateId(10),style:"text_red",decoration:"b"},
+                    {content:` ${props[0]} is not a valid command`,id:generateId(10),style:"text_red"},
+                  ]},
+                  {type:"log",id:generateId(10),contents:[
+                    {content:`---`,id:generateId(10),style:"text_gray"},]},
+                ]:[]),
+                {type:"log",id:generateId(10),contents:[
+                  {content:`Beanman Package Manager`,id:generateId(10),style:"text_blue",decoration:"b"},]},
+                {type:"log",id:generateId(10),contents:[
+                  {content:`All Commands:`,id:generateId(10),style:"text_white",decoration:"b"},]},
+                //---
+                  {type:"log",id:generateId(10),contents:[
+                  {content:` - help`,id:generateId(10),style:"text_white"},
+                  {content:` [alias {""}]`,id:generateId(10),style:"text_gray"},]},
+                {type:"log",id:generateId(10),contents:[
+                  {content:`     Lists all commands`,id:generateId(10),style:"text_lightgray"},]},
+                //---
+                {type:"log",id:generateId(10),contents:[
+                  {content:` - freeze`,id:generateId(10),style:"text_white"},]},
+                {type:"log",id:generateId(10),contents:[
+                  {content:`     Lists all installed packages`,id:generateId(10),style:"text_lightgray"},]},
+                //---
+                {type:"log",id:generateId(10),contents:[
+                  {content:` - install <package> <options>`,id:generateId(10),style:"text_white"},
+                  {content:` [alias {"i"}]`,id:generateId(10),style:"text_gray"},]},
+                {type:"log",id:generateId(10),contents:[
+                  {content:`     Install a package`,id:generateId(10),style:"text_lightgray"},]},
+              ]);
+            break;
+          }
         break;
         case "neofetch":
           setOhMyBshStatus(true);
