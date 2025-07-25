@@ -24,7 +24,7 @@ export const Desktop=({appsList=[]})=>{
     }
     const[curPos,setCurPos]=useState({
       left:`${((75+5)*pos[1])+10}px`,
-      top:`${((50+5)*pos[0])+10}px`,
+      top:`${((75+5)*pos[0])+10}px`,
     });
     const di=useRef(null);
     return(<>

@@ -1,26 +1,36 @@
-import { useEffect, useState } from 'react';
+// styles
 import './style/App.scss';
+// external libraries
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { AppWrapper, Window } from './sdk/sdk';
-import { generateId } from "./sdk/modules/Lib";
 import { useHotkeys } from 'react-hotkeys-hook';
 import { motion } from 'motion/react';
-import { Icons } from './sdk/modules/Enum';
-import { Beanshell } from './sdk/windows/Beanshell';
+// components
+import { AppWrapper, Window } from './sdk/sdk';
 import { OpenSolaris, Solaris } from './components/solaris';
+import { Icons } from './sdk/modules/Enum';
+import { generateId } from "./sdk/modules/Lib";
+// states
 import { useAtom } from 'jotai';
-import { Beanpowered } from './sdk/windows/Beanpowered';
 import { winStore } from './sdk/store/Windows';
+// windows
+import { Beanshell } from './sdk/windows/Beanshell';
+import { Beanpowered } from './sdk/windows/Beanpowered';
 import { MultibeanMC } from './sdk/windows/MultibeanMC';
 import { SettingsMenu } from './sdk/windows/Settings';
+import { Firebean } from './sdk/windows/Firebean';
 export const _DEBUG=true;
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const _CHANGELOG={
-    "v":"v0.17.1",
-    "d":"7/8/2025",
+    "v":"v0.18.4",
+    "d":"7/24/2025",
     "cm":"Various Additions",
     "c":[
+      "Added Firebean",
+      "Fixed Desktop Icons Typo",
+      "Added Assets",
+      "Fixed Broken Vite HMR",
       "Added Fonts: Comic Sans, Times New Roman, Tahoma",
       "Added more commands to Beanshell",
       "Added Dark Theme",
@@ -52,22 +62,27 @@ const App=({})=>{
       title: "BeanShell",
       icon: Icons.commandPrompt,
       target: "beanshell",
-      pos: [0,1]
+      pos: [1,0]
     },{
       title: "Beanpowered",
       icon: Icons.beanpowered,
       target: "beanpowered",
-      pos: [0,2]
+      pos: [2,0]
     },{
       title: "MultibeanMC",
       icon: Icons.multibeanmc,
       target: "multibeanmc",
-      pos: [0,3]
+      pos: [3,0]
     },{
       title: "Settings",
       icon: Icons.configApplication,
       target: "settings",
-      pos: [0,4]
+      pos: [4,0]
+    },{
+      title: "Firebean",
+      icon: Icons.firebean,
+      target: "firebean",
+      pos: [0,1]
     },
   ];
   const[debugMenuVisibility,setDebugMenuVisibility]=useState(false);
@@ -171,7 +186,7 @@ const App=({})=>{
           icon:Icons.application,
           id:generateId(10),
           x:15,
-          y:15,  
+          y:15,
           includeTitlebarButtons:["close","max","min"],
         }}>
           <h1>Welcome To Beansite 7!</h1><div id="logo"></div>
@@ -279,6 +294,34 @@ const App=({})=>{
           includeTitlebarButtons:["close","max","min"],
         }}>
           <MultibeanMC/>
+      </Window>
+      <Window
+        className="firebean"
+        closed
+        // expandContentBoxIntoTitlebar
+        hideTitleInTitlebar
+        customContentBoxStyling={{
+          border: "none",
+          overflow: "hidden",
+          padding: "0",
+          background: "transparent",
+          top: "16px",
+          height: "calc(100% - 19px)",
+        }}
+        data={{
+          title:"Firebean",
+          icon: Icons.firebean,
+          id:generateId(10),
+          // height: 350,
+          // width: 500,
+          // x:330+15,
+          x:15+(2*15),
+          y:15+(2*15),
+          height: 445,
+          width: 700,
+          includeTitlebarButtons:["close","max","min"],
+        }}>
+          <Firebean />
       </Window>
       {/* <GameLoaderWindow/> */}
       {_DEBUG?

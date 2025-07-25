@@ -1,0 +1,258 @@
+@font-face {
+  font-family: "WebSymbols";
+  font-weight: 400;
+  src: url("/fonts/websymbols.otf");
+}
+.firebean {
+  .Tabs{
+    // height: calc(100% - 30px);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    // top: 30px;
+    top: 0%;
+    left: 50%;
+    translate: -50% 0;
+    .Tabbar {
+      position: fixed;
+      top: 0%;
+      left: 0%;
+      // translate: 0 -100%;
+      max-width: calc(100% - 6rem - 12px);
+      width: fit-content;
+      height: 30px;
+      display: flex;
+      pointer-events: auto; 
+      // background: #f0f0f0;
+      #NewTabButtonWrapper {
+        height: 1.175rem;
+        width: 1.875rem;
+        padding: 1px;
+        // aspect-ratio: 1 / 1;
+        // filter: url('#flt_tag2');
+        // margin-left: .25rem;
+        #NewTabButton {
+          height: 100%;
+          width: 100%;
+          translate: 0% .125rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1rem;
+          font-weight: bold;
+          text-align: center;
+          vertical-align: middle;
+          line-height: 0;
+          backdrop-filter: blur(3px);
+          border-radius: .175rem;
+          transform: skewX(10deg);
+          border: 1px solid rgba(134,199,255,.85);
+          box-shadow: 
+              inset 2px 2px 10px rgba(178, 219, 255, 0.85),
+              inset -2px -2px 10px #0d426350;
+          background: 
+              linear-gradient(123deg,
+                  rgb(162, 212, 255,.6) 0%,
+                  rgba(141, 196, 245,.7) 46%,
+                  rgba(108, 167, 230, .8) 100%);
+          // clip-path: polygon(0 0, 80% 0, 100% 100%, 20% 100%);
+        }
+      }
+      &::before {
+        content: '';
+        position: fixed;
+        top: 30px;
+        left: 50%;
+        width: 100%;
+        height: 5%;
+        translate: -50% -50%;
+        background: linear-gradient(180deg,transparent,rgba(0,0,0,.5));
+        z-index: 55;
+      }
+      .Tab {
+        height: 100%;
+        max-width: 10rem;
+        min-width: 5rem;
+        width: 100%;
+        flex-shrink: 1;
+        background: transparent;
+        padding: 0;
+        border: none;
+        z-index: calc(50 - sibling-index());
+        filter: url('#flt_tag') drop-shadow(0 0 3px rgba(0,0,0,.5));
+        .flt_svg {
+            visibility: hidden; 
+            position: absolute;
+            width: 0px;
+            height: 0px;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          width: 110%;
+          height: 100%;
+          bottom: 0;
+          left: 50%;
+          translate: -50% calc(100% - ((.5rem / 2)));
+          background: #cfcfcf;
+          border-radius: .75rem;
+        }
+        &[data-selected] {
+          z-index: 60 !important;
+          .TabElm {
+            background: #f0f0f0 !important;
+          }
+        }
+        &[data-selected] &::after {
+          background: #f0f0f0 !important;
+        }
+        &:not(:first-child) {
+          translate: calc(-3.5% * sibling-index()) 0;
+          /* & > #NewTabButtonWrapper {
+            translate: calc(-3.5% * sibling-index()) 0;
+          } */
+        }
+        .TabElm{
+          background: #cfcfcf;
+          width: 100%;
+          height: 30px;
+          border: none;
+          // border-top-left-radius: .75rem;
+          // border-top-right-radius: .75rem;
+          // clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%);
+          clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%);
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          padding: 0 .75rem;
+          gap: .25rem;
+          align-items: center;
+          cursor: pointer;
+          .icon {
+            height: 1rem;
+            width: 1rem;
+            aspect-ratio: 1 / 1;
+            // background: pink;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+          }
+          span {
+            font-size: .875rem;
+            font-weight: 400;
+            color: #000;
+            flex-grow: 1;
+            text-align: left;
+            min-width: fit-content;
+          }
+          .close {
+            height: 1rem;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            vertical-align: middle;
+            font-size: .75rem;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #a0a0a0 !important;
+            cursor: pointer;
+            translate: 0 -.125rem;
+          }
+        }
+      }
+    } 
+    .Contentbox {
+      z-index: 100;
+      .Actionbar {
+        position: fixed;
+        top: -1px;
+        left: 0%;
+        width: 100%;
+        height: 30px;
+        background: #f0f0f0;
+        filter: drop-shadow(0 -2px 0 #f0f0f0);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+        padding: .5rem;
+        // #reloadButon{font-family: "WebSymbols";}
+        // font-weight: 400;
+        .adressbarIcon {
+          font-family: "WebSymbols" !important;
+          height: 1.5rem;
+          aspect-ratio: 1 / 1;
+          width: 1.5rem;
+          display: flex;
+          flex: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: transparent;
+          border: none;
+          outline: none;
+          font-size: 1rem;
+          padding: 0;
+          border-radius: .25rem;
+          transition: .15s;
+          color: #757575;
+          &:hover {
+            background: #8abff260;
+            color: #404040;
+          }
+        }
+        #search {
+          width: 20rem;
+          flex-grow: 1;
+          background: #fff;
+          border: #45454545 1px solid;
+          border-radius: .225rem;
+        }
+      }
+      position: fixed;
+      top: -2px;
+      left: 0%;
+      width: 100%;
+      height: calc(100% - 30px);
+      background: #fff;
+      .Content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: calc(100% - 30px);
+        width: 100%;
+        gap: 1rem;
+      }
+    }
+  }
+}
+.NewTabLogo {
+  height: 5.5rem;
+  width: 100%;
+  background-image: url("/apps/firebean/logo_full.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.NewTabInput {
+  width: 25rem;
+  height: 2rem;
+  background: #f0f0f0;
+  border: none;
+  outline: none;
+  padding: .5rem 1rem;
+  font-size: .875rem;
+  border-radius: 1rem;
+  color: #000;
+  box-shadow: inset 0 0 0 .125rem rgba(0,0,0,.1);
+}
+.embed {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+}

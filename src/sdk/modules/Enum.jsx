@@ -18,6 +18,7 @@ export const Icons={
   commandPrompt:CreateIconPNG("d1f5fcw-533b556a-a161-4cc6-b9d7-67037b797373"),
   beanpowered:"/apps/beanpowered/bp.png",
   multibeanmc:"/apps/mbmc/logo.png",
+  firebean:"/apps/firebean/favicon.png",
   video:CreateIcon("23"),
   internet:CreateIcon("25"),
   printer:CreateIcon("51"),

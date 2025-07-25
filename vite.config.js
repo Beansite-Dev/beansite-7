@@ -6,8 +6,8 @@ function CustomHmr() {
     name: 'custom-hmr',
     enforce: 'post',
     // HMR
-    handleHotUpdate({ file, server }) {
-      if (file.endsWith('.scss')) {
+    handleHotUpdate({file,server}) {
+      if(file.endsWith('.scss')||file.endsWith('.jsx')){
         console.log('reloading theme file...');
         server.ws.send({
           type: 'full-reload',          
@@ -22,5 +22,11 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
     port: 5173,
+    cors: true /* {
+      origin: '*',
+      methods: ['GET', 'POST', 'PUT', 'DELETE'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+      credentials: true,
+    } */,
   },
 })

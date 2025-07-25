@@ -25,6 +25,8 @@ export const Window=({
   },
   customContentBoxStyling={},
   customWindowStyling={},
+  expandContentBoxIntoTitlebar=false,
+  hideTitleInTitlebar=false,
   //callbacks
   beforeClose=()=>{},
   afterClose=()=>{},
@@ -124,13 +126,18 @@ export const Window=({
               ?setMaximized(false)
               :null:null;
           }}>
-          <div 
-            className="ico" id={`${id}_ico`}
-            style={{
-              backgroundImage:icon?`url('${icon}')`:"",
-            }}></div>
-          <h1>{title}</h1>
-          <div className="bw" id={`${id}_bw`}>
+          {!hideTitleInTitlebar?<>
+            <div 
+              className="ico" id={`${id}_ico`}
+              style={{
+                backgroundImage:icon?`url('${icon}')`:"",
+              }}></div>
+            <h1>{title}</h1></>
+          :null}
+          <div className="bw" id={`${id}_bw`} style={{
+            ...expandContentBoxIntoTitlebar?{
+              zIndex: 100,
+            }:null}}>
             {includeTitlebarButtons.map((data,index)=>
               <Fragment key={`${generateId(10)}_${btoa(index)}`}>
                 {data=="close"?
@@ -166,7 +173,14 @@ export const Window=({
         </div>
         <div 
           className="contents" 
-          style={customContentBoxStyling}
+          style={{...customContentBoxStyling,
+              ...expandContentBoxIntoTitlebar?{
+                height:`calc(100% - 12px)`,
+                bottom:"6px",
+                background: "transparent",
+                border: "none",
+              }:null,
+          }}
           onPointerDownCapture={e=>e.stopPropagation()}>
             {children}
         </div>
