@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { generateId } from "../modules/Lib";
 import "../style/apps/Beanshell.scss";
 import { useEffect, useState } from "react";
+import { OpenSolaris } from "../../components/solaris";
 const beanshellLogAtom=atom([
   //test log anatomy
   {
@@ -95,6 +96,7 @@ const beanshellLogAtom=atom([
 const beanshellCommandHistoryAtom=atom([]);
 export const Beanshell=()=>{
   const[logs,setLogs]=useAtom(beanshellLogAtom);
+  const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const[commandHistory,setCommandHistory]=useAtom(beanshellCommandHistoryAtom);
   const[currentPositionInCommandHistory,setCurrentPositionInCommandHistory]=useState(-1);
   const bsh={
@@ -168,6 +170,16 @@ export const Beanshell=()=>{
           setOhMyBshStatus(true);
           setLogs([]);
         break;
+        case "solaris.exe":
+        case "solaris":
+          setLogs([
+            ...logs,
+            ...titleblock,
+            {type:"log",id:generateId(10),contents:[
+              {content:`you're cooked :)`,id:generateId(10),style:"text_red"},]},
+          ]);
+          setTimeout(()=>{setSolarisOpen(true);},1000);
+        break;
         case "help":
           setOhMyBshStatus(true);
           setLogs([
@@ -193,6 +205,8 @@ export const Beanshell=()=>{
                 ...titleblock,
                 {type:"log",id:generateId(10),contents:[
                   {content:`neofetch`,id:generateId(10),style:"text_lightgray"},]},
+                {type:"log",id:generateId(10),contents:[
+                  {content:`solaris`,id:generateId(10),style:"text_lightgray"},]},
               ]);
             break;
             case "i":
