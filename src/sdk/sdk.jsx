@@ -11,7 +11,7 @@ import { ErrorBoundary } from './modules/core/ErrorBoundary';
 // styling
 import "./style/Index.scss";
 
-export const AppWrapper=({children,desktopShortcutsList=[]})=>{
+export const AppWrapper=({children,desktopShortcutsList=[],StartMenuApps=[]})=>{
   const AppWrapperContents=({})=>{
     const windowWrapperRef=useRef(null);
     const renderChildren=()=>{
@@ -44,7 +44,7 @@ export const AppWrapper=({children,desktopShortcutsList=[]})=>{
               }}><SettingsMenu/></Window> */}
         </motion.div>
         <Desktop appsList={desktopShortcutsList}/>
-        <Taskbar/>
+        <Taskbar StartMenuApps={StartMenuApps}/>
       </motion.div>
     </>);
   }

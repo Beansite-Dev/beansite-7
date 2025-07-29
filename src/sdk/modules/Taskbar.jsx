@@ -1,3 +1,5 @@
+//?refrence
+// https://cdn.prod.website-files.com/6634a8f8dd9b2a63c9e6be83/669e2cc9aadcd76fa47e0bc1_143213.image0.jpeg
 import  "../style/Taskbar.scss";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
@@ -8,10 +10,39 @@ import { winStore } from "../store/Windows";
 // import domtoimage from 'dom-to-image';
 import html2canvas from "html2canvas";
 import { atom, useAtom, useSetAtom, useAtomValue } from "jotai";
+import { Icons } from "./Enum";
 const startMenuAtom=atom(false);
-const StartMenu=()=>{
+const StartMenu=({StartMenuApps=[]})=>{
   const [startMenuOpen,setStartMenuOpen]=useAtom(startMenuAtom);
-  return(<motion.div 
+  /* const StartMenuApps=[
+    {
+      title:"Welcome",
+      icon: Icons.application,
+      target:"welcome",
+    },
+  ] */
+  const StartMenuApp=({data})=>{
+    const[Windows,setWindows]=useAtom(winStore);
+    const OpenApp=()=>{
+      setWindows([
+        ...Windows.filter(win=>win.className!==data.target),
+        {...Windows.filter(win=>win.className===data.target)[0],
+          closed:false,min:false,max:false}
+      ]);
+    }
+    return(<>
+      <motion.button onClick={(e)=>OpenApp()} className="sm_startMenuApp" id={`sms_${data.target}`}>
+        <motion.div className="icon" style={{backgroundImage:`url("${data.icon}")`}}></motion.div>
+        <motion.span className="title">{data.title}</motion.span>
+      </motion.button>
+    </>);
+  }
+  return(<>
+  <motion.div 
+    id="hideStartMenu" 
+    onClick={(e)=>{setStartMenuOpen(false)}}
+    style={{display:startMenuOpen?"flex":"none"}}></motion.div>
+  <motion.div 
     id="StartMenu"
     transition={{
       type: 'tween',
@@ -24,10 +55,75 @@ const StartMenu=()=>{
     animate={{
       x:startMenuOpen?0:"calc(-100%)",
       opacity:startMenuOpen?1:0}}>
-    <motion.div id="sm_shortcutWrapper">
-      
+    <motion.div id="sm_actionWrapper">
+      <motion.div className="pfp">
+        <svg class="hidden" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="SquircleClip-2" clipPathUnits="objectBoundingBox">
+			        <path d="M 0,0.5
+                C 0,0  0,0  0.5,0
+                  1,0  1,0  1,0.5
+                  1,1  1,1  0.5,1
+                  0,1  0,1  0,0.5"></path>
+            </clipPath>
+          </defs>
+        </svg>
+        <motion.div className="pfpimg"></motion.div>
+      </motion.div>
+      <motion.span className="i1">User</motion.span>
+      <motion.span>Documents</motion.span>
+      <motion.span>Pictures</motion.span>
+      <motion.span>Music</motion.span>
+      <hr/>
+      <motion.span>Games</motion.span>
+      <motion.span>Computer</motion.span>
+      <hr/>
+      <motion.span>Control Panel</motion.span>
+      <motion.span>Help and Support</motion.span>
     </motion.div>
-  </motion.div>);
+    <motion.div id="sm_shortcutWrapper">
+      <motion.div
+        transition={{
+          type: 'tween',
+          duration: .35,
+          delay: .15,
+          ease: "easeInOut"
+        }}
+        id="sm_bottomWrapper"
+        whileInView={{y:0,opacity:1,}}
+        initial={{y:40,opacity:0,}}>
+          <motion.div
+            transition={{
+              type: 'tween',
+              duration: .35,
+              delay: .25,
+              ease: "easeInOut"
+            }}
+            id="sm_searchWrapper"
+            whileInView={{y:0,opacity:1,}}
+            initial={{y:20,opacity:0,}}>
+              <input type="text" placeholder="Search programs and files" id="sm_search"/>
+          </motion.div>
+          <motion.button>
+            ▶&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            All Programs
+          </motion.button>
+      </motion.div>
+      <motion.div
+        transition={{
+          type: 'tween',
+          duration: .35,
+          delay: .15,
+          ease: "easeInOut"
+        }}
+        id="sm_appWrapper"
+        whileInView={{y:0,opacity:1,}}
+        initial={{y:-40,opacity:0,}}>
+          {StartMenuApps.map((data,index)=>
+            <StartMenuApp data={data} key={index}/>)}
+      </motion.div>
+    </motion.div>
+  </motion.div></>);
 }
 const StartMenuButton=()=>{
   const [startMenuOpen,setStartMenuOpen]=useAtom(startMenuAtom);
@@ -37,7 +133,7 @@ const StartMenuButton=()=>{
     }}
     className="item" id="startButton"></motion.button>)
 }
-export const Taskbar=({})=>{
+export const Taskbar=({StartMenuApps=[]})=>{
   const[Windows,setWindows]=useAtom(winStore);
   // const[startMenuOpen,setStartMenuOpen]=useState(false);
   const TaskbarIcon=({data,index})=>{
@@ -91,7 +187,7 @@ export const Taskbar=({})=>{
     </>);
   }
   return(<>
-    <StartMenu/>
+    <StartMenu StartMenuApps={StartMenuApps}/>
     <motion.div 
       id="Taskbar" 
       initial={{y:5,opacity:0}} 

@@ -23,11 +23,12 @@ export const _DEBUG=true;
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const _CHANGELOG={
-    "v":"v0.18.5",
-    "d":"7/24/2025",
+    "v":"v0.19.2",
+    "d":"7/28/2025",
     "cm":"Various Additions",
     "c":[
       "my dumbass forgot to implement the solaris command (oops)",
+      "Added Functionality to Start Menu",
       "Added Firebean",
       "Fixed Desktop Icons Typo",
       "Added Assets",
@@ -154,7 +155,7 @@ const App=({})=>{
       <link rel="icon" type="image/svg+xml" href="" />
       <link rel="stylesheet" href="/themes/default.scss" />
     </Helmet>
-    <AppWrapper desktopShortcutsList={desktopShortcutsList}>
+    <AppWrapper desktopShortcutsList={desktopShortcutsList} StartMenuApps={desktopShortcutsList}>
       {/* <div id="bloomfx"></div> */}
       <motion.div 
         transition={{duration:.25}}
