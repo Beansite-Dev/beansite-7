@@ -4,12 +4,12 @@ const games={
       "url": "https://kdata1.com/2020/05/slope/",
       "id": "slope",
       "type": "OpenInGL"
-    }, 
+    },//*verified 8/9/25: status=Working
     "Slope 2": {
       "url": "https://lnahtml.github.io/a6/slope-2/",
       "id": "slope2",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     /* "Geforce Now":{
       "url": "https://definitelyscience.com/uv/service/hvtrs8%2F-wuw%2Cntific.aoo%2Fgn%2Fuq%2Feedopcg-lou%2F",
       "id": "geforcenow",
@@ -19,202 +19,211 @@ const games={
       "url": "https://crazy-cattle3d.org/game/crazycattle3d/v11/",
       "id": "cc3d",
       "type": "OpenInGL"
-    }, 
+    },//*verified 8/9/25: status=Working
     "1v1.lol": {
       "url": "https://1v1.lol",
       "id": "1v1lol",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "Smash Karts": {
       "url": "https://smashkarts.io",
       "id": "smashk",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "Shell Shocker": {
       "url": "https://shellshock.io",
       "id": "shells",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "2048 ": {
       "url": "https://2048game.com/",
       "id": "2048",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "Final Fantasy VII": {
       "url": "https://www.retrogames.cc/embed/43658-final-fantasy-vii-usa-disc-1.html",
       "id": "ffvii",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "Bloxd.io": {
       "url": "https://bloxd.io",
       "id": "bloxd",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "X-Trench Run": {
       "url": "https://lagged.com/game-embed/x-trench-run/",
       "id": "xtr",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "Armed Forces": {
       "url": "https://armedforces.io",
       "id": "armedf",
       "type": "OpenInGL"
-    },
-    "Ocarina of Time": {
-      "url": "https://static.arcadespot.com/retroemulator.php?system=n64&game=2017/06/the-legend-of-zelda-ocarina-of-time.zip",//"https://www.retrogames.cc/embed/44169-ocarina-of-time-redux.html",
+    },//*verified 8/9/25: status=Working
+    /* "Ocarina of Time": {
+      // "url": "https://static.arcadespot.com/retroemulator.php?system=n64&game=2017/06/the-legend-of-zelda-ocarina-of-time.zip",//"https://www.retrogames.cc/embed/44169-ocarina-of-time-redux.html",
+      // "url": "https://f.kbhgames.com/r/n64/game.php?file=the-legend-of-zelda-ocarina-of-time.zip",
+      // "url": "https://www.retrogames.cc/n64-games/ocarina-of-time-redux.html",
+      "url": "",
       "id": "ocarinaot",
       "type": "OpenInGL"
-    },
+    }, *///!verified 8/9/25: status=Not Working
     "Super Mario": {
       "url": "https://supermario-game.com/mario-game/mario.html",//"https://supermarioplay.com/game/mario.html",
       "id": "mario",
       "type": "OpenInGL"
-    },
+    },//>verified 8/9/25: status=1/2 Working; screen size issue
     /* "Mini Golf Club": {
       "url": "https://minigolfclub.io",
       "id": "mgclub",
       "type": "OpenInGL"
     }, */
-    "Hole.io": {
+    /* "Hole.io": {
       "url": "https://hole-io.com",
       "id": "hole",
       "type": "OpenInGL"
-    },
+    }, *///>verified 8/9/25: status=1/2 Working; replaced with mobile game ad
     "OvO": {
       "url": "https://html5.gamedistribution.com/rvvASMiM/1377b99c10284c229423118a941af3b1/index.html?gd_sdk_referrer_url=https%3A%2F%2Fdinosaur-game.io%2Fovo&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL2Rpbm9zYXVyLWdhbWUuaW8vb3ZvIiwicGFyZW50RG9tYWluIjoiZGlub3NhdXItZ2FtZS5pbyIsInRvcERvbWFpbiI6ImRpbm9zYXVyLWdhbWUuaW8iLCJoYXNJbXByZXNzaW9uIjpmYWxzZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xNyJ9",
       "id": "ovo",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "OvO 2": {
       "url": "https://dedragames.com/games/ovo2/0.2alpha/",
       "id": "ovo2",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "Retro Bowl": {
       "url": "https://game316009.konggames.com/gamez/0031/6009/live/index.html",
       "id": "retrob",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "Subway Surfers": {
       "url": "https://subwaysurfersgame.io/subway-surfers-game.embed?d=20240530",
       "id": "subways",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "Deathrun 3D": {
       "url": "https://deathrun3d.io",
       "id": "dr3d",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "Friday Night Funkin'": {
-      "url": "https://friday-nightfunkin.io/friday-night-funkin",
+      // "url": "https://friday-nightfunkin.io/friday-night-funkin",
+      "url": "https://fnf.kdata1.com/2024/fnf/5201/",
       "id": "funkin",
       "type": "OpenInGL"
-    },
-    "Tomb Runner": {
-      "url": "https://lagged.com/en/g/tomb-runner",
+    },//*verified 8/9/25: status=Working; Fixed to be fullscreen
+    /* "Tomb Runner": {
+      "url": "https://lagged.com/games/tomb-runner7/",
       "id": "tombr",
       "type": "OpenInGL"
-    },
+    }, *///!verified 8/9/25: status=Not Working; Fixed to be fullscreen
     "Fallout 1": {
       "url": "https://playclassic.games/games/role-playing-dos-games-online/play-fallout-online/play/",
       "id": "fallout1",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "Burrito Bison: Launcha Libre": {
       "url": "https://mountain658.github.io/BurritoBison.html",
       "id": "burritobll",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "Tomb of the Mask": {
       "url": "https://mountain658.github.io/tombofthemask.html",
       "id": "totm",
       "type": "OpenInGL"
-    },
-    "Drive Mad": {
+    },//*verified 8/9/25: status=Working
+    /* "Drive Mad": {
       "url": "https://mountain658.github.io/drivemad.html",
       "id": "drivem",
       "type": "OpenInGL"
-    },
+    }, *///>verified 8/9/25: status= 1/2 Working; rendered useless 
     "Run 3": {
-      "url": "https://mountain658.glitch.me/run3.html",
+      // "url": "https://mountain658.glitch.me/run3.html",
+      // "url": "https://run3.io/run3/",
+      "url": "https://run3-online.io/embed/run-3",
       "id": "run3",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working; Fixed
     "Celeste": {
-      "url": "https://mountain658.glitch.me/celeste.html",
+      // "url": "https://mountain658.glitch.me/celeste.html",
+      // "url": "https://html-classic.itch.zone/html/235259/Celeste/index.html?v=1542780913",
+      "url": "/gs/celeste/celeste.html",
       "id": "celeste",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working; Fixed
     "Jetpack Joyride": {
       "url": "https://www.miniplay.com/embed/jetpack-joyride",
       "id": "jpjr",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "Fruit Ninja": {
       "url": "https://funhtml5games.com?embed=fruitninja",
       "id": "frnin",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "Flappy Bird": {
       "url": "https://playcanv.as/p/2OlkUaxF/",
       "id": "flappy",
       "type": "OpenInGL"
-    },
-    "Pokemon Red": {
+    },//*verified 8/9/25: status=Working
+    /* "Pokemon Red": {
       "url": "https://static.arcadespot.com/retroemulator.php?system=gboy&game=2016/07/pokemon-red.zip",
       "id": "pokered",
       "type": "OpenInGL"
-    },
-    "Pokemon Blue": {
+    }, *///!verified 8/9/25: status=Not Working
+    /* "Pokemon Blue": {
       "url": "https://static.arcadespot.com/retroemulator.php?system=gboy&game=2016/07/pokemon-blue.zip",
       "id": "pokeblue",
       "type": "OpenInGL"
-    },
-    "Street Fighter": {
+    }, *///!verified 8/9/25: status=Not Working
+    /* "Street Fighter": {
       "url": "https://static.arcadespot.com/retroemulator.php?system=snes&game=2017/10/street-fighter-5.smc",
       "id": "streetftr",
       "type": "OpenInGL"
-    },
+    }, *///!verified 8/9/25: status=Not Working
     "Fancade": {
       "url": "https://play.fancade.com",
       "id": "fancade",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "Doom": {
       "url": "https://dos.zone/doom-dec-1993/",
       "id": "doom",
       "type": "OpenInGL"
-    },
+    },//*verified 8/9/25: status=Working
     "Doom II": {
       "url": "https://dos.zone/doom-ii-oct-10-1994/",
       "id": "doom2",
       "type": "OpenInGL"
-    },
-    "Doom 64": {
+    },//*verified 8/9/25: status=Working
+    /* "Doom 64": {
       "url": "https://static.arcadespot.com/retroemulator.php?system=n64&game=2017/06/doom-64.zip",
       "id": "doom64",
       "type": "OpenInGL"
-    },
+    }, *///!verified 8/9/25: status=Not Working
     "Doom 3": {
       "url": "https://wasm.continuation-labs.com/d3demo/",
       "id": "doom3",
       "type": "OpenInGL"
-    },
+    },//verified 8/9/25: status=Working
     "Baldi's Basics": {
-      "url": "https://assets.theludos.com/games/baldis-basics/", //old: https://igroutka.ru/loader/game/26471/
+      // "url": "https://assets.theludos.com/games/baldis-basics/", //old: https://igroutka.ru/loader/game/26471/
+      "url": "https://www.gameslol.net/data/baldis-basics/index.html",
       "id": "baldis",
       "type": "OpenInGL"
-    },
+    },//verified 8/9/25: status=Working; Fixed
     "Krunker.io": {
       "url": "https://krunker.io",
       "id": "krunker",
       "type": "OpenInGL"
-    },
-    "Snake.io": {
+    },//verified 8/9/25: status=Working
+    /* "Snake.io": {
       "url": "https://snakeio.org/snake-io.embed",
       "id": "snakeio",
       "type": "OpenInGL"
-    },
+    }, *///!verified 8/9/25: status=Not Working
     "Portal": {
       "url": "https://w8.snokido.com/games/flash/ruffle.html?g=portal&v=140524",
       "id": "portal",
