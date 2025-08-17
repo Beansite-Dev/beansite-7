@@ -29,6 +29,7 @@ export const SettingsAtom=atom(
         backgroundRepeat:"no-repeat",
         savedWallpapers:[],
         theme:"default",
+        font:"segoe",
 });
 export const SettingsMenu=({})=>{
     // localStorage.removeItem('mb7-settings'); //!reset
