@@ -43,6 +43,7 @@ export const SettingsMenu=({})=>{
     const BackgroundSelector=({})=>{
         const[bgl,sbgl]=useState([
             {id:1,name:"Default",srctype:"url",src:"/wallpapers/default.png"},
+            {id:1,name:"Technology",srctype:"url",src:"/wallpapers/technology.png"},
             {id:2,name:"Aurora",srctype:"url",src:"/wallpapers/aurora.png"},
             {id:3,name:"Grid",srctype:"url",src:"/wallpapers/grid.png"},
             ...settings.savedWallpapers
