@@ -23,7 +23,7 @@ export const _DEBUG=true;
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const _CHANGELOG={
-    "v":"v0.19.4",
+    "v":"v0.19.6",
     "d":"8/16/2025",
     "cm":"Various Additions",
     "c":[
@@ -31,6 +31,8 @@ const App=({})=>{
       "my dumbass forgot to implement the solaris command (oops)",
       "Added Functionality to Start Menu",
       "Added Firebean",
+      "Fixed Changelog",
+      "Added New Wallpapers",
       "Fixed Font Bug",
       "Fixed Desktop Icons Typo",
       "Added Assets",
