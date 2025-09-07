@@ -8,6 +8,7 @@ import { Desktop } from './modules/Desktop';
 import { SettingsMenu } from "./windows/Settings";
 import { generateId } from './modules/Lib';
 import { ErrorBoundary } from './modules/core/ErrorBoundary';
+import { LoadingScreen } from './modules/LoadingScreen';
 // styling
 import "./style/Index.scss";
 
@@ -21,6 +22,7 @@ export const AppWrapper=({children,desktopShortcutsList=[],StartMenuApps=[]})=>{
       });
     };
     return(<>
+      <LoadingScreen/>
       <motion.div id="App">
         <motion.div 
           id="windowWrapper" 

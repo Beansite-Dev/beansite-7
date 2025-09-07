@@ -27,7 +27,7 @@ const NewTabData=(nid=generateId(10))=>{return({
   title:"New Tab",
   icon:Icons.firebean,
   contentType:"component",
-  content:"https://edgedcircles.com",
+  content:"/gs/helios.html",//"https://www.croxyproxy.com/servers",//"https://edgedcircles.com",
   id:nid,
 });};
 const FirebeanAtom=atom({

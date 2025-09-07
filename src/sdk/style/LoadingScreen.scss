@@ -1,0 +1,130 @@
+#loading {
+  height: 100dvh;
+  width: 100dvw;
+  position: fixed;
+  z-index: 997;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2vmin;
+  pointer-events:auto;
+  #loadingIcon {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    translate: -50% -50%;
+    height: 12.5rem;
+    aspect-ratio: 1 / 1;
+    #li_c1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      height: 80%;
+      filter: 
+        brightness(1) 
+        blur(.5px)  
+        saturate(1.25);
+      aspect-ratio: 1 / 1;
+      background-image: url("/assets/beansite7_favicon_nobg.png");
+      background-position: center;
+      background-size: cover;
+      z-index: 4;
+      animation: flash 4.5s infinite;
+    }
+    #li_c2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      height: 80%;
+      filter: brightness(.8) blur(1rem) saturate(2);
+      aspect-ratio: 1 / 1;
+      background-image: url("/assets/beansite7_favicon_nobg.png");
+      background-position: center;
+      background-size: cover;
+      z-index: 3;
+      animation: fluctOpacity 5s infinite, scaleUp 5s infinite;
+    }
+    #li_c3 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      height: 80%;
+      filter: brightness(.8) blur(2rem) saturate(1.5);
+      aspect-ratio: 1 / 1;
+      background-image: url("/assets/beansite7_favicon_nobg.png");
+      background-position: center;
+      background-size: cover;
+      z-index: 2;
+      animation: scaleUp 5s infinite;
+    }
+    #li_c3 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      height: 80%;
+      filter: brightness(.8) blur(2.5rem) saturate(1);
+      aspect-ratio: 1 / 1;
+      background-image: url("/assets/beansite7_favicon_nobg.png");
+      background-position: center;
+      background-size: cover;
+      z-index: 1;
+      animation: fluctOpacity 3s infinite, scaleUp 4s infinite;
+    }
+  }
+  #sBS {
+    color: #aaaaaa;
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.15rem;
+    height: auto;
+    width: 15rem;
+    text-align: center;
+  }
+  #loadingTips {
+    color: gray;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: .675rem;
+    height: auto;
+    width: 15rem;
+    text-align: center;
+  }
+}
+.fadeout {
+  animation: fadeout 1s linear forwards;
+  pointer-events:none!important;
+  overflow: auto!important;
+}
+@keyframes fluctOpacity {
+  0%{opacity:1;}
+  50%{opacity:0.5;}
+  100%{opacity:1;}
+}
+@keyframes scaleUp {
+  0%{scale:.8;}
+  50%{scale:1.2;}
+  100%{scale:.8;}
+}
+@keyframes flash {
+  0%{filter: brightness(1);}
+  50%{filter: brightness(1.4);}
+  100%{filter: brightness(1);}
+}
+@keyframes fadeout {
+  0%{opacity:1;}
+  100%{opacity:0;}
+}

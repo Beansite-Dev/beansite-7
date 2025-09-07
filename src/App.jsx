@@ -23,10 +23,11 @@ export const _DEBUG=true;
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const _CHANGELOG={
-    "v":"v0.19.6",
-    "d":"8/16/2025",
+    "v":"v0.20.2",
+    "d":"9/7/2025",
     "cm":"Various Additions",
     "c":[
+      "Finally Added Loading Screen",
       "Fixed half of the games list",
       "my dumbass forgot to implement the solaris command (oops)",
       "Added Functionality to Start Menu",

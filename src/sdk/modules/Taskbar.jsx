@@ -57,7 +57,7 @@ const StartMenu=({StartMenuApps=[]})=>{
       opacity:startMenuOpen?1:0}}>
     <motion.div id="sm_actionWrapper">
       <motion.div className="pfp">
-        <svg class="hidden" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg">
+        <svg className="hidden" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <clipPath id="SquircleClip-2" clipPathUnits="objectBoundingBox">
 			        <path d="M 0,0.5
