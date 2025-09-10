@@ -7,3 +7,5 @@ yeah so im making a ~~7th~~ 4th (im stupid) one for 5 reasons:
 - 3: 98 is EXTRA buggy
 - 4: 95 was just bad (architecture-wise)
 - 5: im bored
+
+Finally released :>
