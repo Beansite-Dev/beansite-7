@@ -23,40 +23,18 @@ export const _DEBUG=true;
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const _CHANGELOG={
-    "v":"v0.20.2",
-    "d":"9/7/2025",
-    "cm":"Various Additions",
+    "v":"v0.21.1",
+    "d":"9/12/2025",
+    "cm":"i made half of these modifications during class so excuse their quality",
     "c":[
+      "Added Custom CSS Feature",
+      "Multiple Bug Fixes",
+      "Added Firebase Studio stuff (like nix)",
+      "Fixed yarn on nix",
       "Finally Added Loading Screen",
       "Fixed half of the games list",
       "my dumbass forgot to implement the solaris command (oops)",
       "Added Functionality to Start Menu",
-      "Added Firebean",
-      "Fixed Changelog",
-      "Added New Wallpapers",
-      "Fixed Font Bug",
-      "Fixed Desktop Icons Typo",
-      "Added Assets",
-      "Fixed Broken Vite HMR",
-      "Added Fonts: Comic Sans, Times New Roman, Tahoma",
-      "Added more commands to Beanshell",
-      "Added Dark Theme",
-      "Added Wallpapers",
-      "Fixed State Issues",
-      "Added settings Menu",
-      "Implemented local storage for settings",
-      "Added wallpaper system",
-      "Optimized scripts",
-      "Added icons",
-      "working on Firebean Proxy",
-      "Added CrazyCattle3D",
-      "Added MultibeanMC",
-      "Fixed sizing bugs on specific windows",
-      "Changed window layout",
-      "Updated Desktop",
-      "Added search functionality to Beanpowered",
-      "Drafted resize script improvement",
-      "Drafted Firebean (with tabs btw)"
     ]
   };
   const desktopShortcutsList=[

@@ -6,6 +6,7 @@ import { motion, Reorder, AnimatePresence } from "motion/react";
 import { createPortal } from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+// import { Editor } from '@monaco-editor/react';
 // import { DndContext } from "@dnd-kit/core";
 // import { SortableContext } from '@dnd-kit/sortable';
 // import { ReactSortable } from "react-sortablejs";
@@ -31,10 +32,66 @@ export const SettingsAtom=atom(
         theme:"default",
         font:"segoe",
 });
+const CSSAtom=atom("");
+const CSSEditor=({})=>{
+    const[cssa,setCssa]=useAtom(CSSAtom);
+    const updateCSS=(e)=>{setCssa(e.target.value);}
+    const handleTab = (e) => {
+        if(e.key=='Tab'){
+            e.preventDefault();
+            const start=e.target.selectionStart;
+            const end=e.target.selectionEnd;
+            e.target.value=e.target.value.substring(0,start)+"    "+e.target.value.substring(end);
+            e.target.selectionStart=e.target.selectionEnd=start+4;
+            setCssa(e.target.value);
+        }
+        if(e.key=="{"){
+            const start=e.target.selectionStart;
+            const end=e.target.selectionEnd;
+            e.target.value=e.target.value.substring(0,start)+"}"+e.target.value.substring(end);
+            e.target.selectionStart=e.target.selectionEnd=start;
+            setCssa(e.target.value);
+        }
+        if(e.key==":"){
+            const start=e.target.selectionStart;
+            const end=e.target.selectionEnd;
+            e.target.value=e.target.value.substring(0,start)+";"+e.target.value.substring(end);
+            e.target.selectionStart=e.target.selectionEnd=start;
+            setCssa(e.target.value);
+        }
+        if(e.key=="\""){
+            const start=e.target.selectionStart;
+            const end=e.target.selectionEnd;
+            e.target.value=e.target.value.substring(0,start)+"\""+e.target.value.substring(end);
+            e.target.selectionStart=e.target.selectionEnd=start;
+            setCssa(e.target.value);
+        }
+    }
+    return(<>
+        <textarea
+            height="12rem"
+            value={cssa}
+            onChange={updateCSS}
+            onKeyDown={handleTab}
+            /></>);
+    // return(<Editor
+    //     height="12rem"
+    //     width="100%"
+    //     language="css"
+    //     theme="vs-dark"
+    //     value={cssa}
+    //     onChange={updateCSS}>
+    // </Editor>);
+}
+const CSS=({})=>{
+    const[cssa,_]=useAtom(CSSAtom);
+    return(<style>{cssa}</style>);
+}
 export const SettingsMenu=({})=>{
     // localStorage.removeItem('mb7-settings'); //!reset
     const[settings,setSettings]=useAtom(SettingsAtom);
     document.body.className=`${settings.theme} font-${settings.font}`;
+    // const[code,setCode]=useState('// some code');
     useEffect(()=>{
         localStorage.setItem('mb7-settings',JSON.stringify(settings));
         console.log(localStorage.getItem("mb7-settings"));
@@ -153,6 +210,16 @@ export const SettingsMenu=({})=>{
                     </div>
                 </motion.div>
             </motion.div>
+            <motion.h2>Custom CSS</motion.h2>
+            <motion.p class="caption">
+                Custom CSS is an advanced feature for users 
+                who want more control over their styling. CSS 
+                itself is a very useful skill to learn and a majority 
+                of it makes up beansite. If you'de like to learn more, 
+                you may go to <motion.a href="https://w3schools.com/css">W3 Schools</motion.a> to learn 
+                how to use it
+            </motion.p>
+            <CSSEditor/>
         </>);
     }
     return(<>
@@ -162,6 +229,7 @@ export const SettingsMenu=({})=>{
                 backgroundSize:settings.backgroundSize,
                 backgroundRepeat:settings.backgroundRepeat,
             }}></motion.div>
+            <CSS/>
         </>,document.body)}
         <motion.h1>Settings</motion.h1>
         <BackgroundSelector/>

@@ -393,5 +393,17 @@
                 }
             }
         }
+        textarea {
+            height: 12rem;
+            font-size: .875rem;
+            line-height: 1;
+            font-family: monospace !important;
+            white-space: pre-wrap;
+        }
+        .caption {
+            font-size: .675rem;
+            color: gray;
+            margin-top: -.5rem;
+        }
     }
 }
