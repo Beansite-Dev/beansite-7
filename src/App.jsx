@@ -19,7 +19,21 @@ import { Beanpowered } from './sdk/windows/Beanpowered';
 import { MultibeanMC } from './sdk/windows/MultibeanMC';
 import { SettingsMenu } from './sdk/windows/Settings';
 import { Firebean } from './sdk/windows/Firebean';
+// firebase
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 export const _DEBUG=true;
+const firebaseConfig = {
+  apiKey: "AIzaSyBncUTzQsaN86K0kA1vNv4JJ3siCetvFlY",
+  authDomain: "beansite7.firebaseapp.com",
+  projectId: "beansite7",
+  storageBucket: "beansite7.firebasestorage.app",
+  messagingSenderId: "571629888807",
+  appId: "1:571629888807:web:c87fe4fcb8725a1f24f502",
+  measurementId: "G-N2SB8TPT98"
+};
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const _CHANGELOG={

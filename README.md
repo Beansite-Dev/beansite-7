@@ -1,4 +1,10 @@
 # Beansite 7
+OFFICIAL URLS:<br>
+https://beansite7.web.app<br>
+beansite7.firebaseapp.com<br>
+https://beansite7.vercel.app<br>
+https://mb7.vercel.app<br>
+
 here we go again
 ***
 yeah so im making a ~~7th~~ 4th (im stupid) one for 5 reasons:
