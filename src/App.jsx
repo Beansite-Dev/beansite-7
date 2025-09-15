@@ -27,6 +27,7 @@ const App=({})=>{
     "d":"9/12/2025",
     "cm":"i made half of these modifications during class so excuse their quality",
     "c":[
+      "Set Up Firebase",
       "Added Custom CSS Feature",
       "Multiple Bug Fixes",
       "Added Firebase Studio stuff (like nix)",
