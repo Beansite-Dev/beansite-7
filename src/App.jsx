@@ -98,6 +98,7 @@ const App=({})=>{
   }); */
   useEffect(()=>{
     document.body.className="default";
+    logEvent(analytics, 'notification_received');
   },[]);
   /* const GameLoaderWindow=({dragConstraint})=>{
     const[glt,sGlt]=useAtom(glData);
