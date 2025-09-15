@@ -21,7 +21,7 @@ import { SettingsMenu } from './sdk/windows/Settings';
 import { Firebean } from './sdk/windows/Firebean';
 // firebase
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, logEvent } from "firebase/analytics";
 export const _DEBUG=true;
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
@@ -98,7 +98,7 @@ const App=({})=>{
   }); */
   useEffect(()=>{
     document.body.className="default";
-    logEvent(analytics, 'notification_received');
+    logEvent(analytics, 'page_view');
   },[]);
   /* const GameLoaderWindow=({dragConstraint})=>{
     const[glt,sGlt]=useAtom(glData);
