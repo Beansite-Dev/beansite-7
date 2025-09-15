@@ -23,25 +23,14 @@ import { Firebean } from './sdk/windows/Firebean';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 export const _DEBUG=true;
-const firebaseConfig = {
-  apiKey: "AIzaSyBncUTzQsaN86K0kA1vNv4JJ3siCetvFlY",
-  authDomain: "beansite7.firebaseapp.com",
-  projectId: "beansite7",
-  storageBucket: "beansite7.firebasestorage.app",
-  messagingSenderId: "571629888807",
-  appId: "1:571629888807:web:c87fe4fcb8725a1f24f502",
-  measurementId: "G-N2SB8TPT98"
-};
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const _CHANGELOG={
-    "v":"v0.21.1",
-    "d":"9/12/2025",
+    "v":"v0.22.4",
+    "d":"9/14/2025",
     "cm":"i made half of these modifications during class so excuse their quality",
     "c":[
-      "Set Up Firebase",
+      "Set Up Firebase",      
       "Added Custom CSS Feature",
       "Multiple Bug Fixes",
       "Added Firebase Studio stuff (like nix)",
@@ -52,6 +41,17 @@ const App=({})=>{
       "Added Functionality to Start Menu",
     ]
   };
+  const firebaseConfig = {
+    apiKey: "AIzaSyBncUTzQsaN86K0kA1vNv4JJ3siCetvFlY",
+    authDomain: "beansite7.firebaseapp.com",
+    projectId: "beansite7",
+    storageBucket: "beansite7.firebasestorage.app",
+    messagingSenderId: "571629888807",
+    appId: "1:571629888807:web:c87fe4fcb8725a1f24f502",
+    measurementId: "G-N2SB8TPT98"
+  };
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
   const desktopShortcutsList=[
     {
       title: "Welcome!",
