@@ -73,7 +73,12 @@ const App=({})=>{
     },
   ];
   const[debugMenuVisibility,setDebugMenuVisibility]=useState(false);
-  /* useEffect(()=>{
+  useEffect(()=>{
+    document.body.className="default";
+    if(!_DEBUG)logEvent(analytics, 'page_view');
+  },[]);
+  //!not in use
+  useEffect(()=>{
     if(!debugMenuVisibility)setTimeout(()=>{
       document.getElementById("DevPreviewContainer").style.display="none";
     },350);
@@ -81,12 +86,8 @@ const App=({})=>{
   },[debugMenuVisibility]);
   useHotkeys('ctrl+`',(e)=>{
     e.preventDefault();
-    setDebugMenuVisibility(!debugMenuVisibility);
-  }); */
-  useEffect(()=>{
-    document.body.className="default";
-    if(!_DEBUG)logEvent(analytics, 'page_view');
-  },[]);
+    if(_DEBUG)setDebugMenuVisibility(!debugMenuVisibility);
+  });
   /* const GameLoaderWindow=({dragConstraint})=>{
     const[glt,sGlt]=useAtom(glData);
     useEffect(()=>{

@@ -1,0 +1,197 @@
+.forest {
+    @property --win-tb-clr1 {
+        syntax: "<color>";
+        inherits: false;
+        initial-value: hsl(100, 100%, 53%);
+    }
+    @property --win-tb-clr2 {
+        syntax: "<color>";
+        inherits: false;
+        initial-value: hsl(100, 55%, 40%);
+    }
+    @property --win-tb-clr3 {
+        syntax: "<color>";
+        inherits: false;
+        initial-value: hsl(100, 39%, 33%)
+    }
+    @property --win-tb-clr4 {
+        syntax: "<color>";
+        inherits: false;
+        initial-value: hsl(100, 86%, 43%);
+    }
+    .safeGraphics {
+        backdrop-filter: none !important;
+        border: 1px solid hsl(100, 100%, 36%) !important;
+        &,*{filter: none !important;box-shadow: none !important;}
+        background: 
+            linear-gradient(123deg,
+                hsl(100, 100%, 46%) 0%,
+                hsl(100, 84%, 36%) 46%,
+                hsl(100, 71%, 26%) 100%) !important;
+    }
+    .window {
+        backdrop-filter: blur(3px);
+        border-radius: 6px;
+        border: 1px solid hsla(100, 100%, 66%, 0.85);
+        box-shadow: 
+            inset 2px 2px 10px #ffffffd0,
+            inset -2px -2px 10px #40404050,
+            5px 5px 1rem #000000d0,
+            0 0 .5rem #000000d0;
+        background: 
+            linear-gradient(123deg,
+                hsla(100, 100%, 46%, 0.502) 0%,
+                hsla(100, 84%, 36%, 0.65) 46%,
+                hsla(100, 71%, 26%, 0.75) 100%);
+        .tb {
+            filter: drop-shadow(0 0 5px #ffffff90);
+        }
+        .bw {
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border: 1px #40404080 solid;
+            button {
+                border-right: 1px #40404090 solid;
+                background: linear-gradient(180deg, 
+                    var(--win-tb-clr1) 0%,
+                    var(--win-tb-clr2) 50%,
+                    var(--win-tb-clr3) 51%, 
+                    var(--win-tb-clr4) 100%);
+                transition: 
+                    filter .15s,
+                    --win-tb-clr1 .05s,
+                    --win-tb-clr2 .15s,
+                    --win-tb-clr3 .25s,
+                    --win-tb-clr4 .15s;
+                color: #f0f0f0;
+                // -webkit-text-stroke: 1px #404040;
+                text-shadow: 
+                    0 0 5px #050505,
+                    0 0 1px #050505,
+                    1px 1px 2px #101010;
+                &:hover {
+                    /* --win-tb-clr1: rgb(238, 249, 255);
+                    --win-tb-clr2: rgb(208, 233, 242);
+                    --win-tb-clr3: rgb(206, 223, 234);
+                    --win-tb-clr4: rgb(240, 248, 251); */
+                    filter: brightness(125%);
+                }
+                &.close {
+                    width: 42px;
+                    flex-shrink: 0;
+                    --win-tb-clr1: hsl(6, 89%, 74%);
+                    --win-tb-clr2: hsl(8, 56%, 65%);
+                    --win-tb-clr3: hsl(10, 76%, 45%);
+                    --win-tb-clr4: hsl(11, 75%, 58%);
+                }
+                &::before {
+                    content: "";
+                    height: 100%;
+                    width: 100%;
+                    position: absolute !important;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    background: linear-gradient(white,transparent,transparent,white);
+                    opacity: .35;
+                }
+            }
+        }
+        .contents {
+            background: #f9f9f9;
+            border: outset 1px #f0f0f0;
+            border-radius: 2px;
+        }
+        .resizeX, .resizeY {
+            &:hover, &:active {
+                background: hsla(100, 39%, 22%, 0.65);
+            }
+        }
+    }
+    //Taskbar Styling
+    #Taskbar {
+        backdrop-filter: blur(3px);
+        border: 1px solid hsla(100, 100%, 66%, 0.85);
+        box-shadow: 
+            inset 2px 2px 10px #ffffffd0,
+            inset -2px -2px 10px #40404050;
+        background: 
+            linear-gradient(123deg,
+                hsla(100, 100%, 46%, 0.5) 0%,
+                hsla(100, 84%, 36%, 0.65) 46%,
+                hsla(100, 71%, 26%, 0.75) 100%);
+        #startButton {
+            background-image: url("/assets/beansite7_favicon.png");
+        }
+        .tooltip {
+            border-radius: 6px;
+            font-size: 14px;
+            text-shadow: 0 0 5px rgba(#fff,.65);
+            border: 1px solid hsla(100, 100%, 66%, 0.85);
+            box-shadow: 
+                inset 2px 2px 10px #ffffffd0,
+                inset -2px -2px 10px #40404050;
+            background: 
+                linear-gradient(123deg,
+                    hsla(100, 100%, 46%, 0.5) 0%,
+                    hsla(100, 84%, 36%, 0.65) 46%,
+                    hsla(100, 71%, 26%, 0.75) 100%);
+        }
+        .item.open {
+            backdrop-filter: blur(3px);
+            border-radius: 6px;
+            border: 1px solid hsla(100, 100%, 66%, 0.85);
+            box-shadow: 
+                inset 2px 2px 10px hsla(100, 100%, 85%, 0.85),
+                inset -2px -2px 10px hsla(100, 77%, 22%, 0.314);
+            background: 
+                linear-gradient(123deg,
+                    hsl(100, 100%, 42%) 0%,
+                    hsl(100, 84%, 33%) 46%,
+                    hsl(100, 71%, 26%) 100%);
+        }
+    }
+    #StartMenu {
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        backdrop-filter: blur(3px);
+        border: 1px solid hsla(100, 52%, 22%, 0.75);
+        box-shadow: 
+            inset 2px 2px 10px hsla(100, 48%, 54%, 0.816),
+            inset -2px -2px 10px hsla(100, 52%, 22%, 0.75);
+        background: 
+            linear-gradient(123deg,
+                hsla(100, 36%, 43%, 0.5) 0%,
+                hsla(100, 38%, 34%, 0.65) 46%,
+                hsla(100, 52%, 22%, 0.75) 100%);
+        #sm_shortcutWrapper {
+            background: #f9f9f9;
+            border: outset 1px #f0f0f0;
+            border-radius: 4px;
+        }
+    }
+    //scrollbar styling
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e5e5e5;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, 
+            hsl(100, 57%, 95%) 0%,
+            hsl(100, 23%, 82%) 50%,
+            hsl(100, 28%, 80%) 51%, 
+            hsl(100, 72%, 89%) 100%);
+        border: 1px #50505050 solid;
+        border-radius: 3px;
+        transition: .35s;
+        &:hover, &:active {
+            background: linear-gradient(180deg, 
+                hsl(100, 18%, 54%) 0%,
+                hsl(100, 16%, 42%) 50%,
+                hsl(100, 16%, 36%) 51%, 
+                hsl(100, 20%, 45%) 100%);
+        }
+    }
+}

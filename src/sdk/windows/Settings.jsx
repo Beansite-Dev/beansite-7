@@ -232,8 +232,13 @@ export const SettingsMenu=({})=>{
                             }}>
                                 <option value="default">Default</option>
                                 <option value="dark">Dark</option>
+                                {/* <option value="experimentaldark">Experimental Dark</option> */}
                                 <option value="pink">Pink</option>
                                 <option value="red">Red</option>
+                                <option value="purple">Purple</option>
+                                <option value="mint">Mint</option>
+                                <option value="forest">Forest</option>
+                                <option value="ocean">Ocean</option>
                         </select>
                     </div>
                 </motion.div>
