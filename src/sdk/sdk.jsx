@@ -17,8 +17,10 @@ export const AppWrapper=({children,desktopShortcutsList=[],StartMenuApps=[]})=>{
     const windowWrapperRef=useRef(null);
     const renderChildren=()=>{
       return Children.map(children,(child)=>{
-        if(["div"].includes(child.type))return child;
-        else return cloneElement(child,{dragConstraint:windowWrapperRef});
+        if(child&&child.type){
+          if(["div"].includes(child.type))return child;
+          else return cloneElement(child,{dragConstraint:windowWrapperRef});
+        }
       });
     };
     return(<>

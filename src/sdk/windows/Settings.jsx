@@ -128,7 +128,51 @@ export const SettingsMenu=({})=>{
                     </div>
                 </motion.div>)}
                 <motion.div className="AddButtonWrapper">
-                    <motion.button className="AddButton">
+                    <input 
+                        onChange={(e)=>{
+                            const selectedFile=e.target.files[0];
+                            if(selectedFile){
+                                // console.log('Selected file:', selectedFile.name);
+                                const reader=new FileReader();
+                                reader.onload=(e2)=>{
+                                    const fileContent=e2.target.result;
+                                    // sbgl([...bgl,{
+                                    //     id:generateId(10),
+                                    //     name:selectedFile.name,
+                                    //     srctype:"file",
+                                    //     src:fileContent,
+                                    // }]);
+                                    setSettings({
+                                        ...settings,
+                                        backgroundImage:fileContent,
+                                        savedWallpapers:[
+                                            ...settings.savedWallpapers,
+                                            {
+                                                id:generateId(10),
+                                                name:selectedFile.name,
+                                                srctype:"file",
+                                                src:fileContent,
+                                            }
+                                        ]
+                                    });
+                                    // console.log('File content:',fileContent);
+                                };
+                                reader.readAsText(selectedFile);
+                            }
+                        }}
+                        // onClick={(e)=>{alert("file prompting");}} 
+                        type="file" 
+                        id="bgUpload" 
+                        style={{
+                            visibility:"hidden",
+                            height:"0",
+                            width:"0",
+                            display:"none",
+                        }}></input>
+                    <motion.button className="AddButton" onClick={(e)=>{try{
+                        e.preventDefault();
+                        document.getElementById("bgUpload").click();
+                    }catch(e){alert(e);}}}>
                         <FontAwesomeIcon className="icon" icon={faPlus} />
                     </motion.button>
                 </motion.div>
@@ -188,6 +232,8 @@ export const SettingsMenu=({})=>{
                             }}>
                                 <option value="default">Default</option>
                                 <option value="dark">Dark</option>
+                                <option value="pink">Pink</option>
+                                <option value="red">Red</option>
                         </select>
                     </div>
                 </motion.div>
@@ -220,6 +266,10 @@ export const SettingsMenu=({})=>{
                 how to use it
             </motion.p>
             <CSSEditor/>
+            <motion.button className="reset" onClick={(e)=>{
+                localStorage.clear();
+                location.reload();
+            }}>Reset</motion.button>
         </>);
     }
     return(<>

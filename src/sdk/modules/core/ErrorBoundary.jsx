@@ -6,7 +6,10 @@ export class ErrorBoundary extends Component {
     this.state={hasError:false,errorData:null};
   }
   static getDerivedStateFromError(errorData){return({hasError:true,errorData});}
-  componentDidCatch(error,info){console.error(error,info);}
+  componentDidCatch(error,info){
+    console.error(error,info);
+    alert(`${error} ${JSON.stringify(info)}`)
+  }
   render(){
     if(this.state.hasError)return(<>
       <div id="bsod">
