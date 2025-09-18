@@ -1,0 +1,8 @@
+*.es linguist-language=js
+*.es linguist-language=JS
+*.es linguist-language=JAVASCRIPT
+*.jsx linguist-language=js
+*.jsx linguist-language=JS
+*.jsx linguist-language=JAVASCRIPT
+src/** linguist-detectable=true
+public/** linguist-detectable=true
