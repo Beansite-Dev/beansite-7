@@ -4,5 +4,6 @@
 *.jsx linguist-language=js
 *.jsx linguist-language=JS
 *.jsx linguist-language=JAVASCRIPT
-src/** linguist-detectable=true
-public/** linguist-detectable=true
+*.jsx linguist-detectable=true
+src/* linguist-detectable=true
+public/* linguist-detectable=true
