@@ -1,9 +1,10 @@
 export const _CHANGELOG={
-    "v":"v0.25.4",
+    "v":"v0.25.5",
     "d":"9/22/2025",
     "cm":"i made half of these modifications during class so excuse their quality",
     "c":[
       "NOTICE!!! I know a lot of the games are broken, it's a side effect of the new technology. I AM working on it, hence the status checker. I'm mostly reviewing through current games, checking which ones, and marking their status so I can fix them in one big update",
+      "Finally fixed annoying github issues with deployment",
       "Code reorginize",
       "Implement status checker to games in Beanpowered",
       "Added description to every game",
