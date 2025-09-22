@@ -1,9 +1,13 @@
 export const _CHANGELOG={
-    "v":"v0.23.4",
-    "d":"9/16/2025",
+    "v":"v0.25.4",
+    "d":"9/22/2025",
     "cm":"i made half of these modifications during class so excuse their quality",
     "c":[
+      "NOTICE!!! I know a lot of the games are broken, it's a side effect of the new technology. I AM working on it, hence the status checker. I'm mostly reviewing through current games, checking which ones, and marking their status so I can fix them in one big update",
       "Code reorginize",
+      "Implement status checker to games in Beanpowered",
+      "Added description to every game",
+      "Game verification x2. Games have been marked with their working status and will be promptly updated",
       "Started custom wallpaper import script",
       "Pathced a few bugs with vite and vercel",
       "Fixed Analytic bugs",

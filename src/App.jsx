@@ -25,6 +25,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics, logEvent } from "firebase/analytics";
 // vercel
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from '@vercel/speed-insights/react';
 export const _DEBUG=false;//REMEMBER TO CHANGE WHEN DEPLOYEDconst firebaseConfig = {
 export const firebaseConfig={
   apiKey: "AIzaSyBncUTzQsaN86K0kA1vNv4JJ3siCetvFlY",
@@ -143,6 +144,7 @@ const App=({})=>{
       <link rel="stylesheet" href="/themes/default.scss" />
     </Helmet>
     <Analytics/>
+    <SpeedInsights/>
     <AppWrapper desktopShortcutsList={desktopShortcutsList} StartMenuApps={desktopShortcutsList}>
       {/* <div id="bloomfx"></div> */}
       <motion.div 
