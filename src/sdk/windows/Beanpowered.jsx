@@ -104,6 +104,36 @@ export const Beanpowered=({})=>{
             <motion.button className="GUI_selectionTab">Discussions</motion.button>
           </motion.div>
         </motion.div>
+        <motion.div className="GUI_contentWrapper">
+          <motion.div className="GUI_statusWrapper">
+            <motion.span className="GUI_status">Current Game Status:
+              {/* &nbsp; */}
+              <motion.span className={`
+                GUI_currentStatusCircle 
+                ${gamedata.working==true?"Green"
+                  :gamedata.working==undefined?"Gray"
+                  :gamedata.working=="y"?"Yellow"
+                  :gamedata.working==false?"Red"
+                  :"Gray"}`}></motion.span>
+            </motion.span>
+            <motion.span className="GUI_status">
+              Status Message: {gamedata.status?gamedata.status:"Unchecked"}
+            </motion.span>
+            <motion.span className="GUI_status">
+              Last Checked: {gamedata.vdate?gamedata.vdate:"Never"}
+            </motion.span>
+          </motion.div>
+          <motion.div className="GUI_postWrapper">
+            <motion.div className="GUI_description">
+              <motion.h2>Description</motion.h2>
+              <motion.p>
+                {gamedata.desc
+                  ?gamedata.desc
+                  :"This game has no description"}
+              </motion.p>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </motion.div>
     </>);
   }
