@@ -1,5 +1,5 @@
 export const _CHANGELOG={
-    "v":"v0.26.75",
+    "v":"v0.26.76",
     "d":"9/29/2025",
     "cm":"i made half of these modifications during class so excuse their quality",
     "c":[
