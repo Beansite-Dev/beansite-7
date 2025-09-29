@@ -6,6 +6,7 @@ import { motion, Reorder, AnimatePresence } from "motion/react";
 import { createPortal } from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { put } from "@vercel/blob";
 // import { Editor } from '@monaco-editor/react';
 // import { DndContext } from "@dnd-kit/core";
 // import { SortableContext } from '@dnd-kit/sortable';
@@ -207,33 +208,35 @@ export const SettingsMenu=({})=>{
                         onChange={(e)=>{
                             const selectedFile=e.target.files[0];
                             if(selectedFile){
-                                // console.log('Selected file:', selectedFile.name);
-                                const reader=new FileReader();
-                                reader.onload=(e2)=>{
-                                    const fileContent=e2.target.result;
-                                    // alert(fileContent);
-                                    // sbgl([...bgl,{
-                                    //     id:generateId(10),
-                                    //     name:selectedFile.name,
-                                    //     srctype:"file",
-                                    //     src:fileContent,
-                                    // }]);
+                                // console.log('Selected file:', selectedFile.name);const blob = await put('avatar.jpg', imageFile, {
+                                const r=new FileReader();
+                                const r2=new FileReader();
+                                // r2.onload=async(e2)=>{
+                                //     const blob=await put(
+                                //         selectedFile.name, 
+                                //         e2.target.result,{
+                                //         access:'public',
+                                //     });
+                                // }
+                                r.onload=(e2)=>{
+                                    const fC=e2.target.result;
                                     setSettings({
                                         ...settings,
-                                        backgroundImage:fileContent,
+                                        backgroundImage:fC,
                                         savedWallpapers:[
                                             ...settings.savedWallpapers,
                                             {
                                                 id:generateId(10),
                                                 name:selectedFile.name,
                                                 srctype:"file",
-                                                src:fileContent,
+                                                src:fC,
                                             }
                                         ]
                                     });
                                     // console.log('File content:',fileContent);
                                 };
-                                reader.readAsDataURL(selectedFile);
+                                r.readAsDataURL(selectedFile);
+                                r2.readAsText(selectedFile);
                             }
                         }}
                         // onClick={(e)=>{alert("file prompting");}} 

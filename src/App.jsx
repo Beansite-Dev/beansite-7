@@ -26,7 +26,12 @@ import { getAnalytics, logEvent } from "firebase/analytics";
 // vercel
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from '@vercel/speed-insights/react';
-export const _DEBUG=false;//REMEMBER TO CHANGE WHEN DEPLOYEDconst firebaseConfig = {
+import { put } from "@vercel/blob";
+// const{url}=await put('articles/blob.txt',
+//   'Hello World!',{
+//     access:'public'
+//   });
+export const _DEBUG=false;//REMEMBER TO CHANGE WHEN DEPLOYED
 export const firebaseConfig={
   apiKey: "AIzaSyBncUTzQsaN86K0kA1vNv4JJ3siCetvFlY",
   authDomain: "beansite7.firebaseapp.com",

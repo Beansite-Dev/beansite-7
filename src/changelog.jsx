@@ -1,8 +1,11 @@
 export const _CHANGELOG={
-    "v":"v0.26.76",
+    "v":"v1.26.78",
     "d":"9/29/2025",
     "cm":"i made half of these modifications during class so excuse their quality",
     "c":[
+      "Bumped to version +1.**.**",
+      "Started vercel blob implementation (which shoudl hopefully allow for more wallpaper storage)",
+      "Fixed indentation on games.js",
       "Duplicated keys bugfix",
       "Quick theme font color fix",
       "UI Tweaks to Beanpowered",
