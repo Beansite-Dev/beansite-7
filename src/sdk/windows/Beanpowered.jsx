@@ -201,14 +201,34 @@ export const Beanpowered=({})=>{
     </motion.div>
     <Tabs.Root className="bp_tabs" defaultValue="slope">
       <Tabs.List className="bp_sidebar">
-        {Object.keys(searchRes).map(name=>
-          <Tabs.Tab key={games[name].id} className="bpsb_item" value={games[name].id}>
-            <motion.div 
-              className="bpsbi_icon"
-              style={{backgroundImage:`url("/apps/beanpowered/gicon/${games[name].id}.png")`}}>
-            </motion.div> <span className="bpsbi_txt">{name}</span>
+        {Object.keys(searchRes).reduce((obj,key)=>{
+          if(games[key].working)obj.push(key);
+          return obj;
+        },[]).map(name=>
+          <Tabs.Tab 
+            key={games[name].id} 
+            className={`bpsb_item ${!(games[name].working)?"nonfunc":""}`} 
+            value={games[name].id}>
+              <motion.div 
+                className="bpsbi_icon"
+                style={{backgroundImage:`url("/apps/beanpowered/gicon/${games[name].id}.png")`}}>
+              </motion.div> <span className="bpsbi_txt">{name}</span>
           </Tabs.Tab>)}
-        {/* <Tabs.Indicator className="bp_TabIndicator" /> */}
+        {Object.keys(searchRes).reduce((obj,key)=>{
+          if(!games[key].working)obj.push(key);
+          return obj;
+        },[]).map(name=>
+          <Tabs.Tab 
+            key={games[name].id} 
+            className={`bpsb_item ${!(games[name].working)?"nonfunc":""}`} 
+            value={games[name].id}>
+              <motion.div 
+                className="bpsbi_icon"
+                style={{backgroundImage:`url("/apps/beanpowered/gicon/${games[name].id}.png")`}}>
+              </motion.div> <span className="bpsbi_txt">{name}</span>
+          </Tabs.Tab>)}
+        {/* REQ FORM LINK: https://docs.google.com/forms/d/e/1FAIpQLSdFMF_gHZRSPGccAlArRIXUr9Dr0HC5IgKdDbnQMKQGlUS5oA/viewform?usp=send_form */}
+        <Tabs.Indicator className="bp_TabIndicator" />
       </Tabs.List>
       {Object.keys(games).map(name=>
         <Tabs.Panel 

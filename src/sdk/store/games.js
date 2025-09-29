@@ -243,6 +243,7 @@ const games={
       url: "https://mountain658.github.io/BurritoBison.html",
       id: "burritobll",
       type: "OpenInGL",
+      desc: `In Burrito Bison: Launcha Libre, you play as a powerful luchador who's had his cookbook stolen by an army of evil gummies. To get it back, you'll launch yourself from a wrestling ring and soar through the air, smashing, bouncing, and flying your way through hordes of gummies. It’s a hilarious and addictive game about launching yourself as far as you can to earn money, upgrade your abilities, and defeat the gummy menace.`,
       working: false,
       status: "Not Working; Black screen",
       vdate: "9/17/25",
@@ -253,6 +254,7 @@ const games={
       url: "https://mountain658.github.io/tombofthemask.html",
       id: "totm",
       type: "OpenInGL",
+      desc: `Tomb of the Mask is a fast-paced, retro-style arcade game where you navigate through a series of vertical mazes. You play as a tiny adventurer who discovers a magical mask that lets you climb walls and zip around at lightning speed. The goal is to collect coins, dodge enemies, and outrun a deadly trap that’s constantly rising from the bottom of the screen.`,
       working: true,
       status: "Working",
       vdate: "9/17/25",
@@ -270,6 +272,7 @@ const games={
       url: "https://run3-online.io/embed/run-3",
       id: "run3",
       type: "OpenInGL",
+      desc: `Run 3 is an endless runner set in space, where you control a little alien running and jumping through a series of tunnels. The twist is that you can run on the walls and ceiling, which completely changes how you approach the game. It's all about quick reflexes as you leap over gaps and avoid falling into the vast emptiness of space, all while discovering new characters and exploring a massive, interconnected map.`,
       working: false,
       status: "Not Working; Network error",
       vdate: "9/17/25",
@@ -282,6 +285,7 @@ const games={
       url: "/gs/celeste/celeste.html",
       id: "celeste",
       type: "OpenInGL",
+      desc: `Celeste is a challenging and beautiful platformer about a young woman named Madeline who decides to climb the mysterious Celeste Mountain. Along the way, she'll have to overcome her own inner demons in a surprisingly deep and touching story. The gameplay is all about precise jumping and dashing through hundreds of hand-crafted, difficult screens.`,
       working: true,
       status: "Working",
       vdate: "9/17/25",
@@ -292,6 +296,7 @@ const games={
       url: "https://www.miniplay.com/embed/jetpack-joyride",
       id: "jpjr",
       type: "OpenInGL",
+      desc: `In Jetpack Joyride, you play as Barry Steakfries, who breaks into a secret laboratory and steals a high-tech jetpack. It's a classic endless runner where you fly through the lab, dodging missiles, lasers, and other obstacles, all while collecting coins and completing missions to upgrade your gear and see how far you can get.`,
       working: true,
       status: "Working",
       vdate: "9/17/25",
@@ -302,6 +307,7 @@ const games={
       url: "https://funhtml5games.com?embed=fruitninja",
       id: "frnin",
       type: "OpenInGL",
+      desc: `Fruit Ninja is a simple, yet incredibly satisfying arcade game. Your goal is to slice as much fruit as you can as it's tossed up on the screen, creating juicy combos. But be careful, you have to avoid the bombs, or it's game over! It's all about quick reflexes and seeing how high of a score you can get.`,
       working: true,
       status: "Working",
       vdate: "9/17/25",
@@ -312,6 +318,7 @@ const games={
       url: "https://playcanv.as/p/2OlkUaxF/",
       id: "flappy",
       type: "OpenInGL",
+      desc: `In Flappy Bird, you control a small bird and your only goal is to navigate it through a series of green pipes. You tap the screen to make the bird flap its wings, but the slightest miscalculation will send you crashing. It's a simple, yet incredibly challenging game that became a viral sensation for its addictive and frustrating gameplay.`,
       working: true,
       status: "Working",
       vdate: "9/17/25",
@@ -337,16 +344,18 @@ const games={
       url: "https://play.fancade.com/#",
       id: "fancade",
       type: "OpenInGL",
+      desc: `Fancade is like a giant, ever-expanding arcade filled with thousands of mini-games. It’s a platform where you can play a massive variety of games created by other users, ranging from simple puzzles to complex adventures. On top of that, you can even build your own games using its intuitive and powerful creation tools.`,
       working: false,
       status: "Not Working; Redirect issue",
       vdate: "9/17/25",
-      //!UPDATED: 9/17/25: status=Not Working; Redirect issue
+      //!verified 9/17/25: status=Not Working; Redirect issue
       //*verified 8/9/25:  status=Working
     },
     "Doom": {
       url: "https://dos.zone/doom-dec-1993/",
       id: "doom",
       type: "OpenInGL",
+      desc: `Doom is the iconic first-person shooter that drops you into the boots of a lone space marine, famously known as the Doomguy. You're the last line of defense against a demonic invasion from Hell on a futuristic Martian base. It's a raw and intense experience of navigating maze-like levels, finding secret areas, and blasting your way through hordes of demons with a legendary arsenal of weapons.`,
       working: false,
       status: "Not Working; DOS Zone disallows embeds",
       vdate: "9/17/25",
@@ -357,6 +366,7 @@ const games={
       url: "https://dos.zone/doom-ii-oct-10-1994/",
       id: "doom2",
       type: "OpenInGL",
+      desc: `Doom II picks up right where the original left off. After fighting your way through Mars, you return to Earth, only to find it's also been overrun by the forces of Hell. The game throws bigger hordes of demons at you across sprawling levels and introduces the legendary Super Shotgun, making the demon-slaying action even more intense.`,
       working: false,
       status: "Not Working; DOS Zone disallows embeds",
       vdate: "9/17/25",
@@ -373,6 +383,7 @@ const games={
       url: "https://wasm.continuation-labs.com/d3demo/",
       id: "doom3",
       type: "OpenInGL",
+      desc: `Doom 3 reboots the series with a focus on survival horror. It's a much darker and more atmospheric experience that drops you into the UAC's Martian research facility right as a demonic invasion begins. You'll need to use your flashlight to navigate the claustrophobic corridors and fight off terrifying demons that leap from the shadows, creating a tense and immersive sci-fi horror story.`,
       working: true,
       status: "Working",
       vdate: "9/17/25",
@@ -384,6 +395,7 @@ const games={
       url: "https://www.gameslol.net/data/baldis-basics/index.html",
       id: "baldis",
       type: "OpenInGL",
+      desc: `Baldi's Basics is a weirdly wonderful and slightly terrifying parody of 90s educational games. On the surface, it looks like a simple math game where you collect notebooks. But once you get a question wrong, the game turns into a surreal horror experience where you're stalked by the creepy, ruler-wielding Baldi. It's all about trying to escape the schoolhouse before he catches you.`,
       working: true,
       status: "Working",
       vdate: "9/17/25",
@@ -394,6 +406,7 @@ const games={
       url: "https://krunker.io",
       id: "krunker",
       type: "OpenInGL",
+      desc: `Krunker.io is a fast-paced, first-person shooter with a blocky art style that allows for incredibly fluid, parkour-style movement. You can jump into a match instantly and choose from a variety of classes, each with different weapons and abilities. It's all about high-speed combat, trick shots, and out-maneuvering your opponents in a variety of custom maps.`,
       working: true,
       status: "Working",
       vdate: "9/17/25",
@@ -410,6 +423,7 @@ const games={
       url: "https://w8.snokido.com/games/flash/ruffle.html?g=portal&v=140524",
       id: "portal",
       type: "OpenInGL",
+      desc: `Portal is a groundbreaking first-person puzzle game where you play as Chell, a test subject in the mysterious Aperture Science labs. Armed with a portal gun, you can create two linked wormholes to navigate through a series of increasingly complex and dangerous test chambers. The game is famous for its dark, witty humor and the iconic, malevolent AI, GLaDOS, who guides you through the tests.`,
       working: true,
       status: "Working",
       vdate: "9/17/25",
@@ -419,6 +433,7 @@ const games={
       url: "https://yohoho.io",
       id: "yohohoio",
       type: "OpenInGL",
+      desc: `Yohoho.io is a fast-paced multiplayer battle royale game where you play as a pirate on a tropical island. The goal is to be the last pirate standing by eliminating other players. You'll collect gold coins to increase your size and damage, and you must stay within the safe zone as the island shrinks.`,
       working: true,
       status: "Working",
       vdate: "9/17/25",
@@ -428,6 +443,7 @@ const games={
       url: "https://games.crazygames.com/en_US/ships-3d/index.html?v=1.288",
       id: "ships3d",
       type: "OpenInGL",
+      desc: `Ships 3D is a naval combat simulation game that puts you at the helm of a warship. You engage in realistic sea battles, commanding your vessel and using a variety of weapons like cannons and torpedoes to sink enemy ships. It's a game focused on strategy and tactical positioning in large-scale naval warfare.`,
       working: false,
       status: "Not Working; CrazyGames is Net Blocked",
       vdate: "9/17/25",
@@ -437,6 +453,7 @@ const games={
       url: "https://gun-spin.github.io/file/",
       id: "gunspin",
       type: "OpenInGL",
+      desc: `GunSpin is a physics-based arcade game where your goal is to launch your gun as far as possible. You do this by repeatedly firing the gun, using the recoil to propel it through the air. With each shot, you have to time it right to keep your momentum going and see how far you can make it fly.`,
       working: false,
       status: "Not Working; URL Has been taken down",
       vdate: "9/17/25",
@@ -446,6 +463,7 @@ const games={
       url: "https://fnafgame.io/fnaf.embed?ez_iframe=1",
       id: "fnaf1",
       type: "OpenInGL",
+      desc: `In Five Nights at Freddy's (FNaF 1), you're a night security guard at Freddy Fazbear's Pizza, a place where the animatronic mascots come to life after hours. Your job is to survive five nights by monitoring security cameras and strategically using a limited amount of power to close the doors and keep the animatronics from reaching your office.`,
       working: true,
       status: "Working",
       vdate: "9/17/25",
@@ -455,6 +473,7 @@ const games={
       url: "https://fnafgame.io/fnaf-2.embed?ez_iframe=1",
       id: "fnaf2",
       type: "OpenInGL",
+      desc: `Five Nights at Freddy's 2 throws you into a new and improved pizzeria with a new cast of animatronics and no doors for protection. To survive, you must use an empty Freddy Fazbear head to fool the animatronics, a flashlight to fend off others, and keep a music box wound up to prevent a deadly puppet from coming after you.`,
       working: true,
       status: "Working",
       vdate: "9/17/25",
@@ -464,6 +483,7 @@ const games={
       url: "https://fnafgame.io/fnaf-3.embed?ez_iframe=1",
       id: "fnaf3",
       type: "OpenInGL",
+      desc: `Five Nights at Freddy's 3 is set 30 years later in a horror attraction called Fazbear's Fright. There's only one real animatronic that can kill you, the terrifying Springtrap. You have to monitor his movements on the cameras and use audio cues to lure him away, all while dealing with phantom animatronics that can jumpscare you and cause system failures.`,
       working: true,
       status: "Working",
       vdate: "9/17/25",
@@ -473,6 +493,7 @@ const games={
       url: "https://fnafgame.io/fnaf-4.embed?ez_iframe=1",
       id: "fnaf4",
       type: "OpenInGL",
+      desc: `Five Nights at Freddy's 4 takes the horror to a child's bedroom. Instead of cameras, you have to rely on your ears. You must listen for breathing and run to the doors, closet, and check the bed to keep nightmarish versions of the animatronics at bay with only a flashlight. It’s a much more direct and terrifying experience.`,
       working: true,
       status: "Working",
       vdate: "9/17/25",
@@ -482,6 +503,7 @@ const games={
       url: "https://turbowarp.org/96095372/embed?autoplay&addons=remove-curved-stage-border%2Cpause%2Cgamepad",
       id: "fnafworld",
       type: "OpenInGL",
+      desc: `FNaF World is a surprising twist on the series, trading horror for a bright and colorful RPG adventure. You create a party from a huge roster of characters from the FNaF universe and explore a whimsical overworld, battling enemies in classic turn-based combat to save the world from a mysterious threat.`,
       working: true,
       status: "Working",
       vdate: "9/17/25",
@@ -491,19 +513,21 @@ const games={
       url: "https://app-97317.games.s3.yandex.net/97317/zr27uqx4qauq31fg2ud41a7oye9c4dki/index.html?sdk=%2Fsdk%2F_%2Fv2.6cafcb80ad19287b13a2.js#origin=https%3A%2F%2Fplayhop.com&app-id=97317&device-type=desktop",
       id: "hwtraffic",
       type: "OpenInGL",
+      desc: `Highway Traffic is an endless driving game where you get behind the wheel of a car on a busy multi-lane highway. The goal is to drive as fast and as far as you can without crashing into the other vehicles. You'll need to weave through traffic, earn points for close calls, and try to set a new high score.`,
       working: true,
       status: "Working",
       vdate: "9/17/25",
       //*verified 9/17/25: status=Working
     },
-    //---
-    // GAME VERIFY CHECKPOINT
-    // 9/17/25
-    //---
+    //?---
+    //? GAME VERIFY CHECKPOINT
+    //? 9/17/25
+    //?---
     "Fractal Combat X": {
       url: "https://play.gamepix.com/fractal-combat-x/embed?sid=e4515",
       id: "fcx",
       type: "OpenInGL",
+      desc: `Fractal Combat X is a fast-paced, action-packed flight combat game. You pilot a futuristic fighter jet through stunning, abstract landscapes, battling enemy ships and gigantic bosses. The game is all about intense dogfights, customizing your ship, and upgrading your weapons to survive increasingly challenging missions.`,
       working: true,
       status: "Working",
       vdate: "9/18/25",
@@ -513,6 +537,7 @@ const games={
       url: "https://html5.gamedistribution.com/3b79a8537ebc414fb4f9672a9b8c68c8/?gd_sdk_referrer_url=https://gamedistribution.com/games/snow-rider-3d/",
       id: "sr3d",
       type: "OpenInGL",
+      desc: `Snow Rider 3D is an endless runner where you hop on a sleigh and race down a massive, snowy mountain. You have to dodge snowmen, trees, and other obstacles while collecting gifts. The further you go, the faster it gets, making it a thrilling test of your reflexes.`,
       working: true,
       status: "Working",
       vdate: "9/18/25",
@@ -522,15 +547,18 @@ const games={
       url: "https://html5.gamedistribution.com/63c7be58e25e4b37bef7e01d3fa20894/?gd_sdk_referrer_url=https://kevin.games/the-last-man",
       id: "tlm",
       type: "OpenInGL",
-      working: false,
-      status: "Not Working; Infinite Loading",
-      vdate: "9/18/25",
+      desc: `The Last Man is a 2D battle royale game with a top-down perspective. You're dropped onto a shrinking battlefield with other players, and you have to scavenge for weapons and supplies to be the last one standing. It's a simple, yet intense and action-packed survival game.`,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
       //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Half Life": {
       url: "https://pixelsuft.github.io/hl/xash.html#150",
       id: "hl",
       type: "OpenInGL",
+      desc: `In the groundbreaking first-person shooter, Half-Life, you play as Gordon Freeman, a theoretical physicist who finds himself in the middle of a dimensional rift that has unleashed alien creatures throughout the Black Mesa Research Facility. You must fight your way to the surface, battling both aliens and a military cleanup crew, in a desperate attempt to survive and close the portal.`,
       working: true,
       status: "Working",
       vdate: "9/18/25",
@@ -540,6 +568,7 @@ const games={
       url: "https://static.arcadespot.com/retroemulator.php?system=n64&game=2017/06/super-mario-64.zip",
       id: "m64",
       type: "OpenInGL",
+      desc: `Super Mario 64 is a revolutionary 3D platformer that lets you explore the vast and magical world inside Princess Peach's castle. You'll run, jump, and triple-jump your way through massive, open-ended worlds, collecting Power Stars to unlock new areas and ultimately rescue Princess Peach from the clutches of Bowser.`,
       working: false,
       status: "Not Working; Nothing is loaded",
       vdate: "9/18/25",
@@ -549,6 +578,7 @@ const games={
       url: "https://amongusio.io/among-us.embed",
       id: "amongus",
       type: "OpenInGL",
+      desc: `Among Us is a multiplayer game of teamwork and betrayal. You and a group of other players are crewmates on a spaceship, trying to complete tasks and get your ship ready for departure. But there's an imposter among you, whose goal is to sabotage the ship and eliminate the crew without being discovered. It's up to the crew to figure out who the imposter is and vote them off before it's too late.`,
       working: false,
       status: "Not Working; Refused to connect",
       vdate: "9/18/25",
@@ -558,6 +588,7 @@ const games={
       url: "https://kdata1.com/2021/03/3527391/2.1/",
       id: "pizzatower",
       type: "OpenInGL",
+      desc: `Pizza Tower is a fast-paced, 2D platformer with a wild, cartoonish art style. You play as Peppino Spaghetti, a pizza chef on a mission to save his restaurant from the evil Pizza Tower. The game is all about high-speed, combo-driven action as you run, jump, and smash your way through bizarre and chaotic levels.`,
       working: true,
       status: "Working",
       vdate: "9/18/25",
@@ -567,235 +598,455 @@ const games={
       url: "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/riddleschool.swf",
       id: "riddleschool1",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",},
-      working: false,
-      status: "Not Working; Infinite Loading",
-      vdate: "9/18/25",
+      desc: `In Riddle School, you play as a bored student named Phil who wants to escape his boring classroom. To do that, you'll have to solve a series of clever and humorous point-and-click puzzles, interacting with objects and characters in the classroom to find a way out.`,
+      customBannerCSS:{"backgroundPositionY": "top",},
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
       //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Riddle School 2": {
       url: "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/riddleschool2.swf",
       id: "riddleschool2",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",},
-      working: false,
-      status: "Not Working; Infinite Loading",
-      vdate: "9/18/25",
+      desc: `Riddle School 2 continues Phil's adventures as he once again tries to escape from school. This time, the puzzles are even more elaborate, and you'll need to explore more of the school to find the items and clues you need to make your getaway. It's another fun and quirky point-and-click adventure.`,
+      customBannerCSS:{"backgroundPositionY": "top",},
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
       //!verified 9/18/25: status=Not Working; Infinite Loading
     },
-    //---
-    // GAME VERIFY CHECKPOINT
-    // 9/18/25
-    //---
+    //?---
+    //? GAME VERIFY CHECKPOINT
+    //?   + description update
+    //? 9/18/25
+    //?---
     "Riddle School 3": {
       url: "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/riddleschool3.swf",
       id: "riddleschool3",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      desc: ``,
+      customBannerCSS:{"backgroundPositionY": "top",},
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Riddle School 4": {
       url: "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/riddleschool4.swf",
       id: "riddleschool4",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      desc: ``,
+      customBannerCSS:{"backgroundPositionY": "top",},
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Riddle School 5": {
       url: "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/riddleschool5.swf",
       id: "riddleschool5",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      desc: ``,
+      customBannerCSS:{"backgroundPositionY": "top",},
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Riddle Transfer": {  
       url: "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/riddletransfer.swf",
       id: "riddleschool6",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      desc: ``,
+      customBannerCSS:{"backgroundPositionY": "top",},
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Riddle Transfer 2": {
       url: "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/riddletransfer2.swf",
       id: "riddleschool7",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      customBannerCSS:{"backgroundPositionY": "top",},
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Granny": {
       url: "https://gnhustgames.org/granny-source/",
       id: "granny",
-      type: "OpenInGL"
+      type: "OpenInGL",
+      desc: ``,
+      working: true,
+      status: "Working",
+      vdate: "9/25/25",
+      //*verified 9/26/25: status=Working
     },
     "Suika Game": {
       url: "https://suikagame.com",
       id: "suika",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      customBannerCSS:{"backgroundPositionY": "top",},
+      desc: ``,
+      working: true,
+      status: "Working",
+      vdate: "9/25/25",
+      //*verified 9/26/25: status=Working
     },
     "Tetris": {
       url: "https://www.lumpty.com/amusements/Games/Tetris/tetris.html",
       id: "tetris",
-      type: "OpenInGL"
+      type: "OpenInGL",
+      desc: ``,
+      working: true,
+      status: "Working",
+      vdate: "9/25/25",
+      //*verified 9/26/25: status=Working
     },
     "Snake": {
       url: "https://patorjk.com/games/snake/",
       id: "snake",
-      type: "OpenInGL"
+      type: "OpenInGL",
+      desc: ``,
+      working: true,
+      status: "Working",
+      vdate: "9/25/25",
+      //*verified 9/26/25: status=Working
     },
     "Super Smash Flash": {
       url: "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/SuperSmash.swf",
       id: "ssf",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      customBannerCSS:{"backgroundPositionY": "top",},
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Super Smash Flash 2": {
       url: "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/SuperSmash2.swf",
       id: "ssf2",
-      type: "OpenInGL"
+      type: "OpenInGL",
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Super Mario 63": {
       url: "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/supermario63.swf",
       id: "sm63",
-      type: "OpenInGL"
+      type: "OpenInGL",
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Happy Wheels": {
-      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/happyWheels.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/happyWheels.swf${false?(queryParams.lb==="true"?"&lb=true":""):""}`,
       id: "hw",
-      type: "OpenInGL"
+      type: "OpenInGL",
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "FPA World 1": {
-      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/FPAWorld1.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/FPAWorld1.swf${false?(queryParams.lb==="true"?"&lb=true":""):""}`,
       id: "fpaw1",
-      type: "OpenInGL"
+      type: "OpenInGL",
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "FPA World 2": {
-      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/FPAWorld2.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/FPAWorld2.swf${false?(queryParams.lb==="true"?"&lb=true":""):""}`,
       id: "fpaw2",
-      type: "OpenInGL"
+      type: "OpenInGL",
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "FPA World 3": {
-      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/FPAWorld3.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/FPAWorld3.swf${false?(queryParams.lb==="true"?"&lb=true":""):""}`,
       id: "fpaw3",
-      type: "OpenInGL"
+      type: "OpenInGL",
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Duck Life": {
-      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/ducklife.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/ducklife.swf${false?(queryParams.lb==="true"?"&lb=true":""):""}`,
       id: "dl1",
-      type: "OpenInGL"
+      type: "OpenInGL",
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Duck Life 2": {
-      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/ducklife2.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/ducklife2.swf${false?(queryParams.lb==="true"?"&lb=true":""):""}`,
       id: "dl2",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "25%",}
+      customBannerCSS:{"backgroundPositionY": "25%",},
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Duck Life 3": {
-      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/ducklife3.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/ducklife3.swf${false?(queryParams.lb==="true"?"&lb=true":""):""}`,
       id: "dl3",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      customBannerCSS:{"backgroundPositionY": "top",},
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Duck Life 4": {
-      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/ducklife4.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/ducklife4.swf${false?(queryParams.lb==="true"?"&lb=true":""):""}`,
       id: "dl4",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      customBannerCSS:{"backgroundPositionY": "top",},
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Penalty Shooters 2": {
       url: "https://html5.gamedistribution.com/571b9df027e449f78e3869ba19658754/?gd_sdk_referrer_url=https://gamedistribution.com/games/Penalty-Shooters-2/",
       id: "ps2",
       type: "OpenInGL",
+      desc: ``,
+      working: true,
+      status: "Working",
+      vdate: "9/25/25",
+      //*verified 9/26/25: status=Working
     },
     "Pokemon Gold": {
       url: "https://static.arcadespot.com/retroemulator.php?system=gbc&game=2016/07/pokemon-gold.zip",
       id: "pokegold",
       type: "OpenInGL",
+      desc: ``,
+      working: false,
+      status: "Not Working; Never loads",
+      vdate: "9/25/25",
+      //!verified 9/26/25: status=Not Working; Never loads
     },
     "Breaking the Bank": {
-      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/breakingthebank.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/breakingthebank.swf${false?(queryParams.lb==="true"?"&lb=true":""):""}`,
       id: "hsbtb",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      customBannerCSS:{"backgroundPositionY": "top",},
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Escaping the Prison": {
-      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/escapingtheprisongame.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/escapingtheprisongame.swf${false?(queryParams.lb==="true"?"&lb=true":""):""}`,
       id: "hsetp",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      customBannerCSS:{"backgroundPositionY": "top",},
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Crossing the Pit": {
-      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/flash_crossingthepit.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/flash_crossingthepit.swf${false?(queryParams.lb==="true"?"&lb=true":""):""}`,
       id: "hsctp",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      customBannerCSS:{"backgroundPositionY": "top",},
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Fleeing the Complex": {
-      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/fleeing_the_complex.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/fleeing_the_complex.swf${false?(queryParams.lb==="true"?"&lb=true":""):""}`,
       id: "hsftc",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      customBannerCSS:{"backgroundPositionY": "top",},
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Infiltrating The Airship": {
-      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/infiltratingtheairshipgame.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/infiltratingtheairshipgame.swf${false?(queryParams.lb==="true"?"&lb=true":""):""}`,
       id: "hsita",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      customBannerCSS:{"backgroundPositionY": "top",},
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Stealing the Diamond": {
-      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/stealingthediamondgame.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/stealingthediamondgame.swf${false?(queryParams.lb==="true"?"&lb=true":""):""}`,
       id: "hsstd",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      customBannerCSS:{"backgroundPositionY": "top",},
+      desc: ``,
+      working: true,
+      status: "Working; Fixed",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working; Fixed
+      //!verified 9/18/25: status=Not Working; Infinite Loading
     },
     "Cluster Trucks": {
       url: `https://clusterrush.io/game/cluster-rush/`,
       id: "clustert",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      customBannerCSS:{"backgroundPositionY": "top",},
+      desc: ``,
+      working: true,
+      status: "Working",
+      vdate: "9/25/25",
+      //*verified 9/26/25: status=Working
     },
     "Tank Trouble": {
       url: `https://tanktrouble.com`,
       id: "tanktrouble",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      customBannerCSS:{"backgroundPositionY": "top",},
+      desc: ``,
+      working: true,
+      status: "Working",
+      vdate: "9/25/25",
+      //*verified 9/26/25: status=Working
     },
     "Coreball": {
       url: `https://www.arealme.com/coreball/en/`,
       id: "coreball",
       type: "OpenInGL",
+      desc: ``,
+      working: true,
+      status: "Working",
+      vdate: "9/25/25",
+      //*verified 9/26/25: status=Working
     },
     "Block Blast": {
       url: `https://blockblastonline.com/game/block-blast-v1/`,
       id: "blockblast",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "85%",}
+      customBannerCSS:{"backgroundPositionY": "85%",},
+      desc: ``,
+      working: false,
+      status: "Not Working; Not found error",
+      vdate: "9/25/25",
+      //!verified 9/26/25: status=Not Working; Not found error
     },
     "Big Shot Boxing": {
       url: `https://g2.igroutka.ru/games/164/3EPlpaMwGYF4D9A2/2/big_shot_boxing/`,
       id: "bigshotboxing",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      customBannerCSS:{"backgroundPositionY": "top",},
+      desc: ``,
+      working: true,
+      status: "Working",
+      vdate: "9/25/25",
+      //*verified 9/26/25: status=Working
     },
+    //? ---
+    //? GAME VERIFY CHECKPOINT
+    //*   + verify (25)
+    //*   ? game bugfix 1 (26)
+    //>   + format update 1 (26)
+    //? 9/25-26/25
+    //? --- 
     "Basketball Random": {
       url: `https://games.crazygames.com/en_US/basket-random/index.html?v=1.311`,
       id: "bbrand",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      customBannerCSS:{"backgroundPositionY": "top",},
+      working: false,
+      status: "Not Working; CrazyGames is Net Blocked",
+      vdate: "9/26/25",
+      //!verified 9/26/25: status=Not Working; CrazyGames is Net Blocked
     },
     "Mario Crossover": {
-      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/stealingthediamondgame.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      url: `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/stealingthediamondgame.swf${false?(queryParams.lb==="true"?"&lb=true":""):""}`,
       id: "smbco",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "top",}
+      customBannerCSS:{"backgroundPositionY": "top",},
+      working: true,
+      status: "Working",
+      vdate: "9/26/25",
+      //*verified 9/26/25: status=Working
     },
     "Getaway Shootout": {
       url: `https://shootout.vercel.app/`,
       id: "gtawyshtout",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "bottom",}
+      customBannerCSS:{"backgroundPositionY": "bottom",},
+      working: false,
+      status: "Not Working; Never loads",
+      vdate: "9/26/25",
+      //!verified 9/26/25: status=Not Working; Never loads
     },
     "Rally Racer Dirt": {
       url: `https://games.crazygames.com/en_US/rally-racer-dirt/index.html?v=1.327`,
       id: "rrd",
       type: "OpenInGL",
-      "customBannerCSS":{"backgroundPositionY": "bottom",}
+      customBannerCSS:{"backgroundPositionY": "bottom",},
+      working: false,
+      status: "Not Working; CrazyGames is Net Blocked",
+      vdate: "9/26/25",
+      //!verified 9/26/25: status=Not Working; CrazyGames is Net Blocked
     },
+    //? ---
+    //? GAME VERIFY CHECKPOINT
+    //*   + COMPLETED current list as of 9/26/25
+    //? 9/26/25
+    //? ---
     // "Melon Sandbox": {
       // url: "https://yandex.com/games/app/260481?header=no&skip-guard=1&utm_source=distrib&utm_medium=gamepix",
       // id: "melon",

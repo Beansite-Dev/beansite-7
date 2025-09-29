@@ -23,7 +23,6 @@ let firstTab=generateId(10);
 //   </>);
 // }
 const NewTabData=(nid=generateId(10))=>{return({
-  id:firstTab,
   title:"New Tab",
   icon:Icons.firebean,
   contentType:"component",
@@ -31,9 +30,9 @@ const NewTabData=(nid=generateId(10))=>{return({
   id:nid,
 });};
 const FirebeanAtom=atom({
-  currentTab: firstTab,
+  currentTab:firstTab,
   tabs:[
-    NewTabData(),
+    NewTabData(firstTab),
   ],
 });
 export const Firebean=({})=>{

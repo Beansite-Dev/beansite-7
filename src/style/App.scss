@@ -221,6 +221,35 @@
             margin: 0;
             font-size: 1.75rem;
         }
+        .keyitm {
+            font-size: .875rem;
+            .sqr {
+                aspect-ratio: 1 / 1;
+                height: 1rem;
+                display: inline-block;
+                &.red {background: #e52121;}
+                &.yellow {background: #FFFF5C;}
+                &.gray {background: #454545;}
+            }
+        }
+        #storageBar {
+            height: 2rem;
+            width: 20rem;
+            border: 1px solid #45454590;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0;
+            .barSect {
+                height: 100%;
+                font-size: .5rem;
+                min-width: .5rem;
+                // flex: 0;
+                &.red{background: #e52121;}
+                &.yellow{background: #FFFF5C;}
+                &.gray{background: #454545;}
+            }
+        }
         .backgroundSelector {
             display: flex;
             justify-content: flex-start;
@@ -280,7 +309,8 @@
             }
             .backgroundItem {
                 // width: calc((100% + (.5rem * 8)) / 6);
-                width: calc((100% + (.5rem * -3)) / 4);
+                // width: calc((100% + (.5rem * -3)) / 4);
+                width: 7.5rem;
                 max-width: 15rem;
                 min-width: 6rem;
                 aspect-ratio: 3 / 2;
@@ -308,6 +338,29 @@
                     filter: brightness(115%);
                     & > .bgWrap {
                         filter: brightness(85%);
+                    }
+                }
+                .delBtn {
+                    height: 1rem;
+                    aspect-ratio: 1 / 1;
+                    background: transparent;
+                    z-index: 20;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                    background-image: url("/icons/54.ico");
+                    position: absolute !important;
+                    top: 1px;
+                    right: 1px;
+                    margin: 0;
+                    padding: 0;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    filter: drop-shadow(0 0 5px #000);
+                    transition: .35s;
+                    &:hover {
+                        scale: 115%;
                     }
                 }
                 .bgWrap {

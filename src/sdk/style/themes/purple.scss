@@ -44,7 +44,10 @@
                 hsla(270, 84%, 36%, 0.65) 46%,
                 hsla(270, 71%, 26%, 0.75) 100%);
         .tb {
-            filter: drop-shadow(0 0 5px #ffffff90);
+            filter: 
+                // drop-shadow(0 0 5px #ffffff90)
+                drop-shadow(0 0 5px #080808);
+            color: #f0f0f0 !important;
         }
         .bw {
             border-bottom-left-radius: 5px;

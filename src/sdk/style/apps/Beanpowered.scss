@@ -213,7 +213,32 @@ $bp_borderrad: .35rem;
       background: $bp_bg3;
       padding: .25rem;
       padding-top: .5rem;
+      .bp_TabIndicator {
+        position: absolute;
+        z-index: -1;
+        left: 50%;
+        top: 0%;
+        translate: -50% var(--active-tab-top);
+        width: var(--active-tab-width);
+        height: 1.35rem;
+        background-color: $bp_bg_accent2;
+        transition-property: translate, width;
+        transition-duration: 200ms;
+        transition-timing-function: ease-in-out;
+        // &:hover {
+        //   background: $bp_icon;
+        // }
+      }
       .bpsb_item {
+        &.nonfunc {
+          cursor: not-allowed;
+          opacity: .5;
+          text-decoration-line: line-through;
+        }
+        transition: .15s;
+        &:hover {
+          background: rgba($bp_bg_accent1,.75);
+        }
         width: calc(10rem - .5rem);
         cursor: pointer;
         max-width: 10rem;
@@ -248,9 +273,9 @@ $bp_borderrad: .35rem;
           background-repeat: no-repeat;
           border-radius: $bp_borderrad;
         }
-        &:hover {
-          background: $bp_bg_accent1;
-        }
+        // &:hover {
+        //   background: $bp_bg_accent1;
+        // }
       }
     }
   }

@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import react from '@vitejs/plugin-react-swc';
 // https://vite.dev/config/
 function CustomHmr() {
@@ -18,7 +19,22 @@ function CustomHmr() {
   }
 }
 export default defineConfig({
-  plugins: [react(),CustomHmr()],
+  plugins: [
+    react(),
+    CustomHmr(),
+    ViteImageOptimizer({
+        png: { quality: 80 },
+        jpeg: { quality: 75 },
+        webp: { quality: 80 },
+        avif: { quality: 70 },
+        svg: {
+            plugins: [
+                { name: 'removeViewBox', active: false },
+                { name: 'sortAttrs' },
+            ],
+        },
+    }),
+  ],
   server: {
     host: "0.0.0.0",
     port: 5173,
