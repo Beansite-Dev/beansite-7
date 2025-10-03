@@ -22,6 +22,7 @@ import { SettingsMenu } from './sdk/windows/Settings';
 import { Firebean } from './sdk/windows/Firebean';
 // firebase
 import { initializeApp } from "firebase/app";
+import { getPerformance } from "firebase/performance";
 import { getAnalytics, logEvent } from "firebase/analytics";
 // vercel
 import { Analytics } from "@vercel/analytics/react";
@@ -41,8 +42,9 @@ export const firebaseConfig={
   appId: "1:571629888807:web:c87fe4fcb8725a1f24f502",
   measurementId: "G-N2SB8TPT98"
 };
-export const app = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(app);
+export const app=initializeApp(firebaseConfig);
+const perf=getPerformance(app);
+export const analytics=getAnalytics(app);
 const App=({})=>{
   const[_,setSolarisOpen]=useAtom(OpenSolaris);
   const desktopShortcutsList=[

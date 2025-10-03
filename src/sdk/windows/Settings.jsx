@@ -210,10 +210,10 @@ export const SettingsMenu=({})=>{
                             if(selectedFile){
                                 // console.log('Selected file:', selectedFile.name);const blob = await put('avatar.jpg', imageFile, {
                                 const r=new FileReader();
-                                const r2=new FileReader();
+                                // const r2=new FileReader();
                                 // r2.onload=async(e2)=>{
                                 //     const blob=await put(
-                                //         selectedFile.name, 
+                                //         `savedWallpapers/${selectedFile.name}`, 
                                 //         e2.target.result,{
                                 //         access:'public',
                                 //     });
@@ -236,7 +236,7 @@ export const SettingsMenu=({})=>{
                                     // console.log('File content:',fileContent);
                                 };
                                 r.readAsDataURL(selectedFile);
-                                r2.readAsText(selectedFile);
+                                // r2.readAsText(selectedFile);
                             }
                         }}
                         // onClick={(e)=>{alert("file prompting");}} 
