@@ -109,5 +109,17 @@ const tips=[
     "If anyone wants to make themes, it's really simple",
     "Wanna contribute? just hit me an email at m1dnightgmrofficial@gmail.com",
     "Recomendations? m1dnightgmrofficial@gmail.com",
+    "PSYKOTIC OUT NOW !!",
+    "2 peak albums in one year, thanks lil o",
+    "gyro is heavenly (both yes)",
+    "yall keep asking 'what website u use' i made the website lmao this is all from scratch",
+    "no website builder used to make this, we aint on that dorky shi",
+    "website builders buns, thats why beansite's made from scratch",
+    "How long til i get sora 2 videos of me",
+    "there are so many typos in this file lmao",
+    "jsx>>js",
+    "100% nodejs",
+    "i really should learn typescript",
+    "holy motion spam",
 ];
 export default tips;

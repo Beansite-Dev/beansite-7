@@ -51,7 +51,7 @@
     "sharp": "^0.34.4",
     "sortablejs": "^1.15.6",
     "svgo": "^4.0.0",
-    "vercel": "^48.1.6",
+    "vercel": "^48.4.0",
     "vite": "6.3.5",
     "vite-plugin-image-optimizer": "^2.0.2",
     "yarn": "^1.22.22",

@@ -5,6 +5,9 @@
     pkgs.nodejs_latest
     pkgs.yarn-berry
     pkgs.corepack_latest
+    pkgs.devbox
+    pkgs.neofetch
+    pkgs.htop
     # pkgs.nodePackages
   ];
   idx.extensions = [

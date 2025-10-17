@@ -20,6 +20,7 @@ import { Beanpowered } from './sdk/windows/Beanpowered';
 import { MultibeanMC } from './sdk/windows/MultibeanMC';
 import { SettingsMenu } from './sdk/windows/Settings';
 import { Firebean } from './sdk/windows/Firebean';
+import { Blog } from './sdk/windows/Blog';
 // firebase
 import { initializeApp } from "firebase/app";
 import { getPerformance } from "firebase/performance";
@@ -78,6 +79,11 @@ const App=({})=>{
       icon: Icons.firebean,
       target: "firebean",
       pos: [0,1]
+    },{
+      title: "Blog",
+      icon: Icons.text,
+      target: "blog",
+      pos: [1,1]
     },
   ];
   const[debugMenuVisibility,setDebugMenuVisibility]=useState(false);
@@ -154,30 +160,6 @@ const App=({})=>{
     <SpeedInsights/>
     <AppWrapper desktopShortcutsList={desktopShortcutsList} StartMenuApps={desktopShortcutsList}>
       {/* <div id="bloomfx"></div> */}
-      <motion.div 
-        transition={{duration:.25}}
-        initial={{x:20,opacity:0}}
-        whileInView={{
-          x:debugMenuVisibility?0:20,
-          opacity:debugMenuVisibility?1:0}}
-        id="DevPreviewContainer">
-          <h1>Dev Preview</h1>
-          <p>
-            This is a VERY early preview of Beansite 7, meaning it's lacking nearly all 
-            features and any feature that is implemented probably will be modified or 
-            removed
-          </p>
-          {/* <p>Pro tip: Hide this menu using "ctrl+`"</p><br/> */}
-          <p>
-            Currently planned features:<br/>
-            - Themes
-          </p><br/>
-          <p>
-            Currently Improvement from XP:<br/>
-            - Window Script Efficiency<br/>
-            - Animations<br/>
-          </p>
-      </motion.div>
       <Window
         className="welcome"
         data={{
@@ -191,10 +173,15 @@ const App=({})=>{
           <h1>Welcome To Beansite 7!</h1><div id="logo"></div>
           <p>Quick Access</p>
           <div id="quickAccess">
-            <QuickAccessShortcut 
+            {/*<QuickAccessShortcut 
               name="Beanshell"
               target="beanshell"
               icon={Icons.commandPrompt}
+              id={generateId(10)}/>*/}
+            <QuickAccessShortcut 
+              name="Blog"
+              target="blog"
+              icon={Icons.text}
               id={generateId(10)}/>
             <QuickAccessShortcut 
               name="MultibeanMC"
@@ -293,6 +280,24 @@ const App=({})=>{
           includeTitlebarButtons:["close","max","min"],
         }}>
           <MultibeanMC/>
+      </Window>
+      <Window
+        className="blog"
+        closed
+        data={{
+          title:"Blog",
+          icon: Icons.multibeanmc,
+          id:generateId(10),
+          // height: 350,
+          // width: 500,
+          // x:330+15,
+          x:15+(15*2),
+          y:15+(15*2),
+          height: 445,
+          width: 700,
+          includeTitlebarButtons:["close","max","min"],
+        }}>
+          <Blog/>
       </Window>
       <Window
         className="firebean"

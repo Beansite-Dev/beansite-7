@@ -77,7 +77,9 @@ export const Window=({
           closed:true,min:false,max:false}
       ]);
     }
-    setAni(_closed||_minimized?{opacity:0}:{opacity:1});
+    setAni(_closed||_minimized
+      ?{opacity:0,translate:"0% 10%",}
+      :{opacity:1,translate:"0% 0%",});
     /* setTimeout(()=>{
       document.getElementById(`${id}_tb`).style.pointerEvents=
       _closed||_minimized?"none":"auto"},500); */

@@ -1,7 +1,7 @@
 //?refrence
 // https://cdn.prod.website-files.com/6634a8f8dd9b2a63c9e6be83/669e2cc9aadcd76fa47e0bc1_143213.image0.jpeg
 import  "../style/Taskbar.scss";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, stagger } from "motion/react";
 import { useEffect, useState } from "react";
 import { generateId } from "./Lib";
 // import { easeInOut } from "motion";
@@ -113,8 +113,8 @@ const StartMenu=({StartMenuApps=[]})=>{
         transition={{
           type: 'tween',
           duration: .35,
-          delay: .15,
-          ease: "easeInOut"
+          delay: .15, //stagger(.15),
+          ease: "easeInOut",
         }}
         id="sm_appWrapper"
         whileInView={{y:0,opacity:1,}}

@@ -122,45 +122,6 @@ export const SettingsMenu=({})=>{
         //         },{})).length);
         // });
         return(<>
-            <motion.h2>Storage</motion.h2>
-            <motion.div id="storageBar">
-                <motion.div 
-                    style={{
-                        width:`${JSON.stringify(
-                            Object.keys(settings).filter(key=>
-                                key!=='savedWallpapers').reduce((obj,key)=>{
-                                    obj[key]=settings[key];
-                                    return obj;
-                                },{})).length
-                            /(50000)}%`,
-                    }}
-                    className="barSect red"></motion.div>
-                <motion.div 
-                    style={{
-                        width:`${JSON.stringify(settings.savedWallpapers).length
-                            /(50000)}%`,
-                    }}
-                    className="barSect yellow"></motion.div>
-                <motion.div 
-                    className="barSect gray"></motion.div>
-            </motion.div>
-            <motion.div className="keyitm">
-                <span className="sqr red"></span>
-                &nbsp;=System Files 
-            </motion.div>
-            <motion.div className="keyitm">
-                <span className="sqr yellow"></span>
-                &nbsp;=Documents/Pictures
-            </motion.div>
-            <motion.div className="keyitm">
-                <span className="sqr gray"></span>
-                &nbsp;=Other Files 
-            </motion.div>
-            <motion.p className="caption">
-                Remember, this goes up when you upload wallpapers. 
-                I wish it could hold more, but this is an issue with 
-                chrome itself, not your device
-            </motion.p>
             <motion.h2>Background Selector</motion.h2>
             <motion.div className="backgroundSelector">
                 {/*//! NOT WORKING */}
@@ -175,7 +136,19 @@ export const SettingsMenu=({})=>{
                     onClick={(e)=>{
                         setSettings({
                             ...settings,
-                            backgroundImage:data.src,
+                            backgroundImage:
+                                data.srctype=="url"
+                                ?data.src
+                                :(data.srctype=="file"
+                                ?{pointer:data.id}:""),
+                            // backgroundImage:
+                            //     data.srctype=="url"
+                            //     ?data.src
+                            //     :(data.srctype=="file"
+                            //     ?settings.savedWallpapers
+                            //         .filter(obj=>
+                            //             obj.id===data.src.pointer)[0].src
+                            //     :""),
                         });
                     }}>
                     {!(typeof data.id==='number')?<>
@@ -220,13 +193,14 @@ export const SettingsMenu=({})=>{
                                 // }
                                 r.onload=(e2)=>{
                                     const fC=e2.target.result;
+                                    const fId=generateId(10);
                                     setSettings({
                                         ...settings,
-                                        backgroundImage:fC,
+                                        backgroundImage:{pointer:fId,},
                                         savedWallpapers:[
                                             ...settings.savedWallpapers,
                                             {
-                                                id:generateId(10),
+                                                id:fId,
                                                 name:selectedFile.name,
                                                 srctype:"file",
                                                 src:fC,
@@ -263,7 +237,13 @@ export const SettingsMenu=({})=>{
                         <div 
                             className="bgp"
                             style={{
-                                backgroundImage:`url("${settings.backgroundImage}")`,
+                                backgroundImage:`url("${
+                                    typeof settings.backgroundImage==="string"
+                                    ?settings.backgroundImage
+                                        :typeof settings.backgroundImage==="object"
+                                        ?settings.savedWallpapers
+                                            .filter(obj=>
+                                                obj.id===settings.backgroundImage.pointer)[0].src:""}")`,
                                 backgroundSize:settings.backgroundSize,
                                 backgroundRepeat:settings.backgroundRepeat,
                             }}></div>
@@ -297,75 +277,121 @@ export const SettingsMenu=({})=>{
                     </div>
                 </motion.div>
             </motion.div>
-            <motion.div className="backgroundSettings">
-                <motion.div className="item">
-                    <label>Theme</label>
-                    <div className="customSelect">
-                        <select 
-                            defaultValue={settings.theme}
-                            onChange={(e)=>{
-                                setSettings({
-                                    ...settings,
-                                    theme:e.target.value,
-                                });
-                            }}>
-                                <option value="default">Default</option>
-                                <option value="dark">Dark</option>
-                                {/* <option value="experimentaldark">Experimental Dark</option> */}
-                                <option value="pink">Pink</option>
-                                <option value="red">Red</option>
-                                <option value="purple">Purple</option>
-                                <option value="mint">Mint</option>
-                                <option value="forest">Forest</option>
-                                <option value="ocean">Ocean</option>
-                        </select>
-                    </div>
-                </motion.div>
-                <motion.div className="item">
-                    <label>Font</label>
-                    <div className="customSelect">
-                        <select 
-                            defaultValue={settings.font}
-                            onChange={(e)=>{
-                                setSettings({
-                                    ...settings,
-                                    font:e.target.value,
-                                });
-                            }}>
-                                <option value="segoe">Segoe</option>
-                                <option value="tahoma">Tahoma</option>
-                                <option value="comic">Comic Sans</option>
-                                <option value="times">Times New Roman</option>
-                        </select>
-                    </div>
-                </motion.div>
-            </motion.div>
-            <motion.h2>Custom CSS</motion.h2>
-            <motion.p className="caption">
-                Custom CSS is an advanced feature for users 
-                who want more control over their styling. CSS 
-                itself is a very useful skill to learn and a majority 
-                of it makes up beansite. If you'de like to learn more, 
-                you may go to <motion.a href="https://w3schools.com/css">W3 Schools</motion.a> to learn 
-                how to use it
-            </motion.p>
-            <CSSEditor/>
-            <motion.button className="reset" onClick={(e)=>{
-                localStorage.clear();
-                location.reload();
-            }}>Reset</motion.button>
         </>);
     }
     return(<>
         {createPortal(<>
             <motion.div className="wallpaper" style={{
-                backgroundImage:`url("${settings.backgroundImage}")`,
+                backgroundImage:`url("${
+                    typeof settings.backgroundImage==="string"
+                    ?settings.backgroundImage
+                        :typeof settings.backgroundImage==="object"
+                        ?settings.savedWallpapers
+                            .filter(obj=>
+                                obj.id===settings.backgroundImage.pointer)[0].src:""}")`,
                 backgroundSize:settings.backgroundSize,
                 backgroundRepeat:settings.backgroundRepeat,
             }}></motion.div>
             <CSS/>
         </>,document.body)}
         <motion.h1>Settings</motion.h1>
+        <motion.h2>Storage</motion.h2>
+        <motion.div id="storageBar">
+            <motion.div 
+                style={{
+                    width:`${JSON.stringify(
+                        Object.keys(settings).filter(key=>
+                            key!=='savedWallpapers').reduce((obj,key)=>{
+                                obj[key]=settings[key];
+                                return obj;
+                            },{})).length
+                        /(50000)}%`,
+                }}
+                className="barSect red"></motion.div>
+            <motion.div 
+                style={{
+                    width:`${JSON.stringify(settings.savedWallpapers).length
+                        /(50000)}%`,
+                }}
+                className="barSect yellow"></motion.div>
+            <motion.div 
+                className="barSect gray"></motion.div>
+        </motion.div>
+        <motion.div className="keyitm">
+            <span className="sqr red"></span>
+            &nbsp;=System Files 
+        </motion.div>
+        <motion.div className="keyitm">
+            <span className="sqr yellow"></span>
+            &nbsp;=Documents/Pictures
+        </motion.div>
+        <motion.div className="keyitm">
+            <span className="sqr gray"></span>
+            &nbsp;=Other Files 
+        </motion.div>
+        <motion.p className="caption">
+            Remember, this goes up when you upload wallpapers. 
+            I wish it could hold more, but this is an issue with 
+            chrome itself, not your device
+        </motion.p>
         <BackgroundSelector/>
+        <motion.div className="backgroundSettings">
+            <motion.div className="item">
+                <label>Theme</label>
+                <div className="customSelect">
+                    <select 
+                        defaultValue={settings.theme}
+                        onChange={(e)=>{
+                            setSettings({
+                                ...settings,
+                                theme:e.target.value,
+                            });
+                        }}>
+                            <option value="default">Default</option>
+                            <option value="dark">Dark</option>
+                            <option value="white">White</option>
+                            {/* <option value="experimentaldark">Experimental Dark</option> */}
+                            <option value="pink">Pink</option>
+                            <option value="red">Red</option>
+                            <option value="purple">Purple</option>
+                            <option value="mint">Mint</option>
+                            <option value="forest">Forest</option>
+                            <option value="ocean">Ocean</option>
+                    </select>
+                </div>
+            </motion.div>
+            <motion.div className="item">
+                <label>Font</label>
+                <div className="customSelect">
+                    <select 
+                        defaultValue={settings.font}
+                        onChange={(e)=>{
+                            setSettings({
+                                ...settings,
+                                font:e.target.value,
+                            });
+                        }}>
+                            <option value="segoe">Segoe</option>
+                            <option value="tahoma">Tahoma</option>
+                            <option value="comic">Comic Sans</option>
+                            <option value="times">Times New Roman</option>
+                    </select>
+                </div>
+            </motion.div>
+        </motion.div>
+        <motion.h2>Custom CSS</motion.h2>
+        <motion.p className="caption">
+            Custom CSS is an advanced feature for users 
+            who want more control over their styling. CSS 
+            itself is a very useful skill to learn and a majority 
+            of it makes up beansite. If you'de like to learn more, 
+            you may go to <motion.a href="https://w3schools.com/css">W3 Schools</motion.a> to learn 
+            how to use it
+        </motion.p>
+        <CSSEditor/>
+        <motion.button className="reset" onClick={(e)=>{
+            localStorage.clear();
+            location.reload();
+        }}>Reset</motion.button>
     </>);
 };
