@@ -33,7 +33,7 @@ import { put } from "@vercel/blob";
 //   'Hello World!',{
 //     access:'public'
 //   });
-export const _DEBUG=false;//REMEMBER TO CHANGE WHEN DEPLOYED
+export const _DEBUG=false;//*REMEMBER TO CHANGE WHEN DEPLOYED
 export const firebaseConfig={
   apiKey: "AIzaSyBncUTzQsaN86K0kA1vNv4JJ3siCetvFlY",
   authDomain: "beansite7.firebaseapp.com",
