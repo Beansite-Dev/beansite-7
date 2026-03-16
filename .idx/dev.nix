@@ -1,13 +1,10 @@
 {pkgs}: {
-  channel = "stable-24.05";
+  channel = "stable-25.05";
   packages = [
     # pkgs.nodejs_20
     pkgs.nodejs_latest
-    pkgs.yarn-berry
     pkgs.corepack_latest
-    pkgs.devbox
-    pkgs.neofetch
-    pkgs.htop
+    pkgs.pnpm
     # pkgs.nodePackages
   ];
   idx.extensions = [
