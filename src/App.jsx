@@ -351,6 +351,33 @@ const App=({})=>{
         </Window>
       :null}
       <Solaris/>
+      <Window
+        className="beta"
+        data={{
+          title:"Join Beta and Try Beansite 8.1!",
+          icon: Icons.application,
+          id:generateId(10),
+          height: 350,
+          width: 500,
+          x:(window.innerWidth/2)-(500/2),
+          y:(window.innerHeight/2)-(350/2)-(48/2),
+          includeTitlebarButtons:["close","max","min"],
+        }}>
+          <motion.h1 style={{margin:"0",}}>Try the New Beansite</motion.h1>
+          <motion.p>
+            I apologize for not keeping up with this project, life has really
+            caught up to me to be honest, so it's been hard to keep up. I've 
+            been working on a different project this entire time which both takes
+            existing 7 code, but improves upon it and rewrites almost all of my 
+            shortcomings with the original project. I'm so proud to say that 
+            Beansite 8.1 if finally ready for public beta testing. It has a 
+            smaller game selection, but I've reimplemented most of 7's 
+            features way better than their originals, and I've created a new 
+            game unblock method with one of our new team members to bring an 
+            even greater catalogue.  
+          </motion.p><br/>
+          <motion.a href="https://beansite81.web.app">Check it Out</motion.a>
+      </Window>
     </AppWrapper>
   </>);
 };
