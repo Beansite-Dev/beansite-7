@@ -26,13 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Enabling Corepack (if needed)
-      run: corepack enable
-    - name: Checking for Yarn
-      run: yarn
-    - name: Updating yarn
-      run: yarn set version stable
     - name: Updating Libraries
-      run: yarn up
+      run: pnpm install
     - name: Building
-      run: yarn build
+      run: pnpm build
